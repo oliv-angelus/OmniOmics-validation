@@ -44,6 +44,13 @@ threads:
   filtlong: 4
   cutadapt: 8
   vsearch_chimera: 8
-  dada2_pacbio: 8
+  dada2_pacbio: 16
   emu_ont: 16
+  emu_tree: 16
   picrust2: 8
+  # dada2_pacbio/emu_tree bumped 8->16 (2026-09-12): both now feed the
+  # FastTree2-based tree builder (see OmniOmics's lib/build_tree.R), which
+  # supports real multithreading via FastTreeMP/OMP_NUM_THREADS, unlike the
+  # phangorn method it replaced (zero multicore benefit there). 16 matches
+  # this pipeline's other real per-step thread counts (cutadapt/emu_ont),
+  # a meaningful bump without saturating a shared 128-core node.
