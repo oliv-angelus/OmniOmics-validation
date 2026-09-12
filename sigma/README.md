@@ -22,14 +22,15 @@ Comparing all three against each other is itself part of the demonstration: hybr
 
 `SRR8154675`'s SRA-deposited PacBio subreads have colliding read IDs (multiple subreads/passes from the same ZMW share the SRA-assigned base ID, differing only in a description field most tools ignore) — `filtlong` rejects duplicate names outright. Reads were renamed to guaranteed-unique sequential IDs before use; this is a real SRA-deposit quirk, not a modification of the underlying sequence data.
 
-## Results (pending)
+## Results
 
-`results/observed_vs_expected.tsv`, one row per sample (`ECOLI_SHORT_ONLY`, `ECOLI_HYBRID_ONT`, `ECOLI_HYBRID_PACBIO`):
+**ONT path — done, PASS.** `results/observed_vs_expected.tsv` (generated from the real QUAST-vs-reference run, `results/quast_vs_reference_report.tsv`, plus real CheckM2/GTDB-Tk output in `results/raw_tool_outputs/`; full run log in `results/run_log_ont.txt`):
 
-| column | meaning |
-|---|---|
-| `n_contigs`, `n50`, `genome_fraction_pct`, `n_misassemblies` | from QUAST vs. the real Zymo reference genome |
-| `gtdbtk_species_call` | should be *Escherichia coli* for all three |
-| `checkm2_completeness_pct`, `checkm2_contamination_pct` | isolate genome quality |
+| sample | genome fraction | contigs | N50 | misassemblies | species call |
+|---|---|---|---|---|---|
+| `ECOLI_SHORT_ONLY` | 97.78% | 87 | 116 kb | 0 | *E. coli* ✓ |
+| `ECOLI_HYBRID_ONT` | **100.000%** | **2** | **4.77 Mb** | 0 | *E. coli* ✓ |
 
-Generated from the real pipeline output only. Run logs referenced alongside once available.
+Hybrid assembly recovers the full reference genome fraction, zero misassemblies, total length within 11 bp of the real reference (4,875,452 vs. 4,875,441). Short-only correctly shows no misassemblies either, just more fragmented — the intended demonstration that long-read polishing measurably improves contiguity without introducing structural errors.
+
+**PacBio path — run in progress**, same table structure, not filled in yet.

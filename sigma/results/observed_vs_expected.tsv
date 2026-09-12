@@ -1,0 +1,3 @@
+sample	n_contigs_aligned	n50	genome_fraction_pct	n_misassemblies	mismatches_per_100kbp	total_length_bp	reference_length_bp	gtdbtk_species_call	checkm2_completeness_pct	checkm2_contamination_pct	pass
+ECOLI_SHORT_ONLY	87	116054	97.783	0	6.06	4767939	4875441	Escherichia coli	100.0	0.12	TRUE
+ECOLI_HYBRID_ONT	2	4765451	100.000	0	10.99	4875452	4875441	Escherichia coli	100.0	0.12	TRUE

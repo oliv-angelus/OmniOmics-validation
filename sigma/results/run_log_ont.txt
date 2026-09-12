@@ -1,0 +1,63 @@
+Using profile /projetos/ridh/gabrielcoelho/SIGMA-root/pbs_profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-09-12 15:27:12
+  Workflow ID: 31463dff-8e85-440e-a917-cb01015a97d6
+  Platform: Linux-5.3.18-150300.59.60-default-x86_64-with-glibc2.31
+  Host: tapajos
+  User: gabriel.coelho
+  Snakemake version: 9.26.1
+  Python version: 3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]
+  Command: /projetos/ridh/gabrielcoelho/MAGMA-root/snakemake_env/bin/snakemake --profile /projetos/ridh/gabrielcoelho/SIGMA-root/pbs_profile --configfile /projetos/ridh/gabrielcoelho/validacao/v-sigma/config/config.yaml --omit-from bigscape --rerun-incomplete --keep-going
+  Snakefile: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline/Snakefile
+  Base directory: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline
+  Run directory: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline
+  Working directory: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline
+  Config file(s): [PosixPath('/projetos/ridh/gabrielcoelho/validacao/v-sigma/config/config.yaml')]
+  Config MD5: 384cbe159f9c06a783bb38f6c90d89ce
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 10
+Job stats:
+job      count
+-----  -------
+gunc         2
+total        2
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Sep 12 15:27:15 2026]
+rule gunc:
+    input: results/03_POLISH/ECOLI_HYBRID_ONT/final_polished.fa
+    output: results/05_QUALITY/ECOLI_HYBRID_ONT/gunc
+    log: logs/gunc/ECOLI_HYBRID_ONT.log
+    jobid: 23
+    reason: Missing output files: results/05_QUALITY/ECOLI_HYBRID_ONT/gunc; Code has changed since last execution
+    wildcards: sample=ECOLI_HYBRID_ONT
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=24:00:00
+Submitted job 23 with external jobid '18634.tapajos'.
+
+[Sat Sep 12 15:27:15 2026]
+rule gunc:
+    input: results/03_POLISH/ECOLI_SHORT_ONLY/final_polished.fa
+    output: results/05_QUALITY/ECOLI_SHORT_ONLY/gunc
+    log: logs/gunc/ECOLI_SHORT_ONLY.log
+    jobid: 22
+    reason: Missing output files: results/05_QUALITY/ECOLI_SHORT_ONLY/gunc; Code has changed since last execution
+    wildcards: sample=ECOLI_SHORT_ONLY
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=24:00:00
+Submitted job 22 with external jobid '18635.tapajos'.
+[Sat Sep 12 15:34:26 2026]
+Finished jobid: 23 (Rule: gunc)
+1 of 2 steps (50%) done
+[Sat Sep 12 15:34:26 2026]
+Finished jobid: 22 (Rule: gunc)
+2 of 2 steps (100%) done
+Complete log(s): /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline/.snakemake/log/2026-09-12T152712.745005.snakemake.log
+Elapsed time: 0:07:23.400080
+EXIT_CODE=0
