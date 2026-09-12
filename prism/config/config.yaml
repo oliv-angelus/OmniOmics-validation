@@ -1,0 +1,49 @@
+# Config do PRISM (cluster tapajos) -- molde reaproveitável, trocar validacao/v-prism.
+# Sem seção databases: -- nenhuma regra do PRISM lê config["databases"]
+# (confirmado via grep no repo, 2026-09-09). reference_db é um parâmetro
+# de string ("gtdb"), não um caminho de arquivo.
+
+samples: "/projetos/ridh/gabrielcoelho/validacao/v-prism/config/samples.tsv"
+output_root: "/projetos/ridh/gabrielcoelho/validacao/v-prism/runs/run1"
+
+# Precisa EXISTIR mesmo vazio -- 04_denoise_classify.smk faz
+# config["databases"].get(...), não config.get("databases", {}) (achado
+# real, 2026-09-09: dry-run quebrava com KeyError sem isso). gtdb_ssu
+# baixado de verdade em 2026-09-12 (Alishum GTDB r220 SSU, Zenodo
+# 10.5281/zenodo.13984843 -- 61.774 sequencias, 58.102 bacteria + 3.672
+# archaea, confere exato com o esperado). silva_ssu/unite_its/grond
+# continuam vazios -- preencher quando forem baixados de verdade.
+databases:
+  gtdb_ssu: "/projetos/ridh/gabrielcoelho/databases/gtdb_ssu_db/GTDB_bac120_arc53_ssu_r220_fullTaxo.fa"
+
+# Preset real da MAGMA/OmniOmics manifest (id 16s_27f_1492r) -- par
+# universal clássico, corrigido no commit b3bae41 (o reverso estava
+# armazenado já revcomp'd por engano, 0 reads sobreviviam ao corte).
+amplicon_preset:
+  id: "16s_27f_1492r"
+  gene: "16S"
+  reference_db: "gtdb"
+  fwd_primers:
+    - "AGRGTTYGATYMTGGCTCAG"
+  rev_primers:
+    - "TACGGYTACCTTGTTACGACTT"
+  min_length: 1300
+  max_length: 1700
+
+params:
+  nanoplot:        ""
+  filtlong:        "--keep_percent 90"
+  cutadapt:        "-e 0.1"
+  vsearch_chimera: "--id 0.95 --abskew 2.0"
+  dada2_pacbio:    "--gene 16S --reference_db gtdb --max_ee 2.0 --min_asv_totalfreq 5"
+  emu_ont:         "--gene 16S --reference_db gtdb --min-abundance 0.0001"
+  picrust2:        "--max_nsti 2.0"
+
+threads:
+  nanoplot: 8
+  filtlong: 4
+  cutadapt: 8
+  vsearch_chimera: 8
+  dada2_pacbio: 8
+  emu_ont: 16
+  picrust2: 8

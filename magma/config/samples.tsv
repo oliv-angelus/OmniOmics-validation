@@ -1,0 +1,3 @@
+sample	fq1	fq2	fq_long	read_type	assembler
+ZYMO_EVEN	/projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_EVEN/ERR2984773_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_EVEN/ERR2984773_2.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_EVEN/ERR3152364.fastq.gz	hybrid	metaspades_hybrid
+ZYMO_LOG	/projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_LOG/ERR2935805_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_LOG/ERR2935805_2.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_LOG/ERR3152366.fastq.gz	hybrid	metaspades_hybrid

@@ -1,0 +1,38 @@
+# Config do DEFINE (cluster tapajos) -- molde reaproveitável, trocar validacao/v-define.
+# Bancos: bakta e eggnog já confirmados no cluster (mesmos do MAGMA/SIGMA).
+# reference_genome é ESPECÍFICO DO PROJETO (a referência real do estudo,
+# ex. E. coli do GSE208658) -- preencher quando o dataset for baixado.
+
+samples: "/projetos/ridh/gabrielcoelho/validacao/v-define/config/samples.tsv"
+output_root: "/projetos/ridh/gabrielcoelho/validacao/v-define/runs/run1"
+
+databases:
+  bakta:  "/projetos/ridh/gabrielcoelho/databases/bakta/db-light"
+  eggnog: "/projetos/ridh/gabrielcoelho/databases/eggnog_db"
+  reference_genome: "/projetos/ridh/gabrielcoelho/validacao/v-define/reference/reference.fasta"  # específico do projeto, preencher
+
+params:
+  fastp:            "--qualified_quality_phred 20 --unqualified_percent_limit 20 --length_required 36 --cut_right --detect_adapter_for_pe"
+  fastqc:           ""
+  multiqc:          ""
+  bakta_reference:  "--complete --skip-trna --skip-rrna --skip-ncrna --skip-crispr"
+  eggnog_reference: "--sensmode fast --dmnd_iterate no"
+  bowtie2:          "--no-unal"
+  samtools_index:   ""
+  rseqc:            "-s 500000"
+  featurecounts:    "-t CDS -g locus_tag --countReadPairs"
+  merge_annotated_counts: ""
+  qc_summary:       ""
+
+threads:
+  fastp: 8
+  fastqc: 4
+  multiqc: 1
+  bakta_reference: 16
+  eggnog_reference: 16
+  bowtie2: 16
+  samtools_index: 8
+  rseqc: 1
+  featurecounts: 8
+  merge_annotated_counts: 1
+  qc_summary: 1

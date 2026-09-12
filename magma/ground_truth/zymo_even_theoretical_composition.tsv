@@ -1,0 +1,11 @@
+species	type	theoretical_abundance_pct	nrrl_accession	atcc_accession	sequence_type
+Listeria monocytogenes	bacteria	12	B-33116	19117	ST449
+Pseudomonas aeruginosa	bacteria	12	B-3509	15442	ST252
+Bacillus subtilis	bacteria	12	B-354	6633	ST7
+Escherichia coli	bacteria	12	B-1109	NA	ST10
+Salmonella enterica	bacteria	12	B-4212	NA	ST139 (Zymo lists as Typhimurium LT2; paper's own genomic analysis suggests Choleraesuis)
+Lactobacillus fermentum	bacteria	12	B-1840	14931	NA
+Enterococcus faecalis	bacteria	12	B-537	7080	ST55
+Staphylococcus aureus	bacteria	12	B-41012	NA	ST9
+Saccharomyces cerevisiae	yeast	2	Y-567	9763	NA
+Cryptococcus neoformans	yeast	2	Y-2534	32045	NA

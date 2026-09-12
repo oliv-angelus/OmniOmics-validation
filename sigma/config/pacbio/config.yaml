@@ -1,0 +1,111 @@
+# ==============================================================================
+# CONFIG DO SIGMA (cluster tapajos, UFOPA) -- molde reaproveitável
+# ==============================================================================
+# Trocar validacao/v-sigma pelos 2 placeholders (samples:/output_root:) antes de usar,
+# mesmo padrão do MAGMA-root/project_template.
+#
+# Bancos de dados: TODOS já confirmados presentes no cluster em 2026-09-09
+# (ls real, não suposto) -- inclusive bakta e VIBRANT, que eu esperava que
+# fossem baixar de novo. Só falta pfam (mesma lacuna que o MAGMA já tem --
+# desativa bigscape com --omit-from bigscape até resolver isso).
+
+samples: "/projetos/ridh/gabrielcoelho/validacao/v-sigma-pacbio/config/samples.tsv"
+output_root: "/projetos/ridh/gabrielcoelho/validacao/v-sigma-pacbio/runs/run1"
+
+long_read_platform:
+  # pacbio_raw (CLR) -- SRR8154675 (McIntyre et al. 2019) e' PacBio RS II
+  # subreads, plataforma CLR antiga, nao HiFi (Sequel II+). Ver
+  # pipeline.yaml's long_read_platforms pra essa distincao.
+  id: "pacbio_raw"
+  spades_flag: "--pacbio"
+  flye_flag: "--pacbio-raw"
+  minimap2_preset: "map-pb"
+
+databases:
+  checkm2:        "/projetos/ridh/gabrielcoelho/databases/CheckM2_database/uniref100.KO.1.dmnd"
+  antismash:      "/projetos/ridh/gabrielcoelho/databases/antismash_db"
+  eggnog:         "/projetos/ridh/gabrielcoelho/databases/eggnog_db"
+  gtdbtk:         "/projetos/ridh/gabrielcoelho/databases/gtdbtk_db"
+  gunc:           "/projetos/ridh/gabrielcoelho/databases/gunc_db"  # achado real 2026-09-12: regra gunc nunca tinha essa chave
+  kraken2:        "/projetos/ridh/gabrielcoelho/databases/k2-plusPFP_db"
+  kaiju:          "/projetos/ridh/gabrielcoelho/databases/kaiju_db"
+  amrfinderplus:  "/projetos/ridh/gabrielcoelho/databases/AMRfinder_db/latest"
+  checkv:         "/projetos/ridh/gabrielcoelho/databases/checkv_db/checkv-db-v1.5"
+  virsorter2:     "/projetos/ridh/gabrielcoelho/databases/virsorter2_db"
+  genomad:        "/projetos/ridh/gabrielcoelho/databases/genomad_db"
+  bakta:          "/projetos/ridh/gabrielcoelho/databases/bakta/db-light"
+  vibrant_files:  "/projetos/ridh/gabrielcoelho/databases/VIBRANT"
+  pfam:           "/projetos/ridh/gabrielcoelho/databases/pfam_db/Pfam-A.hmm"   # NÃO baixado -- omitir bigscape (--omit-from bigscape)
+
+# Extraído de pipelines/sigma/pipeline.yaml "defaults" (2026-09-09) --
+# valores padrão do próprio app, sem motivo pra divergir num primeiro teste.
+params:
+  fastp:          "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
+  filtlong:       "--min_length 500 --keep_percent 90"
+  kraken2:        "--confidence 0.05"
+  kaiju:          ""
+  unicycler:      ""
+  flye:           ""
+  racon:          ""
+  medaka:         ""
+  ragtag:         "-u"
+  bowtie2:        ""
+  minimap2:       ""
+  samtools_index: ""
+  quast:          ""
+  checkm2:        ""
+  gunc:           ""
+  gtdbtk:         ""
+  coverm:         "--min-covered-fraction 0"
+  bakta:          ""
+  eggnog:         ""
+  amrfinderplus:  ""
+  abricate:       ""
+  vfdb:           ""
+  isescan:        ""
+  mobsuite:       ""
+  mlst:           ""
+  genomad:        ""
+  virsorter2:     ""
+  checkv:         ""
+  vibrant:        ""
+  antismash:      ""
+  bigscape:       "--mix --classify none"
+
+# threads: base = pipeline.yaml default_threads (app), bancos
+# compartilhados (kraken2/kaiju/gtdbtk/checkm2/gunc/eggnog/antismash/coverm)
+# escalados pro mesmo valor já validado no MAGMA -- mesmo cluster, mesmo
+# banco. Resto = default do app (1 isolado é bem mais leve que 1
+# metagenoma, não escalei tudo igual ao MAGMA). PRIMEIRO PASSE -- ajustar
+# depois do primeiro run real (mesmo processo que o MAGMA passou).
+threads:
+  fastp: 8
+  kraken2: 16
+  kaiju: 16
+  unicycler: 32
+  flye: 64
+  racon: 16
+  medaka: 16
+  ragtag: 8
+  bowtie2: 16
+  minimap2: 16
+  samtools_index: 8
+  quast: 8
+  checkm2: 16
+  gunc: 16
+  gtdbtk: 64
+  coverm: 16
+  bakta: 16
+  eggnog: 16
+  amrfinderplus: 8
+  abricate: 8
+  vfdb: 8
+  isescan: 8
+  mobsuite: 8
+  mlst: 4
+  genomad: 16
+  virsorter2: 16
+  checkv: 16
+  vibrant: 16
+  antismash: 32
+  bigscape: 8

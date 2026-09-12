@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "OmniOmics Validation & Reproducibility Package"
+message: "If you use this data/reproduction package, please cite it as below."
+type: dataset
+authors:
+  - given-names: "Angelo Felipe"
+    family-names: "Barbosa de Oliveira"
+    orcid: "https://orcid.org/0000-0003-0831-447X"
+    affiliation: "Programa de Pós-Graduação em Genética e Biologia Molecular, Universidade Federal do Pará (UFPA), Belém, PA, Brazil"
+license: CC-BY-4.0
+repository-code: "https://github.com/oliv-angelus/OmniOmics-validation"
+abstract: >-
+  Real, non-dry-run validation of all five OmniOmics pipelines (MAGMA, SIGMA,
+  DOGMA, DEFINE, PRISM) against public datasets with a known, published
+  ground truth. Companion package to the OmniOmics tool paper's Deliverable
+  B (see https://github.com/oliv-angelus/OmniOmics).

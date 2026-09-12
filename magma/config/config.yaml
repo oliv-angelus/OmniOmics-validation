@@ -1,0 +1,130 @@
+# ==============================================================================
+# CONFIG DO PROJETO "v-magma" (validação Deliverable B, cluster tapajos, UFOPA)
+# ==============================================================================
+# Gerado 2026-09-12 a partir do staging local
+# MAGMA-HPC/benchmark_zymo/config/config.yaml, adaptado pro caminho real
+# onde os FASTQ já foram baixados (validacao/v-magma/, não
+# magma-benchmark-zymo/ -- o nome do projeto staging local ficou
+# desatualizado em relação à convenção validacao/v-<pipeline> usada pro
+# resto da validação).
+#
+# Dataset: ZymoBIOMICS mock community "even", híbrida Illumina+Nanopore
+# GridION (Nicholls et al. 2019, GigaScience, DOI 10.1093/gigascience/
+# giz043) -- ver OmniOmics/notes/OmniOmics Tool Paper Plan.md,
+# Deliverable B, linha do MAGMA. Comunidade "log" (ERR2935805 +
+# ERR3152366) pode ser adicionada depois como segunda amostra.
+#
+# pfam NÃO baixado ainda (mesma lacuna real do SIGMA) -- omitir bigscape
+# na hora de rodar: --omit-from bigscape.
+
+samples: "/projetos/ridh/gabrielcoelho/validacao/v-magma/config/samples.tsv"
+output_root: "/projetos/ridh/gabrielcoelho/validacao/v-magma/runs/run1"
+
+long_read_platform:
+  spades_flag: "--nanopore"
+  flye_flag: "--nano-hq"
+  minimap2_preset: "map-ont"
+
+databases:
+  checkm2:        "/projetos/ridh/gabrielcoelho/databases/CheckM2_database/uniref100.KO.1.dmnd"
+  antismash:      "/projetos/ridh/gabrielcoelho/databases/antismash_db"
+  eggnog:         "/projetos/ridh/gabrielcoelho/databases/eggnog_db"
+  gtdbtk:         "/projetos/ridh/gabrielcoelho/databases/gtdbtk_db"
+  gunc:           "/projetos/ridh/gabrielcoelho/databases/gunc_db"
+  pfam:           "/projetos/ridh/gabrielcoelho/databases/pfam_db/Pfam-A.hmm"   # NAO baixado -- omitir bigscape
+  kraken2:        "/projetos/ridh/gabrielcoelho/databases/k2-plusPFP_db"
+  kaiju:          "/projetos/ridh/gabrielcoelho/databases/kaiju_db"
+  amrfinderplus:  "/projetos/ridh/gabrielcoelho/databases/AMRfinder_db/latest"
+  checkv:         "/projetos/ridh/gabrielcoelho/databases/checkv_db/checkv-db-v1.5"
+  virsorter2:     "/projetos/ridh/gabrielcoelho/databases/virsorter2_db"
+  genomad:        "/projetos/ridh/gabrielcoelho/databases/genomad_db"
+
+# Parâmetros e threads: idênticos ao molde (calibrados no run de
+# produção das cavernas, nós de 128 núcleos/252GB do tapajos) -- não há
+# motivo pra divergir só por ser um dataset diferente. Revisar apenas se
+# o dry-run/primeiro run real indicar necessidade.
+params:
+  fastp:             "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
+  filtlong:          "--min_length 500 --keep_percent 90"
+  metaquast:         "--max-ref-number 0"
+  kraken2:           "--confidence 0.05"
+  kaiju:             ""
+  bracken:           "-l S -r 150"
+  kreport2mpa:       ""
+  megahit:           "--min-contig-len 300 -m 0.85"
+  metaspades_hybrid: "-m 60"
+  flye:              ""
+  tiara:             "--min_len 500"
+  bowtie2:            ""
+  minimap2:          ""
+  jgi_summarize:     ""
+  samtools_index:    ""
+  metabat2:          ""
+  semibin2:          "--environment global"
+  vamb:              "--minfasta 10000 -m 500"
+  maxbin2:           ""
+  binette:           "-v"
+  checkm2:           ""
+  gunc:              ""
+  drep:              "-comp 50 -con 10"
+  gtdbtk:            "--pplacer_cpus 8"
+  mags_annot:
+    hq_min_completeness: 70
+    hq_max_contamination: 10
+  prodigal:          ""
+  eggnog:             ""
+  abricate:          ""
+  amrfinderplus:     ""
+  checkv:            ""
+  virsorter2:        ""
+  genomad:            ""
+  minced:            ""
+  antismash:         ""
+  bigscape:          "--mix --classify none"
+  mobsuite:          ""
+  vfdb:              ""
+  barrnap:           "--kingdom bac"
+  trnascan:          "-B"
+  coverm:            "--min-covered-fraction 0"
+
+active_binners:
+  - metabat2
+  - semibin2
+  - maxbin2
+  - vamb
+
+threads:
+  fastp: 8
+  prodigal: 8
+  megahit: 64
+  flye: 64
+  metaspades_hybrid: 64
+  bowtie2: 48
+  minimap2: 16
+  samtools_index: 8
+  metabat2: 24
+  maxbin2: 24
+  semibin2: 32
+  vamb: 16
+  binette: 24
+  checkm2: 16
+  gunc: 16
+  drep: 24
+  gtdbtk: 64
+  coverm: 16
+  eggnog: 16
+  abricate: 8
+  amrfinderplus: 8
+  antismash: 32
+  bigscape: 8
+  mobsuite: 8
+  barrnap: 8
+  trnascan: 8
+  kraken2: 16
+  kaiju: 16
+  metaquast: 8
+  tiara: 8
+  vfdb: 8
+  virsorter2: 16
+  checkv: 16
+  genomad: 16

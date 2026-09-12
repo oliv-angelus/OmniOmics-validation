@@ -1,0 +1,80 @@
+# Config do DOGMA (cluster tapajos) -- molde reaproveitável, trocar validacao/v-dogma.
+#
+# Atualizado 2026-09-12 -- os 5 bancos abaixo (cazy, ncycdb, scycdb, mcycdb,
+# canthyd) foram baixados de verdade em 2026-09-11
+# (/projetos/ridh/gabrielcoelho/databases/{cazy,ncycdb,scycdb,mcycdb,canthyd}_db,
+# ver dogma_dbs_download_status.txt/cazy_db_download_status.txt, todos OK) --
+# os caminhos abaixo já apontam pros reais, os fake_dbs/ locais deste
+# projeto (placeholder de teste de DAG) não são mais usados. eukulele/cat
+# baixam o próprio banco em tempo de execução (eukulele_setup/cat_setup),
+# não usam config["databases"].
+
+samples: "/projetos/ridh/gabrielcoelho/validacao/v-dogma/config/samples.tsv"
+output_root: "/projetos/ridh/gabrielcoelho/validacao/v-dogma/runs/run1"
+
+databases:
+  kraken2:  "/projetos/ridh/gabrielcoelho/databases/k2-plusPFP_db"
+  kaiju:    "/projetos/ridh/gabrielcoelho/databases/kaiju_db"
+  eggnog:   "/projetos/ridh/gabrielcoelho/databases/eggnog_db"
+  cazy:     "/projetos/ridh/gabrielcoelho/databases/cazy_db"
+  ncycdb:   "/projetos/ridh/gabrielcoelho/databases/ncycdb_db"
+  scycdb:   "/projetos/ridh/gabrielcoelho/databases/scycdb_db"
+  mcycdb:   "/projetos/ridh/gabrielcoelho/databases/mcycdb_db"
+  canthyd:  "/projetos/ridh/gabrielcoelho/databases/canthyd_db"
+  # magma_run: omitido de propósito -- opcional (config.get com default ""),
+  # é o path do catálogo de MAGs pareado, preencher quando o cross-reference
+  # for testado de verdade.
+
+params:
+  fastp:                 "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
+  filtlong:               "--min_length 500 --keep_percent 90"
+  ribodetector:           "-e norrna"
+  kraken2:                "--confidence 0.05"
+  kaiju:                  ""
+  domain_filter:
+    mode: "prokaryote"
+  rnaspades:              ""
+  megahit:                ""
+  trinity:                "--max_memory 50G"
+  transcript_set_step1:   "--min-seq-id 1.00 --cov-mode 1 -c 0.98"
+  transcript_set:         "--min-seq-id 0.98 --cov-mode 1 -c 0.98"
+  transdecoder:           ""
+  eggnog:                 ""
+  cazy:                   ""
+  ncycdb:                 "-k 1 -e 0.0001"
+  scycdb:                 "-k 1 -e 0.0001"
+  mcycdb:                 "-k 1 -e 0.0001"
+  canthyd:                "--cut_tc"
+  fegenie:                ""
+  eukulele_database:      "marmmetsp"
+  eukulele:                "--no_busco"
+  cat_database:            "GTDB"
+  cat:                    ""
+  magma_xref:             "-k 1 -e 0.0001"
+  salmon_index:           "-k 31"
+  salmon:                 ""
+
+# threads: base = pipeline.yaml default_threads, bancos compartilhados com
+# MAGMA (kraken2/kaiju/eggnog) escalados igual lá. Resto = default do app --
+# PRIMEIRO PASSE, ajustar depois do run real.
+threads:
+  fastp: 8
+  ribodetector: 8
+  kraken2: 16
+  kaiju: 16
+  rnaspades: 32
+  megahit: 32
+  trinity: 32
+  transcript_set: 8
+  transdecoder: 4
+  eggnog: 16
+  cazy: 8
+  ncycdb: 8
+  scycdb: 8
+  mcycdb: 8
+  canthyd: 4
+  fegenie: 4
+  eukulele: 16
+  cat: 16
+  magma_xref: 8
+  salmon: 8

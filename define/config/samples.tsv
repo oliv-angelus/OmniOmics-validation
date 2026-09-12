@@ -1,0 +1,7 @@
+sample	fq1	fq2
+CTRL_D1_R1	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/CTRL_D1_R1/SRR20326901_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/CTRL_D1_R1/SRR20326901_2.fastq.gz
+CTRL_D1_R2	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/CTRL_D1_R2/SRR20326900_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/CTRL_D1_R2/SRR20326900_2.fastq.gz
+CTRL_D1_R3	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/CTRL_D1_R3/SRR20326899_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/CTRL_D1_R3/SRR20326899_2.fastq.gz
+PU239_D1_R1	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/PU239_D1_R1/SRR20326895_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/PU239_D1_R1/SRR20326895_2.fastq.gz
+PU239_D1_R2	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/PU239_D1_R2/SRR20326894_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/PU239_D1_R2/SRR20326894_2.fastq.gz
+PU239_D1_R3	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/PU239_D1_R3/SRR20326893_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-define/raw_reads/PU239_D1_R3/SRR20326893_2.fastq.gz
