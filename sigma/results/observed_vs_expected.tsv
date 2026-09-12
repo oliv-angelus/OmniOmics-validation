@@ -1,3 +1,4 @@
-sample	n_contigs_aligned	n50	genome_fraction_pct	n_misassemblies	mismatches_per_100kbp	total_length_bp	reference_length_bp	gtdbtk_species_call	checkm2_completeness_pct	checkm2_contamination_pct	pass
-ECOLI_SHORT_ONLY	87	116054	97.783	0	6.06	4767939	4875441	Escherichia coli	100.0	0.12	TRUE
-ECOLI_HYBRID_ONT	2	4765451	100.000	0	10.99	4875452	4875441	Escherichia coli	100.0	0.12	TRUE
+sample	n_contigs_aligned	n50	genome_fraction_pct	n_misassemblies	mismatches_per_100kbp	total_length_bp	reference_length_bp	gtdbtk_species_call	checkm2_completeness_pct	checkm2_contamination_pct	pass	notes
+ECOLI_SHORT_ONLY	87	116054	97.783	0	6.06	4767939	4875441	Escherichia coli	100.0	0.12	TRUE	Baseline, short-read only, no long-read polishing
+ECOLI_HYBRID_ONT	2	4765451	100.000	0	10.99	4875452	4875441	Escherichia coli	100.0	0.12	TRUE	Best result: full genome fraction, zero misassemblies
+ECOLI_HYBRID_PACBIO	33	742616	99.036	21	12.69	4912387	4875441	Escherichia coli	100.0	0.33	TRUE	Species correctly identified and high completeness/genome fraction, but real misassemblies present -- attributable to the source data being 2018-era PacBio RS II CLR chemistry (high raw error rate, no HiFi consensus), not a pipeline defect; see README

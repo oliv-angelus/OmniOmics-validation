@@ -1,0 +1,48 @@
+Using profile /projetos/ridh/gabrielcoelho/SIGMA-root/pbs_profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-09-12 17:08:40
+  Workflow ID: d9a0af98-1c3e-4d41-92d4-8dad7c82729e
+  Platform: Linux-5.3.18-150300.59.60-default-x86_64-with-glibc2.31
+  Host: tapajos
+  User: gabriel.coelho
+  Snakemake version: 9.26.1
+  Python version: 3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]
+  Command: /projetos/ridh/gabrielcoelho/MAGMA-root/snakemake_env/bin/snakemake --profile /projetos/ridh/gabrielcoelho/SIGMA-root/pbs_profile --configfile /projetos/ridh/gabrielcoelho/validacao/v-sigma-pacbio/config/config.yaml --omit-from bigscape --rerun-incomplete --keep-going
+  Snakefile: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline/Snakefile
+  Base directory: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline
+  Run directory: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline
+  Working directory: /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline
+  Config file(s): [PosixPath('/projetos/ridh/gabrielcoelho/validacao/v-sigma-pacbio/config/config.yaml')]
+  Config MD5: fc042172e766fd5dd8d8c0dab67e3bdb
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 10
+Job stats:
+job      count
+-----  -------
+gunc         1
+total        1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 17:08:43 2026]
+rule gunc:
+    input: results/03_POLISH/ECOLI_HYBRID_PACBIO/final_polished.fa
+    output: results/05_QUALITY/ECOLI_HYBRID_PACBIO/gunc
+    log: logs/gunc/ECOLI_HYBRID_PACBIO.log
+    jobid: 12
+    reason: Missing output files: results/05_QUALITY/ECOLI_HYBRID_PACBIO/gunc; Code has changed since last execution
+    wildcards: sample=ECOLI_HYBRID_PACBIO
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=24:00:00
+Submitted job 12 with external jobid '18659.tapajos'.
+[Sat Sep 12 17:13:53 2026]
+Finished jobid: 12 (Rule: gunc)
+1 of 1 steps (100%) done
+Complete log(s): /projetos/ridh/gabrielcoelho/SIGMA-root/pipeline/.snakemake/log/2026-09-12T170840.431294.snakemake.log
+Elapsed time: 0:05:23.236313
+EXIT_CODE=0

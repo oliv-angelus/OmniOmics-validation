@@ -1,0 +1,55 @@
+Assembly	ECOLI_HYBRID_PACBIO
+# contigs (>= 0 bp)	89
+# contigs (>= 1000 bp)	22
+# contigs (>= 5000 bp)	17
+# contigs (>= 10000 bp)	13
+# contigs (>= 25000 bp)	11
+# contigs (>= 50000 bp)	10
+Total length (>= 0 bp)	4924177
+Total length (>= 1000 bp)	4904200
+Total length (>= 5000 bp)	4896036
+Total length (>= 10000 bp)	4868380
+Total length (>= 25000 bp)	4836987
+Total length (>= 50000 bp)	4808524
+# contigs	33
+Largest contig	1080619
+Total length	4912387
+Reference length	4875441
+GC (%)	50.47
+Reference GC (%)	50.49
+N50	742616
+NG50	742616
+N90	313357
+NG90	313357
+auN	763134.6
+auNG	768917.6
+L50	3
+LG50	3
+L90	6
+LG90	6
+# misassemblies	21
+# misassembled contigs	6
+Misassembled contigs length	4445804
+# local misassemblies	8
+# scaffold gap ext. mis.	0
+# scaffold gap loc. mis.	0
+# unaligned mis. contigs	0
+# unaligned contigs	1 + 5 part
+Unaligned length	71840
+Genome fraction (%)	99.036
+Duplication ratio	1.002
+# N's per 100 kbp	0.00
+# mismatches per 100 kbp	12.69
+# indels per 100 kbp	1.84
+Largest alignment	666603
+Total aligned length	4839090
+NA50	228806
+NGA50	228806
+NA90	72587
+NGA90	72587
+auNA	314418.3
+auNGA	316800.9
+LA50	6
+LGA50	6
+LA90	20
+LGA90	20

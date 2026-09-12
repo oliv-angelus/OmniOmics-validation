@@ -1,0 +1,2 @@
+Name	Completeness	Contamination	Completeness_Model_Used	Translation_Table_Used	Coding_Density	Contig_N50	Average_Gene_Length	Genome_Size	GC_Content	Total_Coding_Sequences	Total_Contigs	Max_Contig_Length	Additional_Notes
+ECOLI_HYBRID_PACBIO	100.0	0.33	Neural Network (Specific Model)	11	0.872	742616	307.7431330472103	4924177	0.5	4660	89	1080619	None
