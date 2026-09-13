@@ -26,6 +26,14 @@ precedente de campo do SARTools citado abaixo.)
   desaparece (11 DEGs, 0,3%) -- **não é o par baixado aqui**, mas serve
   de controle de sanidade caso expandamos a validação depois (esperar
   quase nenhuma DEG num contraste ²³⁹Pu D15 vs controle D15).
+- **Critério exato de DEG do paper** (confirmado no texto do artigo,
+  Wintenberg et al. 2023): DESeq2 v1.35.0, alinhamento com HISAT2 +
+  quantificação StringTie/tximport (pipeline diferente do
+  bowtie2+featureCounts do DEFINE), gene chamado como diferencialmente
+  expresso com **log2FoldChange > 2 (4x) E p-valor ajustado (Wald) < 0,05**
+  -- não é só padj<0,05. Isto importa: aplicar apenas padj<0,05 na
+  comparação (sem o corte de fold-change) não é o mesmo critério do
+  paper e não deve ser comparado diretamente ao número 590.
 - **Categorias funcionais esperadas entre os DEGs** (não uma lista de
   genes exata, o paper reporta por categoria funcional/pathway):
   - Biossíntese: componentes do envelope nuclear (sic -- terminologia do
@@ -55,9 +63,15 @@ baixar a tabela suplementar do mSystems diretamente (não tentado ainda).
 
 ## Resultado real obtido
 
-Ver `../results/README.md` -- (1) FALHOU: 2.720 DEGs reais (62,2% dos genes
-testados) vs. ~590 esperados, causa técnica real identificada (uma das 3
-réplicas do controle, `CTRL_D1_R1`, é um outlier real de qualidade de
-biblioteca); (2) PASSOU: as categorias funcionais dos genes significativos
-batem com as reportadas no paper (transportadores ABC, sideróforos,
-resposta a estresse).
+Ver `../results/README.md` para a análise completa, incluindo uma correção
+real feita no meio do processo: a primeira tentativa (padj<0,05 apenas)
+deu 2.720 DEGs -- muito acima do esperado -- e a primeira hipótese
+explicativa (uma réplica do controle com baixa taxa de atribuição do
+featureCounts) foi **testada e refutada** (removê-la aumentou o número de
+DEGs, não diminuiu). A causa real, confirmada contra o método exato do
+paper: o critério certo é padj<0,05 **E** log2FC>2, não padj sozinho.
+Aplicando o critério certo: **(1) PASSOU: 433 DEGs reais (9,9% dos genes
+testados) vs. ~590/13,8% esperados, mesma ordem de grandeza; (2) PASSOU:
+as categorias funcionais dos genes significativos batem com as reportadas
+no paper (transportadores ABC, sideróforos, resposta a estresse,
+biossíntese de aminoácidos).**

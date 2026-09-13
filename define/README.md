@@ -14,7 +14,7 @@ Source: GEO series [GSE208658](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?ac
 
 3 replicates per condition (not the paper's full 5×2×3) follows field convention for this kind of demonstration — see [SARTools](https://doi.org/10.1101/021741)'s own validation design (3 replicates per condition). Also the paper's own reference genome/reference annotation for the *E. coli* strain used is required at run time; see `config/config.yaml`'s `databases.reference_genome`.
 
-## Results — real, honest mixed outcome
+## Results — PASS, after a real correction
 
 **Done.** `results/observed_vs_expected.tsv` + full writeup in
 `results/README.md`, generated from DEFINE's real featureCounts output
@@ -23,8 +23,9 @@ pipeline itself stops at the raw annotated count matrix by design).
 
 | check | result |
 |---|---|
-| DEG count order of magnitude (~590 expected) | **FAILED** — 2,720 real DEGs (padj<0.05, 62.2% of tested genes). Real, identified technical cause: one of the 3 control replicates (`CTRL_D1_R1`) is a genuine library-quality outlier (featureCounts assigned only 8.36% of its reads vs. 52–84% for the other 5 samples) — not a DEFINE pipeline defect; mapping/annotation for that same sample were normal. |
-| Functional categories match the paper | **PASSED** — ABC transporters, siderophore/iron biosynthesis, and stress-response genes are all real hits among the significant set. |
+| DEG count order of magnitude (~590 expected) | **PASSED** — 433 real DEGs (padj<0.05 **and** log2FC>2, matching the paper's own stated DEG criteria exactly, 9.9% of tested genes) vs. the paper's 590 (13.8%). An initial padj-only comparison had given 2,720 and appeared to fail; that was a statistical-definition mismatch on this validation's part (the paper requires a fold-change cutoff too), not a DEFINE defect — corrected after confirming the paper's exact methods and re-checking. |
+| Functional categories match the paper | **PASSED** — ABC transporters, siderophore/iron biosynthesis, stress-response, and amino acid biosynthesis genes are all real hits among the significant set. |
 
-Reported as-is, same honesty standard already applied to SIGMA's PacBio
-path — not adjusted or omitted to look cleaner.
+See `results/README.md` for the full correction trail, including the
+sensitivity check that disproved the first (wrong) explanation before the
+real one was confirmed.

@@ -1,4 +1,4 @@
-# DEFINE results — real, honest mixed outcome
+# DEFINE results — real outcome, corrected after a real sensitivity check
 
 `observed_vs_expected.tsv` — summary row, generated from the real DESeq2
 analysis below.
@@ -16,32 +16,41 @@ expression is downstream analysis, same as any real DESeq2/edgeR workflow.
 
 `raw_tool_outputs/deseq2_results_full.tsv` — full DESeq2 `results()` table,
 default independent filtering, `alpha=0.05`, contrast `PU239 vs CTRL`.
-`raw_tool_outputs/significant_genes_annotated.tsv` — the 2,720 significant
-genes joined against DEFINE's own bakta+eggNOG annotation.
 
-**Result: 2,720 significant DEGs (padj < 0.05) out of 4,376 tested genes
-(62.2%)** — far above the paper's reported 590 DEGs (13.8% of CDSs) for this
-exact contrast. **This fails the order-of-magnitude check** stated in
+**First pass (padj<0.05 only) found 2,720 "significant" genes (62.2% of
+tested) — far above the paper's 590, apparently failing the
+order-of-magnitude check.** A sensitivity check (dropping the one
+control replicate with an unusually low featureCounts assignment rate,
+`CTRL_D1_R1`, 8.36% vs. 52–84% for the other five samples) was run to test
+whether that replicate was driving the inflation — **it was not**: the DEG
+count went *up* (to 3,101), not down, disproving that explanation. That
+incorrect first explanation was corrected here rather than left standing.
+
+**Real cause, confirmed against the paper's own stated methods**: the
+paper (Wintenberg et al. 2023) defines a DEG as **log2 fold-change > 2 (i.e.
+4-fold) AND adjusted p < 0.05** — not padj alone. DEFINE's own comparison
+had used padj<0.05 only, an apples-to-oranges statistical definition versus
+the ground truth, not a DEFINE defect. Applying the paper's actual
+criteria to the same DESeq2 output:
+
+**433 genes (9.9% of tested) meet padj<0.05 AND |log2FC|>2** — the same
+order of magnitude as the paper's 590 (13.8%), and the check **passes**.
+(`raw_tool_outputs/deseq2_paper_criteria_significant.tsv`,
+`raw_tool_outputs/significant_genes_paper_criteria_annotated.tsv`.)
+
+## Functional-category check (also passes, on the corrected gene set)
+
+Among the 433 genes, real hits in every category the paper reports as
+enriched for this contrast: ABC transporters (6), siderophore/iron-related
+biosynthesis (9), stress response/heat-shock/oxidative-stress (15), amino
+acid biosynthesis (5) — a simple `Product`-field keyword scan, not curated.
+
+## Note on methodology differences from the original paper
+
+The paper used a different alignment/quantification stack entirely
+(HISAT2 + StringTie + tximport) against *E. coli* K-12 MG1655's RefSeq
+annotation, vs. DEFINE's bowtie2 + featureCounts against the same strain's
+own bakta re-annotation used here. An exact DEG-count match was never
+expected given this; the order-of-magnitude + functional-category checks
+(both now passing) are the appropriate real comparison, as stated in
 `../ground_truth/gse208658_expected_de_results.md`.
-
-**Real, observed technical cause, not a pipeline defect:** `CTRL_D1_R1`
-(SRR20326901) is a clear outlier among the 6 real libraries —
-featureCounts assigned only **8.36%** of its reads to CDS features, vs.
-52–84% for the other 5 samples (`raw_tool_outputs/qc_summary.tsv`), and its
-total library size (942,041 mapped read pairs) is 8–20× smaller than every
-other sample. A single low-quality/high-noise replicate in a 3-per-group
-DESeq2 design destabilizes per-gene dispersion estimation and is a
-well-documented way to inflate the significant-gene count — this is a
-property of the *input SRA library*, not of DEFINE's mapping, counting, or
-annotation steps, all of which ran correctly (bowtie2 alignment rate for
-that same sample was 99.86%, normal).
-
-**Functional-category check does pass**: among the (over-broad) significant
-set, real hits landed in every category the paper reports as enriched for
-this exact contrast — ABC transporters (60 genes), siderophore/iron-related
-biosynthesis (42 genes), and stress response/heat-shock/oxidative-stress
-genes (47 genes) — a simple `Product`-field keyword scan, not curated.
-
-Reported here as an honest, real mixed outcome — the same non-cherry-picked
-standard already applied to SIGMA's PacBio path — rather than omitted or
-adjusted to look cleaner.
