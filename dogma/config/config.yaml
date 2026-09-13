@@ -10,6 +10,19 @@
 # não usam config["databases"].
 
 samples: "/projetos/ridh/gabrielcoelho/validacao/v-dogma/config/samples.tsv"
+
+# Real bug found 2026-09-13: this key was missing entirely, which
+# silently (a) disabled domain_filter (Snakefile falls back to
+# DOMAINS=["all"]) even though params.domain_filter.mode is set below,
+# and (b) made _active_assembler_transcripts() return an empty list,
+# so transcript_set ran `mmseqs easy-linclust` on an empty FASTA and
+# failed every time. Set to match what params/threads below already
+# fully provision for (all 3 assemblers + domain_filter).
+active_tools:
+  - domain_filter
+  - rnaspades
+  - megahit
+  - trinity
 output_root: "/projetos/ridh/gabrielcoelho/validacao/v-dogma/runs/run1"
 
 databases:
