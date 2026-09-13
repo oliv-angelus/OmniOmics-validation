@@ -1,0 +1,401 @@
+Using profile /projetos/ridh/gabrielcoelho/DEFINE-root/pbs_profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-09-12 20:57:19
+  Workflow ID: 5889312a-c1b9-4e49-b3e8-8a084d27b60f
+  Platform: Linux-5.3.18-150300.59.60-default-x86_64-with-glibc2.31
+  Host: tapajos
+  User: gabriel.coelho
+  Snakemake version: 9.26.1
+  Python version: 3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]
+  Command: /projetos/ridh/gabrielcoelho/MAGMA-root/snakemake_env/bin/snakemake --profile /projetos/ridh/gabrielcoelho/DEFINE-root/pbs_profile --configfile /projetos/ridh/gabrielcoelho/validacao/v-define/config/config.yaml --rerun-incomplete --keep-going
+  Snakefile: /projetos/ridh/gabrielcoelho/DEFINE-root/pipeline/Snakefile
+  Base directory: /projetos/ridh/gabrielcoelho/DEFINE-root/pipeline
+  Run directory: /projetos/ridh/gabrielcoelho/DEFINE-root/pipeline
+  Working directory: /projetos/ridh/gabrielcoelho/DEFINE-root/pipeline
+  Config file(s): [PosixPath('/projetos/ridh/gabrielcoelho/validacao/v-define/config/config.yaml')]
+  Config MD5: 40f516a5484a78b381f0856a4703b142
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 10
+Job stats:
+job                       count
+----------------------  -------
+bowtie2_align                 6
+index_bam                     6
+infer_experiment              6
+decide_strandedness           1
+featurecounts                 1
+merge_annotated_counts        1
+qc_summary                    1
+all                           1
+total                        23
+
+Select jobs to execute...
+Execute 6 jobs...
+
+[Sat Sep 12 20:57:23 2026]
+rule bowtie2_align:
+    input: results/00_REFERENCE/index, results/01_QC/PU239_D1_R2/PU239_D1_R2_R1_clean.fastq.gz, results/01_QC/PU239_D1_R2/PU239_D1_R2_R2_clean.fastq.gz
+    output: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam
+    log: logs/mapping/PU239_D1_R2_bowtie2.log
+    jobid: 13
+    reason: Missing output files: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam
+    wildcards: sample=PU239_D1_R2
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=3241, disk=3.24 GB, disk_mib=3091, walltime=168:00:00
+Submitted job 13 with external jobid '18818.tapajos'.
+
+[Sat Sep 12 20:57:23 2026]
+rule bowtie2_align:
+    input: results/00_REFERENCE/index, results/01_QC/PU239_D1_R3/PU239_D1_R3_R1_clean.fastq.gz, results/01_QC/PU239_D1_R3/PU239_D1_R3_R2_clean.fastq.gz
+    output: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam
+    log: logs/mapping/PU239_D1_R3_bowtie2.log
+    jobid: 15
+    reason: Missing output files: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam
+    wildcards: sample=PU239_D1_R3
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=7108, disk=7.11 GB, disk_mib=6779, walltime=168:00:00
+Submitted job 15 with external jobid '18819.tapajos'.
+
+[Sat Sep 12 20:57:23 2026]
+rule bowtie2_align:
+    input: results/00_REFERENCE/index, results/01_QC/CTRL_D1_R1/CTRL_D1_R1_R1_clean.fastq.gz, results/01_QC/CTRL_D1_R1/CTRL_D1_R1_R2_clean.fastq.gz
+    output: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam
+    log: logs/mapping/CTRL_D1_R1_bowtie2.log
+    jobid: 3
+    reason: Missing output files: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam
+    wildcards: sample=CTRL_D1_R1
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=2272, disk=2.27 GB, disk_mib=2167, walltime=168:00:00
+Submitted job 3 with external jobid '18820.tapajos'.
+
+[Sat Sep 12 20:57:23 2026]
+rule bowtie2_align:
+    input: results/00_REFERENCE/index, results/01_QC/CTRL_D1_R2/CTRL_D1_R2_R1_clean.fastq.gz, results/01_QC/CTRL_D1_R2/CTRL_D1_R2_R2_clean.fastq.gz
+    output: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam
+    log: logs/mapping/CTRL_D1_R2_bowtie2.log
+    jobid: 7
+    reason: Missing output files: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam
+    wildcards: sample=CTRL_D1_R2
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=5291, disk=5.29 GB, disk_mib=5046, walltime=168:00:00
+Submitted job 7 with external jobid '18821.tapajos'.
+
+[Sat Sep 12 20:57:23 2026]
+rule bowtie2_align:
+    input: results/00_REFERENCE/index, results/01_QC/CTRL_D1_R3/CTRL_D1_R3_R1_clean.fastq.gz, results/01_QC/CTRL_D1_R3/CTRL_D1_R3_R2_clean.fastq.gz
+    output: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam
+    log: logs/mapping/CTRL_D1_R3_bowtie2.log
+    jobid: 9
+    reason: Missing output files: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam
+    wildcards: sample=CTRL_D1_R3
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=3028, disk=3.03 GB, disk_mib=2888, walltime=168:00:00
+Submitted job 9 with external jobid '18822.tapajos'.
+
+[Sat Sep 12 20:57:23 2026]
+rule bowtie2_align:
+    input: results/00_REFERENCE/index, results/01_QC/PU239_D1_R1/PU239_D1_R1_R1_clean.fastq.gz, results/01_QC/PU239_D1_R1/PU239_D1_R1_R2_clean.fastq.gz
+    output: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam
+    log: logs/mapping/PU239_D1_R1_bowtie2.log
+    jobid: 11
+    reason: Missing output files: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam
+    wildcards: sample=PU239_D1_R1
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=3700, disk=3.7 GB, disk_mib=3529, walltime=168:00:00
+Submitted job 11 with external jobid '18823.tapajos'.
+[Sat Sep 12 21:01:33 2026]
+Finished jobid: 13 (Rule: bowtie2_align)
+1 of 23 steps (4%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:01:33 2026]
+rule index_bam:
+    input: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam
+    output: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam.bai
+    log: logs/mapping/PU239_D1_R2_index.log
+    jobid: 21
+    reason: Missing output files: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam.bai; Input files updated by another job: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam
+    wildcards: sample=PU239_D1_R2
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=1757, disk=1.76 GB, disk_mib=1676, walltime=24:00:00
+Submitted job 21 with external jobid '18836.tapajos'.
+[Sat Sep 12 21:01:43 2026]
+Finished jobid: 21 (Rule: index_bam)
+2 of 23 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:01:43 2026]
+rule infer_experiment:
+    input: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam, results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam.bai, results/03_STRANDEDNESS/reference.bed12
+    output: results/03_STRANDEDNESS/PU239_D1_R2/infer_experiment.txt
+    log: logs/strandedness/PU239_D1_R2_infer_experiment.log
+    jobid: 30
+    reason: Missing output files: results/03_STRANDEDNESS/PU239_D1_R2/infer_experiment.txt; Input files updated by another job: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam, results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam.bai
+    wildcards: sample=PU239_D1_R2
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=1758, disk=1.76 GB, disk_mib=1677, walltime=24:00:00
+Submitted job 30 with external jobid '18840.tapajos'.
+[Sat Sep 12 21:02:23 2026]
+Finished jobid: 11 (Rule: bowtie2_align)
+3 of 23 steps (13%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:02:23 2026]
+rule index_bam:
+    input: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam
+    output: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam.bai
+    log: logs/mapping/PU239_D1_R1_index.log
+    jobid: 20
+    reason: Missing output files: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam.bai; Input files updated by another job: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam
+    wildcards: sample=PU239_D1_R1
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=2012, disk=2.01 GB, disk_mib=1919, walltime=24:00:00
+Submitted job 20 with external jobid '18849.tapajos'.
+Waiting at most 60 seconds for missing files:
+results/03_STRANDEDNESS/PU239_D1_R2/infer_experiment.txt (missing locally)
+[Sat Sep 12 21:02:47 2026]
+Finished jobid: 30 (Rule: infer_experiment)
+4 of 23 steps (17%) done
+[Sat Sep 12 21:03:33 2026]
+Finished jobid: 9 (Rule: bowtie2_align)
+5 of 23 steps (22%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:03:33 2026]
+rule index_bam:
+    input: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam
+    output: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam.bai
+    log: logs/mapping/CTRL_D1_R3_index.log
+    jobid: 19
+    reason: Missing output files: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam.bai; Input files updated by another job: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam
+    wildcards: sample=CTRL_D1_R3
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=1982, disk=1.98 GB, disk_mib=1891, walltime=24:00:00
+Submitted job 19 with external jobid '18857.tapajos'.
+[Sat Sep 12 21:03:33 2026]
+Finished jobid: 20 (Rule: index_bam)
+6 of 23 steps (26%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:03:33 2026]
+rule infer_experiment:
+    input: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam, results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam.bai, results/03_STRANDEDNESS/reference.bed12
+    output: results/03_STRANDEDNESS/PU239_D1_R1/infer_experiment.txt
+    log: logs/strandedness/PU239_D1_R1_infer_experiment.log
+    jobid: 29
+    reason: Missing output files: results/03_STRANDEDNESS/PU239_D1_R1/infer_experiment.txt; Input files updated by another job: results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam, results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam.bai
+    wildcards: sample=PU239_D1_R1
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=2013, disk=2.01 GB, disk_mib=1920, walltime=24:00:00
+Submitted job 29 with external jobid '18858.tapajos'.
+[Sat Sep 12 21:05:43 2026]
+Finished jobid: 15 (Rule: bowtie2_align)
+7 of 23 steps (30%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:05:43 2026]
+rule index_bam:
+    input: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam
+    output: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam.bai
+    log: logs/mapping/PU239_D1_R3_index.log
+    jobid: 22
+    reason: Missing output files: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam.bai; Input files updated by another job: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam
+    wildcards: sample=PU239_D1_R3
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=3797, disk=3.8 GB, disk_mib=3622, walltime=24:00:00
+Submitted job 22 with external jobid '18862.tapajos'.
+[Sat Sep 12 21:05:43 2026]
+Finished jobid: 19 (Rule: index_bam)
+8 of 23 steps (35%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:05:43 2026]
+rule infer_experiment:
+    input: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam, results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam.bai, results/03_STRANDEDNESS/reference.bed12
+    output: results/03_STRANDEDNESS/CTRL_D1_R3/infer_experiment.txt
+    log: logs/strandedness/CTRL_D1_R3_infer_experiment.log
+    jobid: 28
+    reason: Missing output files: results/03_STRANDEDNESS/CTRL_D1_R3/infer_experiment.txt; Input files updated by another job: results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam, results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam.bai
+    wildcards: sample=CTRL_D1_R3
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=1983, disk=1.98 GB, disk_mib=1892, walltime=24:00:00
+Submitted job 28 with external jobid '18863.tapajos'.
+[Sat Sep 12 21:06:23 2026]
+Finished jobid: 29 (Rule: infer_experiment)
+9 of 23 steps (39%) done
+[Sat Sep 12 21:06:23 2026]
+Finished jobid: 22 (Rule: index_bam)
+10 of 23 steps (43%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:06:23 2026]
+rule infer_experiment:
+    input: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam, results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam.bai, results/03_STRANDEDNESS/reference.bed12
+    output: results/03_STRANDEDNESS/PU239_D1_R3/infer_experiment.txt
+    log: logs/strandedness/PU239_D1_R3_infer_experiment.log
+    jobid: 31
+    reason: Missing output files: results/03_STRANDEDNESS/PU239_D1_R3/infer_experiment.txt; Input files updated by another job: results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam, results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam.bai
+    wildcards: sample=PU239_D1_R3
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=3798, disk=3.8 GB, disk_mib=3623, walltime=24:00:00
+Submitted job 31 with external jobid '18865.tapajos'.
+[Sat Sep 12 21:06:23 2026]
+Finished jobid: 28 (Rule: infer_experiment)
+11 of 23 steps (48%) done
+[Sat Sep 12 21:06:33 2026]
+Finished jobid: 31 (Rule: infer_experiment)
+12 of 23 steps (52%) done
+[Sat Sep 12 21:06:43 2026]
+Finished jobid: 3 (Rule: bowtie2_align)
+13 of 23 steps (57%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:06:43 2026]
+rule index_bam:
+    input: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam
+    output: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam.bai
+    log: logs/mapping/CTRL_D1_R1_index.log
+    jobid: 17
+    reason: Missing output files: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam.bai; Input files updated by another job: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam
+    wildcards: sample=CTRL_D1_R1
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=2040, disk=2.04 GB, disk_mib=1946, walltime=24:00:00
+Submitted job 17 with external jobid '18868.tapajos'.
+[Sat Sep 12 21:07:23 2026]
+Finished jobid: 7 (Rule: bowtie2_align)
+14 of 23 steps (61%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:07:23 2026]
+rule index_bam:
+    input: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam
+    output: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam.bai
+    log: logs/mapping/CTRL_D1_R2_index.log
+    jobid: 18
+    reason: Missing output files: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam.bai; Input files updated by another job: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam
+    wildcards: sample=CTRL_D1_R2
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=3570, disk=3.57 GB, disk_mib=3405, walltime=24:00:00
+Submitted job 18 with external jobid '18873.tapajos'.
+[Sat Sep 12 21:07:23 2026]
+Finished jobid: 17 (Rule: index_bam)
+15 of 23 steps (65%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:07:23 2026]
+rule infer_experiment:
+    input: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam, results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam.bai, results/03_STRANDEDNESS/reference.bed12
+    output: results/03_STRANDEDNESS/CTRL_D1_R1/infer_experiment.txt
+    log: logs/strandedness/CTRL_D1_R1_infer_experiment.log
+    jobid: 25
+    reason: Missing output files: results/03_STRANDEDNESS/CTRL_D1_R1/infer_experiment.txt; Input files updated by another job: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam.bai, results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam
+    wildcards: sample=CTRL_D1_R1
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=2040, disk=2.04 GB, disk_mib=1946, walltime=24:00:00
+Submitted job 25 with external jobid '18874.tapajos'.
+[Sat Sep 12 21:08:03 2026]
+Finished jobid: 18 (Rule: index_bam)
+16 of 23 steps (70%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:08:03 2026]
+rule infer_experiment:
+    input: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam, results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam.bai, results/03_STRANDEDNESS/reference.bed12
+    output: results/03_STRANDEDNESS/CTRL_D1_R2/infer_experiment.txt
+    log: logs/strandedness/CTRL_D1_R2_infer_experiment.log
+    jobid: 27
+    reason: Missing output files: results/03_STRANDEDNESS/CTRL_D1_R2/infer_experiment.txt; Input files updated by another job: results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam, results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam.bai
+    wildcards: sample=CTRL_D1_R2
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=3571, disk=3.57 GB, disk_mib=3406, walltime=24:00:00
+Submitted job 27 with external jobid '18877.tapajos'.
+[Sat Sep 12 21:08:03 2026]
+Finished jobid: 25 (Rule: infer_experiment)
+17 of 23 steps (74%) done
+[Sat Sep 12 21:08:13 2026]
+Finished jobid: 27 (Rule: infer_experiment)
+18 of 23 steps (78%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:08:13 2026]
+rule decide_strandedness:
+    input: results/03_STRANDEDNESS/CTRL_D1_R1/infer_experiment.txt, results/03_STRANDEDNESS/CTRL_D1_R2/infer_experiment.txt, results/03_STRANDEDNESS/CTRL_D1_R3/infer_experiment.txt, results/03_STRANDEDNESS/PU239_D1_R1/infer_experiment.txt, results/03_STRANDEDNESS/PU239_D1_R2/infer_experiment.txt, results/03_STRANDEDNESS/PU239_D1_R3/infer_experiment.txt
+    output: results/03_STRANDEDNESS/strandedness.txt, results/03_STRANDEDNESS/strandedness_report.tsv
+    log: logs/strandedness/decide.log
+    jobid: 24
+    reason: Missing output files: results/03_STRANDEDNESS/strandedness.txt, results/03_STRANDEDNESS/strandedness_report.tsv; Input files updated by another job: results/03_STRANDEDNESS/PU239_D1_R1/infer_experiment.txt, results/03_STRANDEDNESS/PU239_D1_R2/infer_experiment.txt, results/03_STRANDEDNESS/CTRL_D1_R3/infer_experiment.txt, results/03_STRANDEDNESS/CTRL_D1_R2/infer_experiment.txt, results/03_STRANDEDNESS/PU239_D1_R3/infer_experiment.txt, results/03_STRANDEDNESS/CTRL_D1_R1/infer_experiment.txt
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=24:00:00
+Submitted job 24 with external jobid '18879.tapajos'.
+[Sat Sep 12 21:08:23 2026]
+Finished jobid: 24 (Rule: decide_strandedness)
+19 of 23 steps (83%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:08:23 2026]
+rule featurecounts:
+    input: results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam, results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam, results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam, results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam, results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam, results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam, results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam.bai, results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam.bai, results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam.bai, results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam.bai, results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam.bai, results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam.bai, results/00_REFERENCE/bakta/reference_filtered.gff3, results/03_STRANDEDNESS/strandedness.txt
+    output: results/04_COUNTS/counts.tsv, results/04_COUNTS/counts.tsv.summary
+    log: logs/counts/featurecounts.log
+    jobid: 2
+    reason: Missing output files: results/04_COUNTS/counts.tsv.summary, results/04_COUNTS/counts.tsv; Input files updated by another job: results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam, results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam, results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam.bai, results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam, results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam.bai, results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam, results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam.bai, results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam.bai, results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam.bai, results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam.bai, results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam, results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam, results/03_STRANDEDNESS/strandedness.txt
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=15170, disk=15.17 GB, disk_mib=14468, walltime=24:00:00
+Submitted job 2 with external jobid '18880.tapajos'.
+[Sat Sep 12 21:10:03 2026]
+Finished jobid: 2 (Rule: featurecounts)
+20 of 23 steps (87%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Sep 12 21:10:03 2026]
+rule merge_annotated_counts:
+    input: results/04_COUNTS/counts.tsv, results/00_REFERENCE/bakta/reference.tsv, results/00_REFERENCE/eggnog/reference_annotations.emapper.annotations
+    output: results/05_TABLES/contagem_anotada.tsv
+    log: logs/tables/merge_annotated_counts.log
+    jobid: 1
+    reason: Missing output files: results/05_TABLES/contagem_anotada.tsv; Input files updated by another job: results/04_COUNTS/counts.tsv
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=24:00:00
+Submitted job 1 with external jobid '18882.tapajos'.
+
+[Sat Sep 12 21:10:04 2026]
+rule qc_summary:
+    input: results/01_QC/CTRL_D1_R1/CTRL_D1_R1_fastp.json, results/01_QC/CTRL_D1_R2/CTRL_D1_R2_fastp.json, results/01_QC/CTRL_D1_R3/CTRL_D1_R3_fastp.json, results/01_QC/PU239_D1_R1/PU239_D1_R1_fastp.json, results/01_QC/PU239_D1_R2/PU239_D1_R2_fastp.json, results/01_QC/PU239_D1_R3/PU239_D1_R3_fastp.json, logs/mapping/CTRL_D1_R1_bowtie2.log, logs/mapping/CTRL_D1_R2_bowtie2.log, logs/mapping/CTRL_D1_R3_bowtie2.log, logs/mapping/PU239_D1_R1_bowtie2.log, logs/mapping/PU239_D1_R2_bowtie2.log, logs/mapping/PU239_D1_R3_bowtie2.log, results/04_COUNTS/counts.tsv.summary, results/03_STRANDEDNESS/strandedness_report.tsv
+    output: results/05_TABLES/qc_summary.tsv
+    log: logs/tables/qc_summary.log
+    jobid: 33
+    reason: Missing output files: results/05_TABLES/qc_summary.tsv; Input files updated by another job: logs/mapping/PU239_D1_R1_bowtie2.log, logs/mapping/CTRL_D1_R2_bowtie2.log, results/04_COUNTS/counts.tsv.summary, logs/mapping/CTRL_D1_R1_bowtie2.log, logs/mapping/CTRL_D1_R3_bowtie2.log, logs/mapping/PU239_D1_R2_bowtie2.log, logs/mapping/PU239_D1_R3_bowtie2.log, results/03_STRANDEDNESS/strandedness_report.tsv
+    resources: tmpdir=<TBD>, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=24:00:00
+Submitted job 33 with external jobid '18883.tapajos'.
+[Sat Sep 12 21:10:13 2026]
+Finished jobid: 1 (Rule: merge_annotated_counts)
+21 of 23 steps (91%) done
+[Sat Sep 12 21:10:13 2026]
+Finished jobid: 33 (Rule: qc_summary)
+22 of 23 steps (96%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:10:13 2026]
+localrule all:
+    input: results/05_TABLES/contagem_anotada.tsv, results/05_TABLES/qc_summary.tsv, results/01_QC/multiqc_raw, results/01_QC/multiqc_trim
+    jobid: 0
+    reason: Input files updated by another job: results/05_TABLES/qc_summary.tsv, results/05_TABLES/contagem_anotada.tsv
+    resources: tmpdir=/tmp, mem_mb=4000, mem=4 GB, mem_mib=3815, disk_mb=1000, disk=1 GB, disk_mib=954
+[Sat Sep 12 21:10:13 2026]
+Finished jobid: 0 (Rule: all)
+23 of 23 steps (100%) done
+Complete log(s): /projetos/ridh/gabrielcoelho/DEFINE-root/pipeline/.snakemake/log/2026-09-12T205719.098066.snakemake.log
+Elapsed time: 0:13:05.282418
+EXIT_CODE=0

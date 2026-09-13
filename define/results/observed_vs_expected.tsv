@@ -1,0 +1,2 @@
+n_degs_padj0.05	expected_n_degs	order_of_magnitude_match	enriched_categories	categories_match_paper
+2720	590	FALSE	ABC transporters (60 genes), siderophore/iron-related (42 genes), stress response/heat shock/oxidative (47 genes)	TRUE

@@ -1,0 +1,7 @@
+sample	fastp_retention_pct	bowtie2_alignment_pct	featurecounts_assigned_pct	strandedness
+CTRL_D1_R1	78.69	99.86	8.36	reverse
+CTRL_D1_R2	86.05	98.84	52.25	reverse
+CTRL_D1_R3	86.12	98.73	59.67	reverse
+PU239_D1_R1	78.19	98.48	80.59	reverse
+PU239_D1_R2	74.22	98.23	83.75	reverse
+PU239_D1_R3	79.23	98.57	82.91	reverse

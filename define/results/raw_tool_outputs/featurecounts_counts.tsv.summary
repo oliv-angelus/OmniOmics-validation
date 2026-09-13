@@ -1,0 +1,15 @@
+Status	results/02_MAPPING/CTRL_D1_R1/CTRL_D1_R1.sorted.bam	results/02_MAPPING/CTRL_D1_R2/CTRL_D1_R2.sorted.bam	results/02_MAPPING/CTRL_D1_R3/CTRL_D1_R3.sorted.bam	results/02_MAPPING/PU239_D1_R1/PU239_D1_R1.sorted.bam	results/02_MAPPING/PU239_D1_R2/PU239_D1_R2.sorted.bam	results/02_MAPPING/PU239_D1_R3/PU239_D1_R3.sorted.bam
+Assigned	942041	11956030	7270663	10271849	9521041	21053030
+Unassigned_Unmapped	0	0	0	0	0	0
+Unassigned_Read_Type	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0
+Unassigned_MultiMapping	0	0	0	0	0	0
+Unassigned_Secondary	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0
+Unassigned_NoFeatures	10305010	10259017	4458236	1481030	1056274	2723450
+Unassigned_Overlapping_Length	0	0	0	0	0	0
+Unassigned_Ambiguity	20447	666475	455429	992850	790681	1616384
