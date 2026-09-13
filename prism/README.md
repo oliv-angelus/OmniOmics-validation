@@ -14,17 +14,15 @@ Unlike the other 4 pipelines, no certified theoretical composition exists yet fo
 
 Reference database: GTDB SSU r220 (Alishum A., Zenodo [10.5281/zenodo.13984843](https://doi.org/10.5281/zenodo.13984843), built on Parks et al. 2022, DOI [10.1093/nar/gkab776](https://doi.org/10.1093/nar/gkab776)) — chosen over SILVA for this validation because it needs no RNA→DNA/header conversion step and keeps PRISM's 16S output in the same GTDB-rank lineage format the other OmniOmics pipelines' Plots tab already expects.
 
-## Results (pending)
+## Results — real, honest mixed outcome (strong correlation, one real miss)
 
-`results/observed_vs_expected.tsv`, one row per replicate × species:
+**Done.** `results/observed_vs_expected.tsv` + full writeup in
+`results/README.md`, generated from PRISM's real Emu output (GTDB SSU
+r220) against ONT's own official Emu classification of the same reads.
 
-| column | meaning |
+| check | result |
 |---|---|
-| `replicate` | `rep1`/`rep2`/`rep3` |
-| `species` | GTDB-style lineage call |
-| `ont_official_pct` | ONT's own Emu relative abundance for this read file |
-| `prism_observed_pct` | PRISM's real Emu output (same method, GTDB SSU reference instead of ONT's own) |
-| `correlation_per_replicate` | Pearson/Spearman correlation across all species, one value per replicate |
-| `four_spiked_species_detected` | whether *Bifidobacterium adolescentis*, *Borrelia burgdorferi* (as *bissettiae*/*garinii* under GTDB), *Chlamydia trachomatis*, and *Gardnerella vaginalis* (as *Bifidobacterium vaginale* under GTDB) are all present |
+| Genus-level community correlation vs. ONT's own result | **PASSED** — Pearson r = 0.96–0.98 across all 3 replicates (mean 0.966) |
+| All 4 spiked species detected | **FAILED (3/4)** — *Bifidobacterium adolescentis*, *B. vaginale* (=*Gardnerella vaginalis*), and *Borreliella/Borrelia burgdorferi* detected with closely matching abundances; *Chlamydia trachomatis* not detected at all (0% vs. ONT's ~1.9–2.0%), most likely due to the well-documented mismatch between "universal" 16S primers and Chlamydiae sequences — see `results/README.md` for the full investigation (database coverage ruled out; loss traced to the primer-trimming step). |
 
-Generated from the real pipeline output only. Run logs referenced alongside once available.
+Reported as-is, same honesty standard applied throughout this validation.

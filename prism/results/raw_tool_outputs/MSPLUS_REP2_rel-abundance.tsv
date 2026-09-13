@@ -1,0 +1,19 @@
+tax_id	abundance	domain	phylum	class	order	family	genus	species	estimated counts
+20228	0.07724882180178949	Bacteria	Actinomycetota	Actinomycetes	Actinomycetales	Bifidobacteriaceae	Bifidobacterium	Bifidobacterium_vaginale(RS_GCF_001042655_1	1131.0
+46268	0.15620517724199168	Bacteria	Bacillota	Bacilli	Lactobacillales	Listeriaceae	Listeria	Listeria_monocytogenes_B(RS_GCF_000307025_1	2287.0
+54962	0.0531384468274025	Bacteria	Actinomycetota	Actinomycetes	Actinomycetales	Bifidobacteriaceae	Bifidobacterium	Bifidobacterium_adolescentis(RS_GCF_000010425_1	778.0
+54892	0.00734239464517451	Bacteria	Pseudomonadota	Alphaproteobacteria	Acetobacterales	Acetobacteraceae	Pseudoroseomonas	Pseudoroseomonas_rhizosphaerae(RS_GCF_002631185_1	107.5
+24213	0.00734239464517451	Bacteria	Pseudomonadota	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	Pseudomonas_paraeruginosa(RS_GCF_002601815_1	107.5
+17884	0.00734239464517451	Bacteria	Actinomycetota	Actinomycetes	Mycobacteriales	Micromonosporaceae	Micromonospora	Micromonospora_sp025460765(RS_GCF_025460765_1	107.5
+25675	0.00734239464517451	Bacteria	Pseudomonadota	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	Pseudomonas_aeruginosa(RS_GCF_001457615_1	107.5
+11807	0.0260911139949457	Bacteria	Spirochaetota	Spirochaetia	Borreliales	Borreliaceae	Borreliella	Borreliella_burgdorferi(RS_GCF_000008685_2	382.0
+16346	0.046451991848216946	Bacteria	Pseudomonadota	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Salmonella	Salmonella_enterica(RS_GCF_000006945_2	680.1036126497443
+29043	0.13673929376408714	Bacteria	Bacillota	Bacilli	Staphylococcales	Staphylococcaceae	Staphylococcus	Staphylococcus_aureus(RS_GCF_001027105_1	2001.9999999999998
+52318	0.14527696195615053	Bacteria	Bacillota	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus_fermentum(RS_GCF_013394085_1	2127.0
+35187	0.16665528310907726	Bacteria	Bacillota	Bacilli	Bacillales	Bacillaceae	Bacillus	Bacillus_spizizenii(GB_GCA_031316495_1	2440.0
+55761	0.1023154156136876	Bacteria	Bacillota	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus	Enterococcus_faecalis(RS_GCF_029024925_1	1498.0
+15589	0.050887938571816796	Bacteria	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Alloprevotella	Alloprevotella_sp004555055(GB_GCA_004555055_1	745.0503086299697
+17395	0.009619976690136433	Bacteria	Actinomycetota	Coriobacteriia	Coriobacteriales	Coriobacteriaceae	Collinsella	Collinsella_sp900764415(GB_GCA_900764415_1	140.84607872028752
+unmapped	0.0								0.0
+mapped_filtered	0.0								0.0
+mapped_unclassified	0.0								21.0

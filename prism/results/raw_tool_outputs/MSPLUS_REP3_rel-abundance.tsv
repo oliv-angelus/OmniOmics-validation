@@ -1,0 +1,19 @@
+tax_id	abundance	domain	phylum	class	order	family	genus	species	estimated counts
+15589	0.05399467369706535	Bacteria	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Alloprevotella	Alloprevotella_sp004555055(GB_GCA_004555055_1	739.7810243234924
+17395	0.009577652476159363	Bacteria	Actinomycetota	Coriobacteriia	Coriobacteriales	Coriobacteriaceae	Collinsella	Collinsella_sp900764415(GB_GCA_900764415_1	131.22341657585943
+29043	0.12072111524706226	Bacteria	Bacillota	Bacilli	Staphylococcales	Staphylococcaceae	Staphylococcus	Staphylococcus_aureus(RS_GCF_001027105_1	1654.0
+20228	0.08094299090673629	Bacteria	Actinomycetota	Actinomycetes	Actinomycetales	Bifidobacteriaceae	Bifidobacterium	Bifidobacterium_vaginale(RS_GCF_001042655_1	1108.9999184131939
+46268	0.15305452175908624	Bacteria	Bacillota	Bacilli	Lactobacillales	Listeriaceae	Listeria	Listeria_monocytogenes_B(RS_GCF_000307025_1	2097.0000026212406
+55761	0.09867892854536166	Bacteria	Bacillota	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus	Enterococcus_faecalis(RS_GCF_029024925_1	1352.0
+35187	0.1610831324267396	Bacteria	Bacillota	Bacilli	Bacillales	Bacillaceae	Bacillus	Bacillus_spizizenii(GB_GCA_031316495_1	2206.9999973787594
+52318	0.14779943069848916	Bacteria	Bacillota	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus_fermentum(RS_GCF_013394085_1	2025.0
+16346	0.05853554916434185	Bacteria	Pseudomonadota	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Salmonella	Salmonella_enterica(RS_GCF_000006945_2	801.9955591006477
+11807	0.02496168162907817	Bacteria	Spirochaetota	Spirochaetia	Borreliales	Borreliaceae	Borreliella	Borreliella_burgdorferi(RS_GCF_000008685_2	342.0
+54962	0.061236412056551066	Bacteria	Actinomycetota	Actinomycetes	Actinomycetales	Bifidobacteriaceae	Bifidobacterium	Bifidobacterium_adolescentis(RS_GCF_000010425_1	839.0000815868061
+17884	0.007353477848332238	Bacteria	Actinomycetota	Actinomycetes	Mycobacteriales	Micromonosporaceae	Micromonospora	Micromonospora_sp025460765(RS_GCF_025460765_1	100.75
+24213	0.007353477848332238	Bacteria	Pseudomonadota	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	Pseudomonas_paraeruginosa(RS_GCF_002601815_1	100.75
+54892	0.007353477848332238	Bacteria	Pseudomonadota	Alphaproteobacteria	Acetobacterales	Acetobacteraceae	Pseudoroseomonas	Pseudoroseomonas_rhizosphaerae(RS_GCF_002631185_1	100.75
+25675	0.007353477848332238	Bacteria	Pseudomonadota	Gammaproteobacteria	Pseudomonadales	Pseudomonadaceae	Pseudomonas	Pseudomonas_aeruginosa(RS_GCF_001457615_1	100.75
+unmapped	0.0								0.0
+mapped_filtered	0.0								0.0
+mapped_unclassified	0.0								19.0

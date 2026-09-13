@@ -1,0 +1,463 @@
+Using profile /projetos/ridh/gabrielcoelho/PRISM-root/pbs_profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-09-12 21:28:57
+  Workflow ID: b2c016fd-9f6e-43c1-b417-7d2fa72e5e38
+  Platform: Linux-5.3.18-150300.59.60-default-x86_64-with-glibc2.31
+  Host: tapajos
+  User: gabriel.coelho
+  Snakemake version: 9.26.1
+  Python version: 3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]
+  Command: /projetos/ridh/gabrielcoelho/MAGMA-root/snakemake_env/bin/snakemake --use-conda --profile /projetos/ridh/gabrielcoelho/PRISM-root/pbs_profile --configfile /projetos/ridh/gabrielcoelho/validacao/v-prism/config/config.yaml --rerun-incomplete --keep-going
+  Snakefile: /projetos/ridh/gabrielcoelho/PRISM-root/pipeline/Snakefile
+  Base directory: /projetos/ridh/gabrielcoelho/PRISM-root/pipeline
+  Run directory: /projetos/ridh/gabrielcoelho/PRISM-root/pipeline
+  Working directory: /projetos/ridh/gabrielcoelho/PRISM-root/pipeline
+  Config file(s): [PosixPath('/projetos/ridh/gabrielcoelho/validacao/v-prism/config/config.yaml')]
+  Config MD5: 5c025ccef46692ce14d397497f4a499f
+
+Building DAG of jobs...
+Creating conda environment /projetos/ridh/gabrielcoelho/PRISM-root/pipeline/workflow/rules/../envs/qc.yaml...
+Downloading and installing remote packages.
+Cleaning up conda package tarballs.
+Environment for /projetos/ridh/gabrielcoelho/PRISM-root/pipeline/workflow/rules/../envs/qc.yaml created (location: ../../../../MAGMA-root/conda_envs/e855bf8112c7f5c90ddfdc6953596de8_)
+Using shell: /usr/bin/bash
+Provided remote nodes: 10
+Job stats:
+job                       count
+----------------------  -------
+filtlong                      3
+nanoplot_raw                  3
+cutadapt_trim                 3
+nanoplot_clean                3
+vsearch_cluster               3
+vsearch_chimera               3
+dada2_pacbio                  1
+emu_classify                  3
+join_emu                      1
+picrust2                      1
+emu_tree                      1
+select_abundance_table        1
+all                           1
+total                        27
+
+Select jobs to execute...
+Execute 6 jobs...
+
+[Sat Sep 12 21:30:14 2026]
+rule filtlong:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP3/MSPlus_rep3_sup.fastq.gz
+    output: results/01_QC/MSPLUS_REP3/MSPLUS_REP3_filtered.fastq.gz
+    log: logs/filtlong/MSPLUS_REP3.log
+    jobid: 9
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=MSPLUS_REP3
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 9 with external jobid '18888.tapajos'.
+
+[Sat Sep 12 21:30:14 2026]
+rule filtlong:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP1/MSPlus_rep1_sup.fastq.gz
+    output: results/01_QC/MSPLUS_REP1/MSPLUS_REP1_filtered.fastq.gz
+    log: logs/filtlong/MSPLUS_REP1.log
+    jobid: 5
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=MSPLUS_REP1
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 5 with external jobid '18889.tapajos'.
+
+[Sat Sep 12 21:30:14 2026]
+rule nanoplot_raw:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP3/MSPlus_rep3_sup.fastq.gz
+    output: results/01_QC/MSPLUS_REP3/nanoplot_raw, results/01_QC/MSPLUS_REP3/nanoplot_raw/NanoStats.txt
+    log: logs/nanoplot/MSPLUS_REP3_raw.log
+    jobid: 3
+    reason: Missing output files: results/01_QC/MSPLUS_REP3/nanoplot_raw/NanoStats.txt; Software environment definition has changed since last execution
+    wildcards: sample=MSPLUS_REP3
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 3 with external jobid '18890.tapajos'.
+
+[Sat Sep 12 21:30:14 2026]
+rule nanoplot_raw:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP1/MSPlus_rep1_sup.fastq.gz
+    output: results/01_QC/MSPLUS_REP1/nanoplot_raw, results/01_QC/MSPLUS_REP1/nanoplot_raw/NanoStats.txt
+    log: logs/nanoplot/MSPLUS_REP1_raw.log
+    jobid: 1
+    reason: Missing output files: results/01_QC/MSPLUS_REP1/nanoplot_raw/NanoStats.txt; Software environment definition has changed since last execution
+    wildcards: sample=MSPLUS_REP1
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 1 with external jobid '18891.tapajos'.
+
+[Sat Sep 12 21:30:14 2026]
+rule nanoplot_raw:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP2/MSPlus_rep2_sup.fastq.gz
+    output: results/01_QC/MSPLUS_REP2/nanoplot_raw, results/01_QC/MSPLUS_REP2/nanoplot_raw/NanoStats.txt
+    log: logs/nanoplot/MSPLUS_REP2_raw.log
+    jobid: 2
+    reason: Missing output files: results/01_QC/MSPLUS_REP2/nanoplot_raw/NanoStats.txt; Software environment definition has changed since last execution
+    wildcards: sample=MSPLUS_REP2
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 2 with external jobid '18892.tapajos'.
+
+[Sat Sep 12 21:30:15 2026]
+rule filtlong:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP2/MSPlus_rep2_sup.fastq.gz
+    output: results/01_QC/MSPLUS_REP2/MSPLUS_REP2_filtered.fastq.gz
+    log: logs/filtlong/MSPLUS_REP2.log
+    jobid: 7
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=MSPLUS_REP2
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 7 with external jobid '18893.tapajos'.
+[Sat Sep 12 21:30:54 2026]
+Finished jobid: 9 (Rule: filtlong)
+1 of 27 steps (4%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Sep 12 21:30:54 2026]
+rule cutadapt_trim:
+    input: results/01_QC/MSPLUS_REP3/MSPLUS_REP3_filtered.fastq.gz
+    output: results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_trimmed.fastq.gz, results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_cutadapt.json
+    log: logs/cutadapt/MSPLUS_REP3.log
+    jobid: 12
+    reason: Input files updated by another job: results/01_QC/MSPLUS_REP3/MSPLUS_REP3_filtered.fastq.gz
+    wildcards: sample=MSPLUS_REP3
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 12 with external jobid '18894.tapajos'.
+
+[Sat Sep 12 21:30:54 2026]
+rule nanoplot_clean:
+    input: results/01_QC/MSPLUS_REP3/MSPLUS_REP3_filtered.fastq.gz
+    output: results/01_QC/MSPLUS_REP3/nanoplot_clean, results/01_QC/MSPLUS_REP3/nanoplot_clean/NanoStats.txt
+    log: logs/nanoplot/MSPLUS_REP3_clean.log
+    jobid: 8
+    reason: Missing output files: results/01_QC/MSPLUS_REP3/nanoplot_clean/NanoStats.txt; Input files updated by another job: results/01_QC/MSPLUS_REP3/MSPLUS_REP3_filtered.fastq.gz
+    wildcards: sample=MSPLUS_REP3
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 8 with external jobid '18895.tapajos'.
+[Sat Sep 12 21:30:54 2026]
+Finished jobid: 5 (Rule: filtlong)
+2 of 27 steps (7%) done
+[Sat Sep 12 21:30:54 2026]
+Finished jobid: 7 (Rule: filtlong)
+3 of 27 steps (11%) done
+Select jobs to execute...
+Execute 4 jobs...
+
+[Sat Sep 12 21:30:55 2026]
+rule nanoplot_clean:
+    input: results/01_QC/MSPLUS_REP2/MSPLUS_REP2_filtered.fastq.gz
+    output: results/01_QC/MSPLUS_REP2/nanoplot_clean, results/01_QC/MSPLUS_REP2/nanoplot_clean/NanoStats.txt
+    log: logs/nanoplot/MSPLUS_REP2_clean.log
+    jobid: 6
+    reason: Missing output files: results/01_QC/MSPLUS_REP2/nanoplot_clean/NanoStats.txt; Input files updated by another job: results/01_QC/MSPLUS_REP2/MSPLUS_REP2_filtered.fastq.gz
+    wildcards: sample=MSPLUS_REP2
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 6 with external jobid '18896.tapajos'.
+
+[Sat Sep 12 21:30:55 2026]
+rule cutadapt_trim:
+    input: results/01_QC/MSPLUS_REP1/MSPLUS_REP1_filtered.fastq.gz
+    output: results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_trimmed.fastq.gz, results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_cutadapt.json
+    log: logs/cutadapt/MSPLUS_REP1.log
+    jobid: 10
+    reason: Input files updated by another job: results/01_QC/MSPLUS_REP1/MSPLUS_REP1_filtered.fastq.gz
+    wildcards: sample=MSPLUS_REP1
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 10 with external jobid '18897.tapajos'.
+
+[Sat Sep 12 21:30:55 2026]
+rule nanoplot_clean:
+    input: results/01_QC/MSPLUS_REP1/MSPLUS_REP1_filtered.fastq.gz
+    output: results/01_QC/MSPLUS_REP1/nanoplot_clean, results/01_QC/MSPLUS_REP1/nanoplot_clean/NanoStats.txt
+    log: logs/nanoplot/MSPLUS_REP1_clean.log
+    jobid: 4
+    reason: Missing output files: results/01_QC/MSPLUS_REP1/nanoplot_clean/NanoStats.txt; Input files updated by another job: results/01_QC/MSPLUS_REP1/MSPLUS_REP1_filtered.fastq.gz
+    wildcards: sample=MSPLUS_REP1
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 4 with external jobid '18898.tapajos'.
+
+[Sat Sep 12 21:30:55 2026]
+rule cutadapt_trim:
+    input: results/01_QC/MSPLUS_REP2/MSPLUS_REP2_filtered.fastq.gz
+    output: results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_trimmed.fastq.gz, results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_cutadapt.json
+    log: logs/cutadapt/MSPLUS_REP2.log
+    jobid: 11
+    reason: Input files updated by another job: results/01_QC/MSPLUS_REP2/MSPLUS_REP2_filtered.fastq.gz
+    wildcards: sample=MSPLUS_REP2
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 11 with external jobid '18899.tapajos'.
+[Sat Sep 12 21:31:04 2026]
+Finished jobid: 12 (Rule: cutadapt_trim)
+4 of 27 steps (15%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:31:04 2026]
+rule vsearch_cluster:
+    input: results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_trimmed.fastq.gz
+    output: results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_clustered.fasta, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_clustered.uc
+    log: logs/chimera/MSPLUS_REP3_cluster.log
+    jobid: 18
+    reason: Input files updated by another job: results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_trimmed.fastq.gz
+    wildcards: sample=MSPLUS_REP3
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=168:00:00
+Submitted job 18 with external jobid '18900.tapajos'.
+[Sat Sep 12 21:31:04 2026]
+Finished jobid: 10 (Rule: cutadapt_trim)
+5 of 27 steps (19%) done
+[Sat Sep 12 21:31:04 2026]
+Finished jobid: 11 (Rule: cutadapt_trim)
+6 of 27 steps (22%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Sep 12 21:31:05 2026]
+rule vsearch_cluster:
+    input: results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_trimmed.fastq.gz
+    output: results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_clustered.fasta, results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_clustered.uc
+    log: logs/chimera/MSPLUS_REP1_cluster.log
+    jobid: 14
+    reason: Input files updated by another job: results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_trimmed.fastq.gz
+    wildcards: sample=MSPLUS_REP1
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=168:00:00
+Submitted job 14 with external jobid '18901.tapajos'.
+
+[Sat Sep 12 21:31:05 2026]
+rule vsearch_cluster:
+    input: results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_trimmed.fastq.gz
+    output: results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_clustered.fasta, results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_clustered.uc
+    log: logs/chimera/MSPLUS_REP2_cluster.log
+    jobid: 16
+    reason: Input files updated by another job: results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_trimmed.fastq.gz
+    wildcards: sample=MSPLUS_REP2
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=168:00:00
+Submitted job 16 with external jobid '18902.tapajos'.
+[Sat Sep 12 21:31:45 2026]
+Finished jobid: 18 (Rule: vsearch_cluster)
+7 of 27 steps (26%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:31:45 2026]
+rule vsearch_chimera:
+    input: results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_clustered.fasta, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_clustered.uc, results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_trimmed.fastq.gz
+    output: results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_chimeras.fasta, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_nonchimeric.fastq.gz
+    log: logs/chimera/MSPLUS_REP3_uchime.log
+    jobid: 17
+    reason: Input files updated by another job: results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_trimmed.fastq.gz, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_clustered.fasta, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_clustered.uc
+    wildcards: sample=MSPLUS_REP3
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=168:00:00
+Submitted job 17 with external jobid '18903.tapajos'.
+[Sat Sep 12 21:31:45 2026]
+Finished jobid: 14 (Rule: vsearch_cluster)
+8 of 27 steps (30%) done
+[Sat Sep 12 21:31:45 2026]
+Finished jobid: 16 (Rule: vsearch_cluster)
+9 of 27 steps (33%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Sep 12 21:31:45 2026]
+rule vsearch_chimera:
+    input: results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_clustered.fasta, results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_clustered.uc, results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_trimmed.fastq.gz
+    output: results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_chimeras.fasta, results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_nonchimeric.fastq.gz
+    log: logs/chimera/MSPLUS_REP1_uchime.log
+    jobid: 13
+    reason: Input files updated by another job: results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_clustered.uc, results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_clustered.fasta, results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_trimmed.fastq.gz
+    wildcards: sample=MSPLUS_REP1
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=168:00:00
+Submitted job 13 with external jobid '18904.tapajos'.
+
+[Sat Sep 12 21:31:45 2026]
+rule vsearch_chimera:
+    input: results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_clustered.fasta, results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_clustered.uc, results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_trimmed.fastq.gz
+    output: results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_chimeras.fasta, results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_nonchimeric.fastq.gz
+    log: logs/chimera/MSPLUS_REP2_uchime.log
+    jobid: 15
+    reason: Input files updated by another job: results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_clustered.fasta, results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_clustered.uc, results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_trimmed.fastq.gz
+    wildcards: sample=MSPLUS_REP2
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=168:00:00
+Submitted job 15 with external jobid '18905.tapajos'.
+[Sat Sep 12 21:32:25 2026]
+Finished jobid: 17 (Rule: vsearch_chimera)
+10 of 27 steps (37%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:32:25 2026]
+rule emu_classify:
+    input: results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_nonchimeric.fastq.gz, results/04_DENOISE/emu/db_16S/species_taxid.fasta
+    output: results/04_DENOISE/emu/MSPLUS_REP3/MSPLUS_REP3_rel-abundance.tsv
+    log: logs/denoise/emu_MSPLUS_REP3.log
+    jobid: 25
+    reason: Input files updated by another job: results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_nonchimeric.fastq.gz
+    wildcards: sample=MSPLUS_REP3
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=168:00:00
+Submitted job 25 with external jobid '18906.tapajos'.
+[Sat Sep 12 21:32:25 2026]
+Finished jobid: 13 (Rule: vsearch_chimera)
+11 of 27 steps (41%) done
+[Sat Sep 12 21:32:25 2026]
+Finished jobid: 15 (Rule: vsearch_chimera)
+12 of 27 steps (44%) done
+Select jobs to execute...
+Execute 3 jobs...
+
+[Sat Sep 12 21:32:25 2026]
+rule emu_classify:
+    input: results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_nonchimeric.fastq.gz, results/04_DENOISE/emu/db_16S/species_taxid.fasta
+    output: results/04_DENOISE/emu/MSPLUS_REP1/MSPLUS_REP1_rel-abundance.tsv
+    log: logs/denoise/emu_MSPLUS_REP1.log
+    jobid: 22
+    reason: Input files updated by another job: results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_nonchimeric.fastq.gz
+    wildcards: sample=MSPLUS_REP1
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=168:00:00
+Submitted job 22 with external jobid '18907.tapajos'.
+
+[Sat Sep 12 21:32:25 2026]
+rule emu_classify:
+    input: results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_nonchimeric.fastq.gz, results/04_DENOISE/emu/db_16S/species_taxid.fasta
+    output: results/04_DENOISE/emu/MSPLUS_REP2/MSPLUS_REP2_rel-abundance.tsv
+    log: logs/denoise/emu_MSPLUS_REP2.log
+    jobid: 24
+    reason: Input files updated by another job: results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_nonchimeric.fastq.gz
+    wildcards: sample=MSPLUS_REP2
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=168:00:00
+Submitted job 24 with external jobid '18908.tapajos'.
+
+[Sat Sep 12 21:32:25 2026]
+rule dada2_pacbio:
+    input: results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_nonchimeric.fastq.gz, results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_nonchimeric.fastq.gz, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_nonchimeric.fastq.gz
+    output: results/04_DENOISE/dada2/prism_abundance_table.tsv, results/04_DENOISE/dada2/prism_asv_sequences.fasta, results/04_DENOISE/dada2/prism_asv_taxonomy.tsv, results/04_DENOISE/dada2/prism_asv_counts.tsv
+    log: logs/denoise/dada2_pacbio.log
+    jobid: 20
+    reason: Input files updated by another job: results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_nonchimeric.fastq.gz, results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_nonchimeric.fastq.gz, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_nonchimeric.fastq.gz
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=168:00:00
+Submitted job 20 with external jobid '18909.tapajos'.
+[Sat Sep 12 21:32:35 2026]
+Finished jobid: 20 (Rule: dada2_pacbio)
+13 of 27 steps (48%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:32:35 2026]
+rule picrust2:
+    input: results/04_DENOISE/dada2/prism_asv_sequences.fasta, results/04_DENOISE/dada2/prism_asv_counts.tsv
+    output: results/06_FUNCTIONAL/KO_metagenome_out/pred_metagenome_unstrat.tsv.gz, results/06_FUNCTIONAL/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz, results/06_FUNCTIONAL/pathways_out/path_abun_unstrat.tsv.gz
+    log: logs/functional/picrust2.log
+    jobid: 28
+    reason: Input files updated by another job: results/04_DENOISE/dada2/prism_asv_sequences.fasta, results/04_DENOISE/dada2/prism_asv_counts.tsv
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=168:00:00
+Submitted job 28 with external jobid '18910.tapajos'.
+[Sat Sep 12 21:32:45 2026]
+Finished jobid: 28 (Rule: picrust2)
+14 of 27 steps (52%) done
+[Sat Sep 12 21:33:45 2026]
+Finished jobid: 22 (Rule: emu_classify)
+15 of 27 steps (56%) done
+[Sat Sep 12 21:34:15 2026]
+Finished jobid: 3 (Rule: nanoplot_raw)
+16 of 27 steps (59%) done
+[Sat Sep 12 21:34:15 2026]
+Finished jobid: 1 (Rule: nanoplot_raw)
+17 of 27 steps (63%) done
+[Sat Sep 12 21:34:15 2026]
+Finished jobid: 2 (Rule: nanoplot_raw)
+18 of 27 steps (67%) done
+[Sat Sep 12 21:34:15 2026]
+Finished jobid: 25 (Rule: emu_classify)
+19 of 27 steps (70%) done
+[Sat Sep 12 21:34:15 2026]
+Finished jobid: 24 (Rule: emu_classify)
+20 of 27 steps (74%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:34:15 2026]
+rule join_emu:
+    input: results/04_DENOISE/emu/MSPLUS_REP1/MSPLUS_REP1_rel-abundance.tsv, results/04_DENOISE/emu/MSPLUS_REP2/MSPLUS_REP2_rel-abundance.tsv, results/04_DENOISE/emu/MSPLUS_REP3/MSPLUS_REP3_rel-abundance.tsv
+    output: results/04_DENOISE/emu/prism_abundance_table.tsv, results/04_DENOISE/emu/prism_species_counts.tsv
+    log: logs/denoise/join_emu.log
+    jobid: 21
+    reason: Input files updated by another job: results/04_DENOISE/emu/MSPLUS_REP3/MSPLUS_REP3_rel-abundance.tsv, results/04_DENOISE/emu/MSPLUS_REP1/MSPLUS_REP1_rel-abundance.tsv, results/04_DENOISE/emu/MSPLUS_REP2/MSPLUS_REP2_rel-abundance.tsv
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 21 with external jobid '18911.tapajos'.
+[Sat Sep 12 21:34:25 2026]
+Finished jobid: 21 (Rule: join_emu)
+21 of 27 steps (78%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Sep 12 21:34:25 2026]
+rule select_abundance_table:
+    input: results/04_DENOISE/dada2/prism_abundance_table.tsv, results/04_DENOISE/emu/prism_abundance_table.tsv, results/04_DENOISE/dada2_illumina/prism_abundance_table.tsv
+    output: results/05_ABUNDANCE_TABLE/prism_abundance_table.tsv
+    log: logs/denoise/select_abundance_table.log
+    jobid: 19
+    reason: Input files updated by another job: results/04_DENOISE/emu/prism_abundance_table.tsv, results/04_DENOISE/dada2/prism_abundance_table.tsv
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 19 with external jobid '18912.tapajos'.
+
+[Sat Sep 12 21:34:25 2026]
+rule emu_tree:
+    input: results/04_DENOISE/emu/prism_species_counts.tsv, results/04_DENOISE/emu/db_16S/species_taxid.fasta, results/04_DENOISE/emu/db_16S/taxonomy.tsv
+    output: results/04_DENOISE/emu/tree_done.flag
+    log: logs/denoise/emu_tree.log
+    jobid: 27
+    reason: Input files updated by another job: results/04_DENOISE/emu/prism_species_counts.tsv
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=168:00:00
+Submitted job 27 with external jobid '18913.tapajos'.
+[Sat Sep 12 21:34:35 2026]
+Finished jobid: 19 (Rule: select_abundance_table)
+22 of 27 steps (81%) done
+[Sat Sep 12 21:34:45 2026]
+Finished jobid: 8 (Rule: nanoplot_clean)
+23 of 27 steps (85%) done
+[Sat Sep 12 21:34:45 2026]
+Finished jobid: 6 (Rule: nanoplot_clean)
+24 of 27 steps (89%) done
+[Sat Sep 12 21:34:45 2026]
+Finished jobid: 4 (Rule: nanoplot_clean)
+25 of 27 steps (93%) done
+[Sat Sep 12 21:34:45 2026]
+Finished jobid: 27 (Rule: emu_tree)
+26 of 27 steps (96%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Sep 12 21:34:45 2026]
+localrule all:
+    input: results/01_QC/MSPLUS_REP1/nanoplot_raw/NanoStats.txt, results/01_QC/MSPLUS_REP2/nanoplot_raw/NanoStats.txt, results/01_QC/MSPLUS_REP3/nanoplot_raw/NanoStats.txt, results/01_QC/MSPLUS_REP1/nanoplot_clean/NanoStats.txt, results/01_QC/MSPLUS_REP2/nanoplot_clean/NanoStats.txt, results/01_QC/MSPLUS_REP3/nanoplot_clean/NanoStats.txt, results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_trimmed.fastq.gz, results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_trimmed.fastq.gz, results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_trimmed.fastq.gz, results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_nonchimeric.fastq.gz, results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_nonchimeric.fastq.gz, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_nonchimeric.fastq.gz, results/05_ABUNDANCE_TABLE/prism_abundance_table.tsv, results/04_DENOISE/emu/tree_done.flag, results/06_FUNCTIONAL/KO_metagenome_out/pred_metagenome_unstrat.tsv.gz, results/06_FUNCTIONAL/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz, results/06_FUNCTIONAL/pathways_out/path_abun_unstrat.tsv.gz
+    jobid: 0
+    reason: Input files updated by another job: results/01_QC/MSPLUS_REP1/nanoplot_clean/NanoStats.txt, results/01_QC/MSPLUS_REP3/nanoplot_clean/NanoStats.txt, results/06_FUNCTIONAL/KO_metagenome_out/pred_metagenome_unstrat.tsv.gz, results/05_ABUNDANCE_TABLE/prism_abundance_table.tsv, results/01_QC/MSPLUS_REP2/nanoplot_raw/NanoStats.txt, results/01_QC/MSPLUS_REP2/nanoplot_clean/NanoStats.txt, results/02_PRIMER_TRIM/MSPLUS_REP1/MSPLUS_REP1_trimmed.fastq.gz, results/06_FUNCTIONAL/pathways_out/path_abun_unstrat.tsv.gz, results/03_CHIMERA/MSPLUS_REP2/MSPLUS_REP2_nonchimeric.fastq.gz, results/03_CHIMERA/MSPLUS_REP1/MSPLUS_REP1_nonchimeric.fastq.gz, results/04_DENOISE/emu/tree_done.flag, results/01_QC/MSPLUS_REP3/nanoplot_raw/NanoStats.txt, results/06_FUNCTIONAL/EC_metagenome_out/pred_metagenome_unstrat.tsv.gz, results/02_PRIMER_TRIM/MSPLUS_REP3/MSPLUS_REP3_trimmed.fastq.gz, results/03_CHIMERA/MSPLUS_REP3/MSPLUS_REP3_nonchimeric.fastq.gz, results/01_QC/MSPLUS_REP1/nanoplot_raw/NanoStats.txt, results/02_PRIMER_TRIM/MSPLUS_REP2/MSPLUS_REP2_trimmed.fastq.gz
+    resources: tmpdir=/tmp, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815
+[Sat Sep 12 21:34:45 2026]
+Finished jobid: 0 (Rule: all)
+27 of 27 steps (100%) done
+Complete log(s): /projetos/ridh/gabrielcoelho/PRISM-root/pipeline/.snakemake/log/2026-09-12T212857.442334.snakemake.log
+Elapsed time: 0:05:57.903657
+EXIT_CODE=0

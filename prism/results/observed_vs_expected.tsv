@@ -1,0 +1,4 @@
+replicate	genus_level_pearson_r_vs_ont	four_spiked_species_detected	species_detected	species_missed	notes
+rep1	0.9766	FALSE (3/4)	Bifidobacterium adolescentis, Bifidobacterium vaginale (=Gardnerella vaginalis), Borreliella/Borrelia burgdorferi	Chlamydia trachomatis	See README for investigation
+rep2	0.9630	FALSE (3/4)	Bifidobacterium adolescentis, Bifidobacterium vaginale (=Gardnerella vaginalis), Borreliella/Borrelia burgdorferi	Chlamydia trachomatis	See README for investigation
+rep3	0.9577	FALSE (3/4)	Bifidobacterium adolescentis, Bifidobacterium vaginale (=Gardnerella vaginalis), Borreliella/Borrelia burgdorferi	Chlamydia trachomatis	See README for investigation
