@@ -7,7 +7,7 @@ reference) against ONT's own official Emu classification of the *same read
 files* (`../ground_truth/ONT_official_emu_MSPlus_MAB114_rep{1,2,3}_rel-abundance.tsv`).
 Full run log: `run_log.txt` (100% complete, EXIT_CODE=0).
 
-## Community-level correlation: PASS
+## Community-level agreement: PASS, but reported with three metrics, not one
 
 A direct species-name string match gives a misleadingly low correlation
 (r≈0.03–0.07) because PRISM's GTDB SSU r220 database and whatever GTDB
@@ -18,18 +18,35 @@ same ~16% signal; `Enterococcus_faecalis` vs. `Enterococcus_H`; `Listeria_monocy
 vs. `Listeria_A` — all the same real abundance, different GTDB-release
 naming). Aggregating to **genus level** removes that noise and is the
 scientifically appropriate comparison given the reference-version
-difference:
+difference.
 
-| replicate | genus-level Pearson r vs. ONT's own result |
-|---|---|
-| rep1 | 0.9766 |
-| rep2 | 0.9630 |
-| rep3 | 0.9577 |
-| **mean** | **0.9658** |
+**A single metric was not enough to trust here, so three were computed and
+compared** (a real check on this validation's own methodology, same
+spirit as the DEFINE correction):
 
-Strong agreement — PRISM's real Emu classification (GTDB reference)
-recovers essentially the same community structure ONT's own official
-pipeline found for these exact reads.
+| replicate | Bray-Curtis dissimilarity (0=identical) | Pearson r | Spearman ρ |
+|---|---|---|---|
+| rep1 | 0.0822 | 0.9766 | 0.7871 |
+| rep2 | 0.1035 | 0.9630 | 0.6596 |
+| rep3 | 0.1072 | 0.9577 | 0.6791 |
+| **mean** | **0.0976** | **0.9658** | **0.7086** |
+
+**Pearson r alone overstates agreement here** — it is dominated by a
+handful of high-abundance genera (removing the single most dominant genus,
+*Bacillus*, barely moves it: 0.95–0.97), so a high Pearson r does not by
+itself rule out real disagreement among the smaller-abundance taxa.
+Spearman ρ (rank-based, not magnitude-weighted) is meaningfully lower
+(0.66–0.79), which correctly reflects real rank-order disagreements at low
+abundance — including the *Chlamydia* miss below and the different way
+each database's Emu run split the closely related
+Escherichia/Salmonella/Shigella/Klebsiella signal.
+
+**Bray-Curtis dissimilarity — the standard compositional-similarity metric
+for this kind of data (not Pearson) — is 0.08–0.11**, which by common
+microbiome-literature convention (values below ~0.2 indicating similar
+communities) supports a real, strong community-level agreement between
+PRISM's real output and ONT's own official result, while not hiding the
+genuine minor-taxa disagreements Spearman surfaces.
 
 ## Four spiked-species check: 3/4 (real miss, investigated)
 

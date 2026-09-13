@@ -22,7 +22,7 @@ r220) against ONT's own official Emu classification of the same reads.
 
 | check | result |
 |---|---|
-| Genus-level community correlation vs. ONT's own result | **PASSED** — Pearson r = 0.96–0.98 across all 3 replicates (mean 0.966) |
+| Genus-level community composition vs. ONT's own result | **PASSED** — Bray-Curtis dissimilarity = 0.08–0.11 across all 3 replicates (mean 0.098), the standard compositional-similarity metric for this kind of data. Pearson r (0.96–0.98) alone overstates agreement — it's dominated by a few high-abundance genera; Spearman ρ (0.66–0.79) more honestly reflects real rank-order disagreement among the minor taxa. All three are reported in `results/README.md` rather than only the most favorable one. |
 | All 4 spiked species detected | **FAILED (3/4)** — *Bifidobacterium adolescentis*, *B. vaginale* (=*Gardnerella vaginalis*), and *Borreliella/Borrelia burgdorferi* detected with closely matching abundances; *Chlamydia trachomatis* not detected at all (0% vs. ONT's ~1.9–2.0%), most likely due to the well-documented mismatch between "universal" 16S primers and Chlamydiae sequences — see `results/README.md` for the full investigation (database coverage ruled out; loss traced to the primer-trimming step). |
 
 Reported as-is, same honesty standard applied throughout this validation.
