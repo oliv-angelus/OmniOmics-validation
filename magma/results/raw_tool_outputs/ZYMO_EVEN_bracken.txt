@@ -1,0 +1,156 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Bacillus spizizenii	96241	S	815973	147373	963346	0.11619
+Bacillus inaquosorum	483913	S	1110	103	1213	0.00015
+Bacillus subtilis	1423	S	1109	25792	26901	0.00324
+Bacillus tequilensis	227866	S	436	21	457	0.00006
+Bacillus vallismortis	72361	S	435	121	556	0.00007
+Bacillus mojavensis	72360	S	172	191	363	0.00004
+Bacillus halotolerans	260554	S	169	157	326	0.00004
+Bacillus velezensis	492670	S	217	1665	1882	0.00023
+Bacillus amyloliquefaciens	1390	S	22	388	410	0.00005
+Bacillus atrophaeus	1452	S	220	6	226	0.00003
+Bacillus stercoris	2054641	S	49	68	117	0.00001
+Bacillus rugosus	2715209	S	608	53	661	0.00008
+Bacillus cereus	1396	S	279	2969	3248	0.00039
+Bacillus mycoides	1405	S	20	7	27	0.00000
+Bacillus thuringiensis	1428	S	15	21	36	0.00000
+Bacillus cabrialesii	2487276	S	286	18	304	0.00004
+Bacillus sp. SRL337	3711693	S	25	0	25	0.00000
+Bacillus sp. K7	2937834	S	19	33	52	0.00001
+Bacillus sp. JS	1127744	S	17	53	70	0.00001
+Bacillus sp. BACIII	3484029	S	10	23	33	0.00000
+Bacillus gobiensis	1441095	S	30	0	30	0.00000
+Bacillus safensis	561879	S	27	46	73	0.00001
+Bacillus fonticola	2728853	S	11	0	11	0.00000
+Shouchella clausii	79880	S	13	0	13	0.00000
+Listeria monocytogenes	1639	S	61488	874412	935900	0.11288
+Listeria innocua	1642	S	3641	6802	10443	0.00126
+Listeria swaminathanii	2713501	S	1277	343	1620	0.00020
+Listeria ivanovii	1638	S	694	1564	2258	0.00027
+Listeria welshimeri	1643	S	654	310	964	0.00012
+Listeria seeligeri	1640	S	393	163	556	0.00007
+Staphylococcus aureus	1280	S	194703	665902	860605	0.10379
+Staphylococcus argenteus	985002	S	275	23	298	0.00004
+Staphylococcus schweitzeri	1654388	S	273	25	298	0.00004
+Staphylococcus hominis	1290	S	268	25	293	0.00004
+Staphylococcus simulans	1286	S	234	7	241	0.00003
+Staphylococcus simiae	308354	S	192	2	194	0.00002
+Staphylococcus sp. MZ8	2836366	S	57	4150	4207	0.00051
+Staphylococcus sp. MZ9	2836367	S	44	13752	13796	0.00166
+Staphylococcus epidermidis	1282	S	60	5	65	0.00001
+Staphylococcus saprophyticus	29385	S	45	241	286	0.00003
+Staphylococcus lugdunensis	28035	S	45	1	46	0.00001
+Staphylococcus caprae	29380	S	37	2	39	0.00000
+Staphylococcus cohnii	29382	S	22	2	24	0.00000
+Staphylococcus capitis	29388	S	22	2	24	0.00000
+Staphylococcus agnetis	985762	S	18	0	18	0.00000
+Staphylococcus debuckii	2044912	S	18	1	19	0.00000
+Staphylococcus shinii	2912228	S	12	1	13	0.00000
+Enterococcus faecalis	1351	S	80164	624321	704485	0.08497
+Enterococcus sp. DIV2315	2774765	S	251	5501	5752	0.00069
+Enterococcus sp. AZ037	2774924	S	156	5557	5713	0.00069
+Enterococcus sp. DIV1939	2774903	S	136	1634	1770	0.00021
+Enterococcus sp. AZ104	2774729	S	130	1504	1634	0.00020
+Enterococcus sp. DIV0561	2775016	S	126	2172	2298	0.00028
+Enterococcus sp. AZ035	2774935	S	125	3085	3210	0.00039
+Enterococcus sp. DIV0294	2774712	S	122	1243	1365	0.00016
+Enterococcus sp. DIV0836a	2775020	S	108	2808	2916	0.00035
+Enterococcus sp. DIV0167	2775012	S	96	2023	2119	0.00026
+Enterococcus sp. DIV1217	2774905	S	84	1881	1965	0.00024
+Enterococcus sp. DIV2432	2774762	S	84	638	722	0.00009
+Enterococcus sp. DIV0015	2774900	S	81	1671	1752	0.00021
+Enterococcus sp. DIV0236	2774819	S	75	156519	156594	0.01889
+Enterococcus sp. DIV1316a	2774959	S	69	22610	22679	0.00274
+Enterococcus sp. DIV1202	2774964	S	67	6151	6218	0.00075
+Enterococcus sp. MSG3310	2774835	S	64	348	412	0.00005
+Enterococcus sp. DIV0212c	2230867	S	47	0	47	0.00001
+Enterococcus sp. AMC1251	3695800	S	44	0	44	0.00001
+Enterococcus sp. DIV1328a	2774996	S	39	3242	3281	0.00040
+Enterococcus sp. DA9	2603296	S	36	300	336	0.00004
+Enterococcus sp. AZ197	2774885	S	33	389	422	0.00005
+Enterococcus sp. AMC1252	3695801	S	33	0	33	0.00000
+Enterococcus sp. 22-H-5-01	3418555	S	28	0	28	0.00000
+Enterococcus sp. MSG4854	2774849	S	23	74061	74084	0.00893
+Enterococcus sp. DIV0210g	2774656	S	22	0	22	0.00000
+Enterococcus sp. MSG3299	2774926	S	20	1161	1181	0.00014
+Enterococcus sp. DIV0774	2774989	S	14	154	168	0.00002
+Enterococcus sp. DIV0724b	2774694	S	14	0	14	0.00000
+Enterococcus sp. AZ119	2774940	S	11	4332	4343	0.00052
+Enterococcus sp. DIV1307a	2774993	S	10	438	448	0.00005
+Enterococcus faecium	1352	S	175	1557	1732	0.00021
+Candidatus Enterococcus dunnyi	1834192	S	120	3	123	0.00001
+Enterococcus raffinosus	71452	S	29	1	30	0.00000
+Candidatus Enterococcus clewellii	1834193	S	26	0	26	0.00000
+Enterococcus devriesei	319970	S	17	3	20	0.00000
+Enterococcus rotai	118060	S	15	0	15	0.00000
+Enterococcus durans	53345	S	13	1	14	0.00000
+Limosilactobacillus fermentum	1613	S	833135	38971	872106	0.10518
+Limosilactobacillus reuteri	1598	S	12	0	12	0.00000
+Lactobacillus delbrueckii	1584	S	141	7	148	0.00002
+Lactobacillus gasseri	1596	S	14	1	15	0.00000
+Lactiplantibacillus plantarum	1590	S	101	9	110	0.00001
+Weissella paramesenteroides	1249	S	63	0	63	0.00001
+Companilactobacillus farciminis	1612	S	18	0	18	0.00000
+Streptococcus agalactiae	1311	S	1116	123	1239	0.00015
+Streptococcus thermophilus	1308	S	13	0	13	0.00000
+Carnobacterium maltaromaticum	2751	S	109	2	111	0.00001
+Actinomyces oris	544580	S	429	17	446	0.00005
+Mycobacterium canetti	78331	S	22	1	23	0.00000
+Salmonella enterica	28901	S	285746	1010961	1296707	0.15639
+Salmonella bongori	54736	S	272	11	283	0.00003
+Salmonella sp. 3C	2979871	S	28	1514	1542	0.00019
+Salmonella sp. 2018103	2991700	S	14	219	233	0.00003
+Salmonella sp. SSDFZ54	2500542	S	11	436	447	0.00005
+Escherichia coli	562	S	79177	720202	799379	0.09641
+Escherichia albertii	208962	S	280	80	360	0.00004
+Escherichia fergusonii	564	S	179	133	312	0.00004
+Escherichia marmotae	1499973	S	136	29	165	0.00002
+Escherichia sp. E4742	2044467	S	116	31	147	0.00002
+Shigella dysenteriae	622	S	296	2775	3071	0.00037
+Shigella flexneri	623	S	289	13901	14190	0.00171
+Shigella boydii	621	S	142	2202	2344	0.00028
+Shigella sonnei	624	S	62	1599	1661	0.00020
+Klebsiella pneumoniae	573	S	177	1035	1212	0.00015
+Klebsiella ornithinolytica	54291	S	22	20	42	0.00001
+Klebsiella michiganensis	1134687	S	22	7	29	0.00000
+Citrobacter braakii	57706	S	41	152	193	0.00002
+Citrobacter freundii	546	S	25	112	137	0.00002
+Citrobacter werkmanii	67827	S	16	18	34	0.00000
+Citrobacter farmeri	67824	S	12	1	13	0.00000
+Citrobacter rodentium	67825	S	10	1	11	0.00000
+Enterobacter hormaechei	158836	S	90	152	242	0.00003
+Enterobacter ludwigii	299767	S	13	5	18	0.00000
+Enterobacter cloacae	550	S	10	60	70	0.00001
+Enterobacter sp. 638	399742	S	43	38	81	0.00001
+Kosakonia styphnolobii	3064532	S	11	5	16	0.00000
+Trabulsiella odontotermitis	379893	S	18	1	19	0.00000
+Pseudomonas aeruginosa	287	S	229103	977317	1206420	0.14550
+Pseudomonas paraeruginosa	2994495	S	91	159	250	0.00003
+Pseudomonas citronellolis	53408	S	14	12	26	0.00000
+Pseudomonas sp. PS1(2021)	2866282	S	22	403	425	0.00005
+Pseudomonas sp. FDAARGOS_761	2545800	S	11	204	215	0.00003
+Pseudomonas fluorescens	294	S	19	10	29	0.00000
+Vibrio anguillarum	55601	S	134	0	134	0.00002
+Cryptococcus deneoformans	40410	S	70048	1734	71782	0.00866
+Cryptococcus neoformans	5207	S	46214	1290	47504	0.00573
+Cryptococcus tetragattii	1859121	S	958	129	1087	0.00013
+Cryptococcus decagattii	1859122	S	246	54	300	0.00004
+Cryptococcus gattii	37769	S	88	44	132	0.00002
+Cryptococcus deuterogattii	1859096	S	12	0	12	0.00000
+Kwoniella shivajii	564305	S	15	0	15	0.00000
+Kwoniella dejecticola	324770	S	10	0	10	0.00000
+Saccharomyces cerevisiae	4932	S	115039	6438	121477	0.01465
+Saccharomyces paradoxus	27291	S	547	12	559	0.00007
+Saccharomyces eubayanus	1080349	S	173	39	212	0.00003
+Saccharomyces mikatae	114525	S	133	1	134	0.00002
+Saccharomyces kudriavzevii	114524	S	49	34	83	0.00001
+Zygotorulaspora mrakii	42260	S	63	2	65	0.00001
+Kluyveromyces lactis	28985	S	10	1	11	0.00000
+Homo sapiens	9606	S	658	98	756	0.00009
+Juglans regia	51240	S	601	892	1493	0.00018
+Vitis riparia	96939	S	11	15	26	0.00000
+Capsicum annuum	4072	S	14	43	57	0.00001
+Salvia splendens	180675	S	11	23	34	0.00000
+Camellia sinensis	4442	S	18	174	192	0.00002
+Malania oleifera	397392	S	35	7	42	0.00001
+Cryptomeria japonica	3369	S	26	21	47	0.00001

@@ -1,0 +1,15 @@
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 11:24:20 2026]
+localrule all:
+    input: results/01_QC/ZYMO_EVEN/nanoplot_raw/NanoStats.txt, results/01_QC/ZYMO_LOG/nanoplot_raw/NanoStats.txt, results/01_QC/ZYMO_EVEN/nanoplot_clean/NanoStats.txt, results/01_QC/ZYMO_LOG/nanoplot_clean/NanoStats.txt, results/03_TAXONOMY/abundance_table_final_RAW.tsv, results/03_TAXONOMY/abundance_table_final_kaiju_RAW.tsv, results/02_ASSEMBLY/ZYMO_EVEN/metaquast, results/02_ASSEMBLY/ZYMO_LOG/metaquast, results/02_ASSEMBLY/ZYMO_EVEN/metaquast_prokaryotic, results/02_ASSEMBLY/ZYMO_LOG/metaquast_prokaryotic, results/08_MAG_TAXONOMY/gtdbtk, results/09_ANNOTATION/ZYMO_EVEN/eggnog/ZYMO_EVEN_annotations.emapper.annotations, results/09_ANNOTATION/ZYMO_LOG/eggnog/ZYMO_LOG_annotations.emapper.annotations, results/09_ANNOTATION/ZYMO_EVEN/abricate, results/09_ANNOTATION/ZYMO_LOG/abricate, results/09_ANNOTATION/ZYMO_EVEN/amrfinder/amrfinder_results.tsv, results/09_ANNOTATION/ZYMO_LOG/amrfinder/amrfinder_results.tsv, results/09_ANNOTATION/ZYMO_EVEN/minced/ZYMO_EVEN.crisprs, results/09_ANNOTATION/ZYMO_LOG/minced/ZYMO_LOG.crisprs, results/09_ANNOTATION/ZYMO_EVEN/checkv/quality_summary.tsv, results/09_ANNOTATION/ZYMO_LOG/checkv/quality_summary.tsv, results/09_ANNOTATION/ZYMO_EVEN/genomad, results/09_ANNOTATION/ZYMO_LOG/genomad, results/09_ANNOTATION/ZYMO_EVEN/antismash, results/09_ANNOTATION/ZYMO_LOG/antismash, results/09_ANNOTATION/ZYMO_EVEN/mobsuite, results/09_ANNOTATION/ZYMO_LOG/mobsuite, results/09_ANNOTATION/ZYMO_EVEN/vfdb/vfdb_results.tab, results/09_ANNOTATION/ZYMO_LOG/vfdb/vfdb_results.tab, results/09_ANNOTATION/mags/eggnog, results/09_ANNOTATION/mags/abricate, results/09_ANNOTATION/mags/amrfinder, results/09_ANNOTATION/mags/minced, results/09_ANNOTATION/mags/antismash, results/09_ANNOTATION/mags/vfdb, results/09_ANNOTATION/mags/barrnap, results/09_ANNOTATION/mags/trnascan, results/10_MAG_COVERAGE/coverm_coverage.tsv, results/07_DEREP/final_mag_catalog.tsv
+    jobid: 0
+    reason: Input files updated by another job: results/09_ANNOTATION/ZYMO_LOG/checkv/quality_summary.tsv
+    resources: tmpdir=/tmp, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815
+[Sun Sep 13 11:24:20 2026]
+Finished jobid: 0 (Rule: all)
+3 of 3 steps (100%) done
+Complete log(s): /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/.snakemake/log/2026-09-13T092019.190839.snakemake.log
+Elapsed time: 2:04:11.212582
+EXIT_CODE=0

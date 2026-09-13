@@ -1,0 +1,449 @@
+Using profile /projetos/ridh/gabrielcoelho/MAGMA-root/pbs_profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-09-13 07:55:05
+  Workflow ID: 10773a91-909b-462a-a8fa-eca87f3a9c0d
+  Platform: Linux-5.3.18-150300.59.60-default-x86_64-with-glibc2.31
+  Host: tapajos
+  User: gabriel.coelho
+  Snakemake version: 9.26.1
+  Python version: 3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]
+  Command: /projetos/ridh/gabrielcoelho/MAGMA-root/snakemake_env/bin/snakemake --profile /projetos/ridh/gabrielcoelho/MAGMA-root/pbs_profile --configfile /projetos/ridh/gabrielcoelho/validacao/v-magma/config/config.yaml --omit-from bigscape --rerun-incomplete --keep-going
+  Snakefile: /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/Snakefile
+  Base directory: /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline
+  Run directory: /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline
+  Working directory: /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline
+  Config file(s): [PosixPath('/projetos/ridh/gabrielcoelho/validacao/v-magma/config/config.yaml')]
+  Config MD5: e97c810c175829558e2d604e65fef505
+
+Building DAG of jobs...
+Creating conda environment /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/workflow/rules/../envs/gunc.yaml...
+Downloading and installing remote packages.
+Cleaning up conda package tarballs.
+Environment for /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/workflow/rules/../envs/gunc.yaml created (location: ../../../../MAGMA-root/conda_envs/102879305f56792713e35be179165de8_)
+Creating conda environment /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/workflow/rules/../envs/taxonomy.yaml...
+Downloading and installing remote packages.
+Cleaning up conda package tarballs.
+Environment for /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/workflow/rules/../envs/taxonomy.yaml created (location: ../../../../MAGMA-root/conda_envs/996ce86b440f8bc057984ade2f49fa1c_)
+Creating conda environment /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/workflow/rules/../envs/nanoplot.yaml...
+Downloading and installing remote packages.
+Cleaning up conda package tarballs.
+Environment for /projetos/ridh/gabrielcoelho/MAGMA-root/pipeline/workflow/rules/../envs/nanoplot.yaml created (location: ../../../../MAGMA-root/conda_envs/43ba89fa576da49da20c0b5768a7436a_)
+Using shell: /usr/bin/bash
+Provided remote nodes: 10
+Job stats:
+job                           count
+--------------------------  -------
+abricate_mags                     1
+coverm_map_short                  1
+gunc                              2
+kaiju_classify                    2
+kraken2                           2
+nanoplot_clean                    2
+nanoplot_raw                      2
+vfdb_mags                         1
+virsorter2_sample                 1
+bracken                           2
+checkv_sample                     1
+coverm                            1
+final_mag_catalog                 1
+kaiju_table                       2
+consolidate_taxonomy_kaiju        1
+kreport2mpa                       2
+consolidate_taxonomy              1
+all                               1
+total                            26
+
+Select jobs to execute...
+Execute 10 jobs...
+
+[Sun Sep 13 07:57:05 2026]
+rule vfdb_mags:
+    input: results/07_DEREP/drep_out/dereplicated_genomes
+    output: results/09_ANNOTATION/mags/vfdb
+    log: logs/annotation/mags_vfdb.log
+    jobid: 84
+    benchmark: benchmarks/vfdb_mags/all.tsv
+    reason: Missing output files: results/09_ANNOTATION/mags/vfdb
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 84 with external jobid '18933.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule abricate_mags:
+    input: results/07_DEREP/drep_out/dereplicated_genomes
+    output: results/09_ANNOTATION/mags/abricate
+    log: logs/annotation/mags_abricate.log
+    jobid: 80
+    benchmark: benchmarks/abricate_mags/all.tsv
+    reason: Missing output files: results/09_ANNOTATION/mags/abricate
+    threads: 8
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=14400, mem=14.4 GB, mem_mib=13733, walltime=24:00:00
+Submitted job 80 with external jobid '18934.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule coverm_map_short:
+    input: results/01_QC/ZYMO_EVEN/ZYMO_EVEN_R1_clean.fastq.gz, results/01_QC/ZYMO_EVEN/ZYMO_EVEN_R2_clean.fastq.gz, results/10_MAG_COVERAGE/index/dereplicated_mags.1.bt2
+    output: results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam, results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam.bai
+    log: logs/coverm/ZYMO_EVEN_map.log
+    jobid: 89
+    benchmark: benchmarks/coverm_map_short/ZYMO_EVEN.tsv
+    reason: Missing output files: results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam, results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam.bai
+    wildcards: sample=ZYMO_EVEN
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=3506, disk=3.51 GB, disk_mib=3344, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=48:00:00
+Submitted job 89 with external jobid '18935.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule kraken2:
+    input: results/01_QC/ZYMO_EVEN/ZYMO_EVEN_R1_clean.fastq.gz, results/01_QC/ZYMO_EVEN/ZYMO_EVEN_R2_clean.fastq.gz
+    output: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kraken2.kreport, results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kraken2.output
+    log: logs/kraken2/ZYMO_EVEN.log
+    jobid: 10
+    benchmark: benchmarks/kraken2/ZYMO_EVEN.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_EVEN
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=3481, disk=3.48 GB, disk_mib=3320, mem_mb=220000, mem=220 GB, mem_mib=209809, walltime=24:00:00
+Submitted job 10 with external jobid '18936.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule virsorter2_sample:
+    input: results/02_ASSEMBLY/ZYMO_LOG/final.contigs.fa
+    output: results/09_ANNOTATION/ZYMO_LOG/virsorter2, results/09_ANNOTATION/ZYMO_LOG/virsorter2/final-viral-combined.fa
+    log: logs/annotation/ZYMO_LOG_virsorter2.log
+    jobid: 69
+    benchmark: benchmarks/virsorter2_sample/ZYMO_LOG.tsv
+    reason: Missing output files: results/09_ANNOTATION/ZYMO_LOG/virsorter2/final-viral-combined.fa
+    wildcards: sample=ZYMO_LOG
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=200000, mem=200 GB, mem_mib=190735, walltime=24:00:00
+Submitted job 69 with external jobid '18937.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule kraken2:
+    input: results/01_QC/ZYMO_LOG/ZYMO_LOG_R1_clean.fastq.gz, results/01_QC/ZYMO_LOG/ZYMO_LOG_R2_clean.fastq.gz
+    output: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kraken2.kreport, results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kraken2.output
+    log: logs/kraken2/ZYMO_LOG.log
+    jobid: 14
+    benchmark: benchmarks/kraken2/ZYMO_LOG.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_LOG
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=11867, disk=11.87 GB, disk_mib=11318, mem_mb=220000, mem=220 GB, mem_mib=209809, walltime=24:00:00
+Submitted job 14 with external jobid '18938.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule kaiju_classify:
+    input: results/01_QC/ZYMO_EVEN/ZYMO_EVEN_R1_clean.fastq.gz, results/01_QC/ZYMO_EVEN/ZYMO_EVEN_R2_clean.fastq.gz
+    output: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kaiju.out
+    log: logs/kaiju/ZYMO_EVEN_classify.log
+    jobid: 18
+    benchmark: benchmarks/kaiju_classify/ZYMO_EVEN.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_EVEN
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=3481, disk=3.48 GB, disk_mib=3320, mem_mb=200000, mem=200 GB, mem_mib=190735, walltime=24:00:00
+Submitted job 18 with external jobid '18939.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule gunc:
+    input: results/06_MAG_REFINEMENT/ZYMO_EVEN/binette/final_bins
+    output: results/06_MAG_REFINEMENT/ZYMO_EVEN/gunc
+    log: logs/gunc/ZYMO_EVEN.log
+    jobid: 92
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_EVEN
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=24:00:00
+Submitted job 92 with external jobid '18940.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule kaiju_classify:
+    input: results/01_QC/ZYMO_LOG/ZYMO_LOG_R1_clean.fastq.gz, results/01_QC/ZYMO_LOG/ZYMO_LOG_R2_clean.fastq.gz
+    output: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kaiju.out
+    log: logs/kaiju/ZYMO_LOG_classify.log
+    jobid: 20
+    benchmark: benchmarks/kaiju_classify/ZYMO_LOG.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_LOG
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=11867, disk=11.87 GB, disk_mib=11318, mem_mb=200000, mem=200 GB, mem_mib=190735, walltime=24:00:00
+Submitted job 20 with external jobid '18941.tapajos'.
+
+[Sun Sep 13 07:57:05 2026]
+rule gunc:
+    input: results/06_MAG_REFINEMENT/ZYMO_LOG/binette/final_bins
+    output: results/06_MAG_REFINEMENT/ZYMO_LOG/gunc
+    log: logs/gunc/ZYMO_LOG.log
+    jobid: 93
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_LOG
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=24:00:00
+Submitted job 93 with external jobid '18942.tapajos'.
+Select jobs to execute...
+[Sun Sep 13 07:57:45 2026]
+Finished jobid: 84 (Rule: vfdb_mags)
+1 of 26 steps (4%) done
+Execute 1 jobs...
+
+[Sun Sep 13 07:57:45 2026]
+rule nanoplot_raw:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_EVEN/ERR3152364.fastq.gz
+    output: results/01_QC/ZYMO_EVEN/nanoplot_raw, results/01_QC/ZYMO_EVEN/nanoplot_raw/NanoStats.txt
+    log: logs/nanoplot/ZYMO_EVEN_raw.log
+    jobid: 1
+    benchmark: benchmarks/nanoplot_raw/ZYMO_EVEN.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_EVEN
+    threads: 4
+    resources: tmpdir=<TBD>, disk_mb=28592, disk=28.59 GB, disk_mib=27268, mem_mb=7200, mem=7.2 GB, mem_mib=6867, walltime=24:00:00
+Submitted job 1 with external jobid '18943.tapajos'.
+Select jobs to execute...
+[Sun Sep 13 07:57:55 2026]
+Finished jobid: 80 (Rule: abricate_mags)
+2 of 26 steps (8%) done
+Execute 1 jobs...
+
+[Sun Sep 13 07:57:55 2026]
+rule nanoplot_clean:
+    input: results/01_QC/ZYMO_EVEN/ZYMO_EVEN_clean.fastq.gz
+    output: results/01_QC/ZYMO_EVEN/nanoplot_clean, results/01_QC/ZYMO_EVEN/nanoplot_clean/NanoStats.txt
+    log: logs/nanoplot/ZYMO_EVEN_clean.log
+    jobid: 3
+    benchmark: benchmarks/nanoplot_clean/ZYMO_EVEN.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_EVEN
+    threads: 4
+    resources: tmpdir=<TBD>, disk_mb=25842, disk=25.84 GB, disk_mib=24645, mem_mb=7200, mem=7.2 GB, mem_mib=6867, walltime=24:00:00
+Submitted job 3 with external jobid '18944.tapajos'.
+Select jobs to execute...
+[Sun Sep 13 07:59:35 2026]
+Finished jobid: 89 (Rule: coverm_map_short)
+3 of 26 steps (12%) done
+Execute 1 jobs...
+
+[Sun Sep 13 07:59:35 2026]
+rule coverm:
+    input: results/07_DEREP/drep_out/dereplicated_genomes, results/10_MAG_COVERAGE/index/dereplicated_mags.fa, results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam, results/10_MAG_COVERAGE/bam/ZYMO_LOG.bam, results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam.bai, results/10_MAG_COVERAGE/bam/ZYMO_LOG.bam.bai
+    output: results/10_MAG_COVERAGE/coverm_coverage.tsv
+    log: logs/coverm/coverm.log
+    jobid: 87
+    benchmark: benchmarks/coverm/all.tsv
+    reason: Missing output files: results/10_MAG_COVERAGE/coverm_coverage.tsv; Input files updated by another job: results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam, results/10_MAG_COVERAGE/bam/ZYMO_EVEN.bam.bai
+    threads: 16
+    resources: tmpdir=<TBD>, disk_mb=7757, disk=7.76 GB, disk_mib=7398, mem_mb=28800, mem=28.8 GB, mem_mib=27466, walltime=48:00:00
+Submitted job 87 with external jobid '18945.tapajos'.
+Select jobs to execute...
+[Sun Sep 13 08:00:45 2026]
+Finished jobid: 87 (Rule: coverm)
+4 of 26 steps (15%) done
+Execute 1 jobs...
+
+[Sun Sep 13 08:00:46 2026]
+rule nanoplot_clean:
+    input: results/01_QC/ZYMO_LOG/ZYMO_LOG_clean.fastq.gz
+    output: results/01_QC/ZYMO_LOG/nanoplot_clean, results/01_QC/ZYMO_LOG/nanoplot_clean/NanoStats.txt
+    log: logs/nanoplot/ZYMO_LOG_clean.log
+    jobid: 5
+    benchmark: benchmarks/nanoplot_clean/ZYMO_LOG.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_LOG
+    threads: 4
+    resources: tmpdir=<TBD>, disk_mb=29602, disk=29.6 GB, disk_mib=28231, mem_mb=7200, mem=7.2 GB, mem_mib=6867, walltime=24:00:00
+Submitted job 5 with external jobid '18946.tapajos'.
+Select jobs to execute...
+[Sun Sep 13 08:05:56 2026]
+Finished jobid: 92 (Rule: gunc)
+5 of 26 steps (19%) done
+Execute 1 jobs...
+
+[Sun Sep 13 08:05:56 2026]
+rule nanoplot_raw:
+    input: /projetos/ridh/gabrielcoelho/validacao/v-magma/raw_reads/ZYMO_LOG/ERR3152366.fastq.gz
+    output: results/01_QC/ZYMO_LOG/nanoplot_raw, results/01_QC/ZYMO_LOG/nanoplot_raw/NanoStats.txt
+    log: logs/nanoplot/ZYMO_LOG_raw.log
+    jobid: 2
+    benchmark: benchmarks/nanoplot_raw/ZYMO_LOG.tsv
+    reason: Software environment definition has changed since last execution
+    wildcards: sample=ZYMO_LOG
+    threads: 4
+    resources: tmpdir=<TBD>, disk_mb=32706, disk=32.71 GB, disk_mib=31191, mem_mb=7200, mem=7.2 GB, mem_mib=6867, walltime=24:00:00
+Submitted job 2 with external jobid '18947.tapajos'.
+[Sun Sep 13 08:05:56 2026]
+Finished jobid: 93 (Rule: gunc)
+6 of 26 steps (23%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:05:56 2026]
+rule final_mag_catalog:
+    input: results/07_DEREP/drep_out/dereplicated_genomes, results/06_MAG_REFINEMENT/ZYMO_EVEN/checkm2/quality_report.tsv, results/06_MAG_REFINEMENT/ZYMO_LOG/checkm2/quality_report.tsv, results/06_MAG_REFINEMENT/ZYMO_EVEN/gunc, results/06_MAG_REFINEMENT/ZYMO_LOG/gunc, results/08_MAG_TAXONOMY/gtdbtk, results/09_ANNOTATION/mags/barrnap, results/09_ANNOTATION/mags/trnascan
+    output: results/07_DEREP/final_mag_catalog.tsv
+    log: logs/annotation/final_mag_catalog.log
+    jobid: 91
+    benchmark: benchmarks/final_mag_catalog/all.tsv
+    reason: Input files updated by another job: results/06_MAG_REFINEMENT/ZYMO_EVEN/gunc, results/06_MAG_REFINEMENT/ZYMO_LOG/gunc
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 91 with external jobid '18948.tapajos'.
+[Sun Sep 13 08:06:36 2026]
+Finished jobid: 91 (Rule: final_mag_catalog)
+7 of 26 steps (27%) done
+[Sun Sep 13 08:07:36 2026]
+Finished jobid: 3 (Rule: nanoplot_clean)
+8 of 26 steps (31%) done
+[Sun Sep 13 08:08:37 2026]
+Finished jobid: 1 (Rule: nanoplot_raw)
+9 of 26 steps (35%) done
+[Sun Sep 13 08:12:37 2026]
+Finished jobid: 5 (Rule: nanoplot_clean)
+10 of 26 steps (38%) done
+[Sun Sep 13 08:13:37 2026]
+Finished jobid: 10 (Rule: kraken2)
+11 of 26 steps (42%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:13:37 2026]
+rule bracken:
+    input: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kraken2.kreport
+    output: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_bracken.kreport, results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_bracken.txt
+    log: logs/bracken/ZYMO_EVEN.log
+    jobid: 9
+    benchmark: benchmarks/bracken/ZYMO_EVEN.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kraken2.kreport
+    wildcards: sample=ZYMO_EVEN
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 9 with external jobid '18949.tapajos'.
+[Sun Sep 13 08:13:47 2026]
+Finished jobid: 9 (Rule: bracken)
+12 of 26 steps (46%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:13:47 2026]
+rule kreport2mpa:
+    input: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_bracken.kreport
+    output: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN.mpa
+    log: logs/krakentools/ZYMO_EVEN_kreport2mpa.log
+    jobid: 8
+    benchmark: benchmarks/kreport2mpa/ZYMO_EVEN.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_bracken.kreport
+    wildcards: sample=ZYMO_EVEN
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 8 with external jobid '18950.tapajos'.
+[Sun Sep 13 08:13:57 2026]
+Finished jobid: 8 (Rule: kreport2mpa)
+13 of 26 steps (50%) done
+[Sun Sep 13 08:15:57 2026]
+Finished jobid: 14 (Rule: kraken2)
+14 of 26 steps (54%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:15:57 2026]
+rule bracken:
+    input: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kraken2.kreport
+    output: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_bracken.kreport, results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_bracken.txt
+    log: logs/bracken/ZYMO_LOG.log
+    jobid: 13
+    benchmark: benchmarks/bracken/ZYMO_LOG.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kraken2.kreport
+    wildcards: sample=ZYMO_LOG
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 13 with external jobid '18951.tapajos'.
+[Sun Sep 13 08:16:27 2026]
+Finished jobid: 13 (Rule: bracken)
+15 of 26 steps (58%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:16:27 2026]
+rule kreport2mpa:
+    input: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_bracken.kreport
+    output: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG.mpa
+    log: logs/krakentools/ZYMO_LOG_kreport2mpa.log
+    jobid: 12
+    benchmark: benchmarks/kreport2mpa/ZYMO_LOG.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_bracken.kreport
+    wildcards: sample=ZYMO_LOG
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 12 with external jobid '18952.tapajos'.
+[Sun Sep 13 08:17:07 2026]
+Finished jobid: 12 (Rule: kreport2mpa)
+16 of 26 steps (62%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:17:08 2026]
+rule consolidate_taxonomy:
+    input: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN.mpa, results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG.mpa
+    output: results/03_TAXONOMY/abundance_table_final_RAW.tsv
+    jobid: 7
+    benchmark: benchmarks/consolidate_taxonomy/all.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG.mpa, results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN.mpa
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 7 with external jobid '18953.tapajos'.
+[Sun Sep 13 08:17:48 2026]
+Finished jobid: 7 (Rule: consolidate_taxonomy)
+17 of 26 steps (65%) done
+[Sun Sep 13 08:18:48 2026]
+Finished jobid: 2 (Rule: nanoplot_raw)
+18 of 26 steps (69%) done
+[Sun Sep 13 08:30:49 2026]
+Finished jobid: 18 (Rule: kaiju_classify)
+19 of 26 steps (73%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:30:49 2026]
+rule kaiju_table:
+    input: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kaiju.out
+    output: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kaiju_species.tsv, results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kaiju_named.out
+    log: logs/kaiju/ZYMO_EVEN_table.log
+    jobid: 17
+    benchmark: benchmarks/kaiju_table/ZYMO_EVEN.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kaiju.out
+    wildcards: sample=ZYMO_EVEN
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 17 with external jobid '18954.tapajos'.
+[Sun Sep 13 08:31:29 2026]
+Finished jobid: 17 (Rule: kaiju_table)
+20 of 26 steps (77%) done
+[Sun Sep 13 08:51:30 2026]
+Finished jobid: 20 (Rule: kaiju_classify)
+21 of 26 steps (81%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:51:30 2026]
+rule kaiju_table:
+    input: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kaiju.out
+    output: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kaiju_species.tsv, results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kaiju_named.out
+    log: logs/kaiju/ZYMO_LOG_table.log
+    jobid: 19
+    benchmark: benchmarks/kaiju_table/ZYMO_LOG.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kaiju.out
+    wildcards: sample=ZYMO_LOG
+    resources: tmpdir=<TBD>, disk_mb=2234, disk=2.23 GB, disk_mib=2131, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 19 with external jobid '18955.tapajos'.
+[Sun Sep 13 08:52:10 2026]
+Finished jobid: 19 (Rule: kaiju_table)
+22 of 26 steps (85%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Sep 13 08:52:10 2026]
+rule consolidate_taxonomy_kaiju:
+    input: results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kaiju_species.tsv, results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kaiju_species.tsv
+    output: results/03_TAXONOMY/abundance_table_final_kaiju_RAW.tsv
+    jobid: 16
+    benchmark: benchmarks/consolidate_taxonomy_kaiju/all.tsv
+    reason: Input files updated by another job: results/03_TAXONOMY/ZYMO_LOG/ZYMO_LOG_kaiju_species.tsv, results/03_TAXONOMY/ZYMO_EVEN/ZYMO_EVEN_kaiju_species.tsv
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=4000, mem=4 GB, mem_mib=3815, walltime=24:00:00
+Submitted job 16 with external jobid '18956.tapajos'.
+[Sun Sep 13 08:52:20 2026]
+Finished jobid: 16 (Rule: consolidate_taxonomy_kaiju)
+23 of 26 steps (88%) done
