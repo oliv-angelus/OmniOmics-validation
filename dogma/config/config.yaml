@@ -41,7 +41,19 @@ databases:
 params:
   fastp:                 "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
   filtlong:               "--min_length 500 --keep_percent 90"
-  ribodetector:           "-e norrna"
+  # Real bug found 2026-09-14: no --chunk_size was set, so ribodetector_cpu
+  # used its own unbounded default, which the tool's own --help documents
+  # as directly driving memory use ("chunk_size=1000 and threads=20,
+  # consuming ~20G memory"). On the real C8R2 sample (89.2M sequences)
+  # this caused a worker SIGKILL (RuntimeError: Worker process exited
+  # abnormally) at ~83% progress, reproducibly, even after raising the
+  # cluster's mem_mb allocation from 200000 to 250000 (the practical
+  # per-node ceiling -- see pbs_profile) -- the leak/growth is in the
+  # tool's own default chunking, not cluster contention. --chunk_size 200
+  # (conservatively ~4 GB by the tool's own stated ratio) fixed it. This
+  # is a portable fix (any hardware), unlike mem_mb, so it belongs here
+  # in the tool params, not just the cluster's pbs_profile.
+  ribodetector:           "-e norrna --chunk_size 200"
   kraken2:                "--confidence 0.05"
   kaiju:                  ""
   domain_filter:
