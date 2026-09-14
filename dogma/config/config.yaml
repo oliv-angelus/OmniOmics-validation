@@ -1,13 +1,13 @@
-# Config do DOGMA (cluster tapajos) -- molde reaproveitável, trocar validacao/v-dogma.
+# DOGMA config (tapajos cluster) -- reusable template, swap validacao/v-dogma.
 #
-# Atualizado 2026-09-12 -- os 5 bancos abaixo (cazy, ncycdb, scycdb, mcycdb,
-# canthyd) foram baixados de verdade em 2026-09-11
+# Updated 2026-09-12 -- the 5 databases below (cazy, ncycdb, scycdb, mcycdb,
+# canthyd) were actually downloaded on 2026-09-11
 # (/projetos/ridh/gabrielcoelho/databases/{cazy,ncycdb,scycdb,mcycdb,canthyd}_db,
-# ver dogma_dbs_download_status.txt/cazy_db_download_status.txt, todos OK) --
-# os caminhos abaixo já apontam pros reais, os fake_dbs/ locais deste
-# projeto (placeholder de teste de DAG) não são mais usados. eukulele/cat
-# baixam o próprio banco em tempo de execução (eukulele_setup/cat_setup),
-# não usam config["databases"].
+# see dogma_dbs_download_status.txt/cazy_db_download_status.txt, all OK) --
+# the paths below already point to the real ones; this project's local
+# fake_dbs/ (a DAG-testing placeholder) is no longer used. eukulele/cat
+# download their own database at run time (eukulele_setup/cat_setup) and
+# don't use config["databases"].
 
 samples: "/projetos/ridh/gabrielcoelho/validacao/v-dogma/config/samples.tsv"
 
@@ -34,9 +34,9 @@ databases:
   scycdb:   "/projetos/ridh/gabrielcoelho/databases/scycdb_db"
   mcycdb:   "/projetos/ridh/gabrielcoelho/databases/mcycdb_db"
   canthyd:  "/projetos/ridh/gabrielcoelho/databases/canthyd_db"
-  # magma_run: omitido de propósito -- opcional (config.get com default ""),
-  # é o path do catálogo de MAGs pareado, preencher quando o cross-reference
-  # for testado de verdade.
+  # magma_run: omitted on purpose -- optional (config.get with default ""),
+  # it's the path to the paired MAG catalog, fill in once the cross-reference
+  # is actually tested.
 
 params:
   fastp:                 "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
@@ -67,9 +67,9 @@ params:
   salmon_index:           "-k 31"
   salmon:                 ""
 
-# threads: base = pipeline.yaml default_threads, bancos compartilhados com
-# MAGMA (kraken2/kaiju/eggnog) escalados igual lá. Resto = default do app --
-# PRIMEIRO PASSE, ajustar depois do run real.
+# threads: base = pipeline.yaml default_threads, databases shared with
+# MAGMA (kraken2/kaiju/eggnog) scaled the same as there. The rest = app
+# default -- FIRST PASS, adjust after the real run.
 threads:
   fastp: 8
   ribodetector: 8

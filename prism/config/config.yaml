@@ -1,24 +1,24 @@
-# Config do PRISM (cluster tapajos) -- molde reaproveitável, trocar validacao/v-prism.
-# Sem seção databases: -- nenhuma regra do PRISM lê config["databases"]
-# (confirmado via grep no repo, 2026-09-09). reference_db é um parâmetro
-# de string ("gtdb"), não um caminho de arquivo.
+# PRISM config (tapajos cluster) -- reusable template, swap validacao/v-prism.
+# No databases: section -- no PRISM rule reads config["databases"]
+# (confirmed via grep over the repo, 2026-09-09). reference_db is a
+# string parameter ("gtdb"), not a file path.
 
 samples: "/projetos/ridh/gabrielcoelho/validacao/v-prism/config/samples.tsv"
 output_root: "/projetos/ridh/gabrielcoelho/validacao/v-prism/runs/run1"
 
-# Precisa EXISTIR mesmo vazio -- 04_denoise_classify.smk faz
-# config["databases"].get(...), não config.get("databases", {}) (achado
-# real, 2026-09-09: dry-run quebrava com KeyError sem isso). gtdb_ssu
-# baixado de verdade em 2026-09-12 (Alishum GTDB r220 SSU, Zenodo
-# 10.5281/zenodo.13984843 -- 61.774 sequencias, 58.102 bacteria + 3.672
-# archaea, confere exato com o esperado). silva_ssu/unite_its/grond
-# continuam vazios -- preencher quando forem baixados de verdade.
+# Needs to EXIST even if empty -- 04_denoise_classify.smk does
+# config["databases"].get(...), not config.get("databases", {}) (real
+# finding, 2026-09-09: the dry-run broke with a KeyError without this).
+# gtdb_ssu actually downloaded on 2026-09-12 (Alishum GTDB r220 SSU,
+# Zenodo 10.5281/zenodo.13984843 -- 61,774 sequences, 58,102 bacteria +
+# 3,672 archaea, matches the expected figures exactly). silva_ssu/
+# unite_its/grond stay empty -- fill in once actually downloaded.
 databases:
   gtdb_ssu: "/projetos/ridh/gabrielcoelho/databases/gtdb_ssu_db/GTDB_bac120_arc53_ssu_r220_fullTaxo.fa"
 
-# Preset real da MAGMA/OmniOmics manifest (id 16s_27f_1492r) -- par
-# universal clássico, corrigido no commit b3bae41 (o reverso estava
-# armazenado já revcomp'd por engano, 0 reads sobreviviam ao corte).
+# Real preset from the MAGMA/OmniOmics manifest (id 16s_27f_1492r) --
+# classic universal pair, fixed in commit b3bae41 (the reverse primer had
+# been stored already revcomp'd by mistake, so 0 reads survived the cut).
 amplicon_preset:
   id: "16s_27f_1492r"
   gene: "16S"

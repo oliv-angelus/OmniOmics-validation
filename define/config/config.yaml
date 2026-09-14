@@ -1,7 +1,7 @@
-# Config do DEFINE (cluster tapajos) -- molde reaproveitável, trocar validacao/v-define.
-# Bancos: bakta e eggnog já confirmados no cluster (mesmos do MAGMA/SIGMA).
-# reference_genome é ESPECÍFICO DO PROJETO (a referência real do estudo,
-# ex. E. coli do GSE208658) -- preencher quando o dataset for baixado.
+# DEFINE config (tapajos cluster) -- reusable template, swap validacao/v-define.
+# Databases: bakta and eggnog already confirmed on the cluster (same as MAGMA/SIGMA).
+# reference_genome is PROJECT-SPECIFIC (the study's real reference,
+# e.g. GSE208658's E. coli) -- fill in once the dataset is downloaded.
 
 samples: "/projetos/ridh/gabrielcoelho/validacao/v-define/config/samples.tsv"
 output_root: "/projetos/ridh/gabrielcoelho/validacao/v-define/runs/run1"
@@ -9,7 +9,7 @@ output_root: "/projetos/ridh/gabrielcoelho/validacao/v-define/runs/run1"
 databases:
   bakta:  "/projetos/ridh/gabrielcoelho/databases/bakta/db-light"
   eggnog: "/projetos/ridh/gabrielcoelho/databases/eggnog_db"
-  reference_genome: "/projetos/ridh/gabrielcoelho/validacao/v-define/reference/reference.fasta"  # específico do projeto, preencher
+  reference_genome: "/projetos/ridh/gabrielcoelho/validacao/v-define/reference/reference.fasta"  # project-specific, fill in
 
 params:
   fastp:            "--qualified_quality_phred 20 --unqualified_percent_limit 20 --length_required 36 --cut_right --detect_adapter_for_pe"

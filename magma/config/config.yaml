@@ -1,21 +1,21 @@
 # ==============================================================================
-# CONFIG DO PROJETO "v-magma" (validação Deliverable B, cluster tapajos, UFOPA)
+# CONFIG FOR PROJECT "v-magma" (Deliverable B validation, tapajos cluster, UFOPA)
 # ==============================================================================
-# Gerado 2026-09-12 a partir do staging local
-# MAGMA-HPC/benchmark_zymo/config/config.yaml, adaptado pro caminho real
-# onde os FASTQ já foram baixados (validacao/v-magma/, não
-# magma-benchmark-zymo/ -- o nome do projeto staging local ficou
-# desatualizado em relação à convenção validacao/v-<pipeline> usada pro
-# resto da validação).
+# Generated 2026-09-12 from the local staging copy
+# MAGMA-HPC/benchmark_zymo/config/config.yaml, adapted to the real path
+# where the FASTQs were already downloaded (validacao/v-magma/, not
+# magma-benchmark-zymo/ -- the local staging project's name had gone
+# stale relative to the validacao/v-<pipeline> convention used for the
+# rest of the validation).
 #
-# Dataset: ZymoBIOMICS mock community "even", híbrida Illumina+Nanopore
+# Dataset: ZymoBIOMICS mock community "even", hybrid Illumina+Nanopore
 # GridION (Nicholls et al. 2019, GigaScience, DOI 10.1093/gigascience/
-# giz043) -- ver OmniOmics/notes/OmniOmics Tool Paper Plan.md,
-# Deliverable B, linha do MAGMA. Comunidade "log" (ERR2935805 +
-# ERR3152366) pode ser adicionada depois como segunda amostra.
+# giz043) -- see OmniOmics/notes/OmniOmics Tool Paper Plan.md,
+# Deliverable B, MAGMA row. The "log" community (ERR2935805 +
+# ERR3152366) can be added later as a second sample.
 #
-# pfam NÃO baixado ainda (mesma lacuna real do SIGMA) -- omitir bigscape
-# na hora de rodar: --omit-from bigscape.
+# pfam NOT downloaded yet (same real gap as SIGMA) -- omit bigscape
+# when running: --omit-from bigscape.
 
 samples: "/projetos/ridh/gabrielcoelho/validacao/v-magma/config/samples.tsv"
 output_root: "/projetos/ridh/gabrielcoelho/validacao/v-magma/runs/run1"
@@ -39,10 +39,10 @@ databases:
   virsorter2:     "/projetos/ridh/gabrielcoelho/databases/virsorter2_db"
   genomad:        "/projetos/ridh/gabrielcoelho/databases/genomad_db"
 
-# Parâmetros e threads: idênticos ao molde (calibrados no run de
-# produção das cavernas, nós de 128 núcleos/252GB do tapajos) -- não há
-# motivo pra divergir só por ser um dataset diferente. Revisar apenas se
-# o dry-run/primeiro run real indicar necessidade.
+# Parameters and threads: identical to the template (calibrated on the
+# caves production run, tapajos' 128-core/252GB nodes) -- no reason to
+# diverge just because this is a different dataset. Revisit only if the
+# dry-run/first real run shows a need to.
 params:
   fastp:             "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
   filtlong:          "--min_length 500 --keep_percent 90"

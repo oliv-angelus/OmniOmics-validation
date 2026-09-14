@@ -1,60 +1,62 @@
-# PRISM -- resultado esperado (ground truth), MSPlus rep1 (ONT, kit MAB114)
+# PRISM -- expected result (ground truth), MSPlus rep1 (ONT, kit MAB114)
 
-Fonte: Oxford Nanopore Technologies, release oficial `zymo_16s_2025.09`
+Source: Oxford Nanopore Technologies, official release `zymo_16s_2025.09`
 (EPI2ME blog: https://epi2me.nanoporetech.com/zymo_16s_2025.09/,
-bucket público `s3://ont-open-data/zymo_16s_2025.09`, sem sign-request).
+public bucket `s3://ont-open-data/zymo_16s_2025.09`, no-sign-request).
 
-## Confirmação de identidade do arquivo baixado
+## Identity confirmation of the downloaded file
 
-`MSPlus_rep1_sup.bam` (baixado em `validacao/v-prism/raw_reads/MSPLUS_REP1/`)
-bate **byte-a-byte** (67.598.261 bytes) com
+`MSPlus_rep1_sup.bam` (downloaded to `validacao/v-prism/raw_reads/MSPLUS_REP1/`)
+matches **byte-for-byte** (67,598,261 bytes) with
 `zymo_16s_2025.09/basecalls/MSPlus/MAB114/sup/rep1/FBB32095_bam_pass_15aa3986_bbffde72_0.bam`
-do bucket oficial -- confirmado via listagem S3 real, 2026-09-12. Header do
-BAM confirma: dorado 1.1.1, modelo `sup@v5.2.0`, kit `SQK-MAB114-24`,
-biblioteca `Zymo`. Convertido pra fastq.gz (`samtools fastq`, 53.011 reads,
-0 descartados) e já wireado em `v-prism/config/samples.tsv`.
+from the official bucket -- confirmed via a real S3 listing, 2026-09-12.
+The BAM header confirms: dorado 1.1.1, model `sup@v5.2.0`, kit
+`SQK-MAB114-24`, library `Zymo`. Converted to fastq.gz (`samtools fastq`,
+53,011 reads, 0 discarded) and already wired into
+`v-prism/config/samples.tsv`.
 
-**"MSPlus"** = ZymoBIOMICS Microbial Community DNA Standard "even"
-(mesmas 10 espécies do MAGMA, ver `../magma/`) **suplementada com 4
-espécies extras** (*Bifidobacterium adolescentis*, *Borrelia burgdorferi*,
-*Chlamydia trachomatis*, *Gardnerella vaginalis*) -- comunidade nova,
-lançada pela própria ONT em 2025 especificamente pra demonstrar a
-resolução do kit novo (MAB114) contra espécies antes mal-resolvidas.
+**"MSPlus"** = ZymoBIOMICS Microbial Community DNA Standard "even" (the
+same 10 species as MAGMA's, see `../magma/`) **supplemented with 4 extra
+species** (*Bifidobacterium adolescentis*, *Borrelia burgdorferi*,
+*Chlamydia trachomatis*, *Gardnerella vaginalis*) -- a new community,
+released by ONT itself in 2025 specifically to demonstrate the new kit's
+(MAB114) resolution of previously poorly-resolved species.
 
-## Ground truth usado
+## Ground truth used
 
-**Não existe uma composição teórica certificada publicada pra essa
-comunidade específica (14 espécies)** -- diferente da "even" de 10
-espécies do MAGMA, que tem % certificada pelo fabricante. Em vez disso,
-o ground truth aqui é o **resultado oficial de Emu que a própria ONT
-publicou pra essa mesma amostra exata** (mesmo arquivo BAM, mesma
-réplica): `zymo_16s_2025.09/analysis/emu/MSPlus/MAB114/rep1/`.
+**No certified theoretical composition has been published for this
+specific 14-species community** -- unlike MAGMA's 10-species "even"
+standard, which has manufacturer-certified percentages. Instead, the
+ground truth here is the **official Emu result ONT itself published for
+this exact same sample** (same BAM file, same replicate):
+`zymo_16s_2025.09/analysis/emu/MSPlus/MAB114/rep1/`.
 
-Arquivos salvos localmente nesta pasta:
-- `ONT_official_emu_MSPlus_MAB114_rep1_rel-abundance.tsv` -- tabela de
-  abundância relativa por espécie (Emu), taxonomia GTDB-style.
-- `ONT_official_emu_MSPlus_MAB114_rep1_classification.tsv` -- mesma
-  classificação em formato de linhagem `k__;p__;c__;o__;f__;g__;s__`.
+Files saved locally in this folder:
+- `ONT_official_emu_MSPlus_MAB114_rep1_rel-abundance.tsv` -- relative
+  abundance table per species (Emu), GTDB-style taxonomy.
+- `ONT_official_emu_MSPlus_MAB114_rep1_classification.tsv` -- the same
+  classification in `k__;p__;c__;o__;f__;g__;s__` lineage format.
 
-## O que checar contra a saída real do PRISM
+## What to check against PRISM's real output
 
-Comparar `results/04_DENOISE/emu/.../rel-abundance.tsv` (ou a tabela
-final `prism_abundance_table.tsv`) do run real do PRISM contra os TSVs
-salvos aqui -- **mesma amostra, mesmo método (Emu)**, então a expectativa
-é abundância relativa **muito próxima** (não idêntica -- o PRISM usa o
-banco GTDB SSU pra classificar, ONT usa o banco próprio deles pro
-workflow `wf16s`/emu deles, taxonomias podem divergir em nomenclatura de
-espécie mesmo quando o gênero/família batem). Species dominantes
-esperadas no top (conferir contra o TSV salvo): *Limosilactobacillus
-fermentum* (~13,5%), *Bacillus_P spizizenii* (~14,7%), *Staphylococcus
-argenteus* (~14,5%), *Enterococcus_H faecalis* (~9,5%) -- e presença
-real (não ausência) das 4 espécies suplementadas (*Bifidobacterium
-adolescentis* ~6,4%, *Chlamydia trachomatis* ~1,9%, *Borrelia bissettiae*
-~2,7%, *Bifidobacterium vaginale*/antiga *Gardnerella vaginalis* ~8,5%)
--- é justamente a resolução dessas 4 que o dataset foi desenhado pra
-demonstrar.
+Compare `results/04_DENOISE/emu/.../rel-abundance.tsv` (or the final
+`prism_abundance_table.tsv` table) from PRISM's real run against the TSVs
+saved here -- **same sample, same method (Emu)**, so the expectation is
+**very close** relative abundance (not identical -- PRISM uses the GTDB
+SSU database for classification, ONT uses their own database for their
+`wf16s`/emu workflow, so taxonomies can diverge in species nomenclature
+even when genus/family match). Dominant species expected at the top
+(check against the saved TSV): *Limosilactobacillus fermentum* (~13.5%),
+*Bacillus_P spizizenii* (~14.7%), *Staphylococcus argenteus* (~14.5%),
+*Enterococcus_H faecalis* (~9.5%) -- and real presence (not absence) of
+the 4 supplemented species (*Bifidobacterium adolescentis* ~6.4%,
+*Chlamydia trachomatis* ~1.9%, *Borrelia bissettiae* ~2.7%,
+*Bifidobacterium vaginale*/formerly *Gardnerella vaginalis* ~8.5%) -- the
+resolution of exactly these 4 is what the dataset was designed to
+demonstrate.
 
-**Nota de nomenclatura**: a taxonomia GTDB usada pelo Emu da ONT já
-renomeou *Gardnerella vaginalis* -> *Bifidobacterium vaginale* -- então
-não estranhar se o nome não bater literalmente com o que o fabricante
-anuncia como "4 espécies extras"; é a mesma espécie biológica.
+**Nomenclature note**: the GTDB taxonomy ONT's own Emu run uses has
+already renamed *Gardnerella vaginalis* -> *Bifidobacterium vaginale* --
+so don't be surprised if the name doesn't literally match what the
+manufacturer advertises as the "4 extra species"; it's the same
+biological species.

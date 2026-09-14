@@ -1,77 +1,76 @@
-# DEFINE -- resultado esperado (ground truth), GSE208658
+# DEFINE -- expected result (ground truth), GSE208658
 
-Fonte: paper associado ao GEO `GSE208658` -- "Global Transcriptional
+Source: paper associated with GEO `GSE208658` -- "Global Transcriptional
 Response of Escherichia coli Exposed In Situ to Different Low-Dose
 Ionizing Radiation Sources". mSystems.
 DOI: [10.1128/msystems.00718-22](https://doi.org/10.1128/msystems.00718-22)
 (PMID 36779725, PMC10134817)
 
-*E. coli* DH10β exposto in situ a 3 fontes de radiação (²³⁹Pu, ³H, ⁵⁵Fe) +
-controles, 2 durações de exposição (1 dia / 15 dias).
+*E. coli* DH10β exposed in situ to 3 radiation sources (²³⁹Pu, ³H, ⁵⁵Fe) +
+controls, 2 exposure durations (1 day / 15 days).
 
-## Amostras baixadas pro projeto `v-define`
+## Samples downloaded for the `v-define` project
 
-`CTRL_D1_R1/R2/R3` (controle não-irradiado, 1 dia) vs `PU239_D1_R1/R2/R3`
-(exposto a ²³⁹Pu, 1 dia), 3 réplicas por condição -- corresponde exatamente
-ao contraste "1 dia" reportado no paper (não o de 15 dias). (Nota: uma
-versão anterior deste documento descrevia 1 réplica por condição -- a
-decisão real, executada, foi 3 réplicas por condição, seguindo o
-precedente de campo do SARTools citado abaixo.)
+`CTRL_D1_R1/R2/R3` (non-irradiated control, day 1) vs. `PU239_D1_R1/R2/R3`
+(²³⁹Pu-exposed, day 1), 3 replicates per condition -- corresponds exactly
+to the "day 1" contrast reported in the paper (not the day-15 one). (Note:
+an earlier version of this document described 1 replicate per condition
+-- the real, executed decision was 3 replicates per condition, following
+the SARTools field precedent cited below.)
 
-## Resultado esperado, contraste ²³⁹Pu vs controle em 1 dia
+## Expected result, ²³⁹Pu vs. control contrast at day 1
 
-- **590 genes diferencialmente expressos** (13,8% do total de CDS
-  anotadas) -- número absoluto reportado no paper pra esse contraste
-  específico (1 dia). Pro contraste de 15 dias o efeito praticamente
-  desaparece (11 DEGs, 0,3%) -- **não é o par baixado aqui**, mas serve
-  de controle de sanidade caso expandamos a validação depois (esperar
-  quase nenhuma DEG num contraste ²³⁹Pu D15 vs controle D15).
-- **Critério exato de DEG do paper** (confirmado no texto do artigo,
-  Wintenberg et al. 2023): DESeq2 v1.35.0, alinhamento com HISAT2 +
-  quantificação StringTie/tximport (pipeline diferente do
-  bowtie2+featureCounts do DEFINE), gene chamado como diferencialmente
-  expresso com **log2FoldChange > 2 (4x) E p-valor ajustado (Wald) < 0,05**
-  -- não é só padj<0,05. Isto importa: aplicar apenas padj<0,05 na
-  comparação (sem o corte de fold-change) não é o mesmo critério do
-  paper e não deve ser comparado diretamente ao número 590.
-- **Categorias funcionais esperadas entre os DEGs** (não uma lista de
-  genes exata, o paper reporta por categoria funcional/pathway):
-  - Biossíntese: componentes do envelope nuclear (sic -- terminologia do
-    paper), aminoácidos, sideróforos.
-  - Sistemas de transporte: transportadores ABC, proteínas de secreção
-    tipo II.
-  - Resposta a estresse/regulação: choque térmico, regulon RpoS,
-    estresse oxidativo.
+- **590 differentially expressed genes** (13.8% of annotated CDSs) --
+  the absolute number reported in the paper for this specific (day 1)
+  contrast. For the day-15 contrast the effect nearly disappears (11
+  DEGs, 0.3%) -- **not the pair downloaded here**, but a useful sanity
+  check if this validation is expanded later (expect almost no DEGs in a
+  ²³⁹Pu D15 vs. control D15 contrast).
+- **The paper's exact DEG criterion** (confirmed in the article's text,
+  Wintenberg et al. 2023): DESeq2 v1.35.0, HISAT2 alignment + StringTie/
+  tximport quantification (a different pipeline from DEFINE's
+  bowtie2+featureCounts), a gene is called differentially expressed with
+  **log2FoldChange > 2 (4x) AND adjusted p-value (Wald) < 0.05** -- not
+  padj<0.05 alone. This matters: applying padj<0.05 only (without the
+  fold-change cutoff) is not the same criterion as the paper's and should
+  not be compared directly to the 590 figure.
+- **Expected functional categories among the DEGs** (not an exact gene
+  list, the paper reports by functional category/pathway):
+  - Biosynthesis: envelope components (sic -- the paper's own
+    terminology), amino acids, siderophores.
+  - Transport systems: ABC transporters, type II secretion proteins.
+  - Stress response/regulation: heat shock, the RpoS regulon, oxidative
+    stress.
 
-## O que checar contra a saída real do DEFINE
+## What to check against DEFINE's real output
 
-Rodar `CTRL_D1_R1/R2/R3` como grupo controle e `PU239_D1_R1/R2/R3` como
-grupo teste no DESeq2 (downstream do count matrix que o DEFINE gera --
-o pipeline não roda DESeq2 internamente, ver `../results/README.md`) --
-**conferir**: (1) ordem de grandeza do número de DEGs significativos
-deveria ficar na faixa de centenas (não dezenas, não milhares) pra bater
-com os ~590/13,8% reportados; (2) termos GO/pathway dos genes
-upregulados deveriam concentrar em transporte ABC, sideróforos e
-resposta a estresse -- não em processos aleatórios sem relação com
-estresse/radiação.
+Run `CTRL_D1_R1/R2/R3` as the control group and `PU239_D1_R1/R2/R3` as
+the test group in DESeq2 (downstream of the count matrix DEFINE
+generates -- the pipeline does not run DESeq2 internally, see
+`../results/README.md`) -- **check**: (1) the order of magnitude of the
+significant-DEG count should land in the hundreds (not tens, not
+thousands) to match the ~590/13.8% reported; (2) GO/pathway terms of the
+upregulated genes should concentrate on ABC transport, siderophores, and
+stress response -- not random processes unrelated to stress/radiation.
 
-**Limite real**: sem lista de genes DEG individual publicada de forma
-acessível nesta pesquisa (ficaria na tabela suplementar do paper, não
-extraída aqui) -- a comparação fica no nível de magnitude/categoria
-funcional, não gene-a-gene. Se quisermos comparação exata, precisa
-baixar a tabela suplementar do mSystems diretamente (não tentado ainda).
+**Real limitation**: no individually published, accessible DEG gene list
+exists for this study (it would be in the paper's supplementary table,
+not extracted here) -- the comparison stays at the magnitude/functional-
+category level, not gene-by-gene. For an exact comparison, the mSystems
+supplementary table would need to be downloaded directly (not attempted
+yet).
 
-## Resultado real obtido
+## Real result obtained
 
-Ver `../results/README.md` para a análise completa, incluindo uma correção
-real feita no meio do processo: a primeira tentativa (padj<0,05 apenas)
-deu 2.720 DEGs -- muito acima do esperado -- e a primeira hipótese
-explicativa (uma réplica do controle com baixa taxa de atribuição do
-featureCounts) foi **testada e refutada** (removê-la aumentou o número de
-DEGs, não diminuiu). A causa real, confirmada contra o método exato do
-paper: o critério certo é padj<0,05 **E** log2FC>2, não padj sozinho.
-Aplicando o critério certo: **(1) PASSOU: 433 DEGs reais (9,9% dos genes
-testados) vs. ~590/13,8% esperados, mesma ordem de grandeza; (2) PASSOU:
-as categorias funcionais dos genes significativos batem com as reportadas
-no paper (transportadores ABC, sideróforos, resposta a estresse,
-biossíntese de aminoácidos).**
+See `../results/README.md` for the full analysis, including a real
+correction made mid-process: the first attempt (padj<0.05 only) gave
+2,720 DEGs -- far above expected -- and the first explanatory hypothesis
+(one control replicate with a low featureCounts assignment rate) was
+**tested and disproven** (removing it increased the DEG count, not
+decreased it). The real cause, confirmed against the paper's exact
+method: the correct criterion is padj<0.05 **AND** log2FC>2, not padj
+alone. Applying the correct criterion: **(1) PASSED: 433 real DEGs (9.9%
+of tested genes) vs. ~590/13.8% expected, same order of magnitude; (2)
+PASSED: the significant genes' functional categories match those
+reported in the paper (ABC transporters, siderophores, stress response,
+amino acid biosynthesis).**

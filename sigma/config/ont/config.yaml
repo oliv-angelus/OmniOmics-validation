@@ -1,20 +1,22 @@
 # ==============================================================================
-# CONFIG DO SIGMA (cluster tapajos, UFOPA) -- molde reaproveitável
+# SIGMA CONFIG (tapajos cluster, UFOPA) -- reusable template
 # ==============================================================================
-# Trocar validacao/v-sigma pelos 2 placeholders (samples:/output_root:) antes de usar,
-# mesmo padrão do MAGMA-root/project_template.
+# Swap validacao/v-sigma for the 2 placeholders (samples:/output_root:) before use,
+# same pattern as MAGMA-root/project_template.
 #
-# Bancos de dados: TODOS já confirmados presentes no cluster em 2026-09-09
-# (ls real, não suposto) -- inclusive bakta e VIBRANT, que eu esperava que
-# fossem baixar de novo. Só falta pfam (mesma lacuna que o MAGMA já tem --
-# desativa bigscape com --omit-from bigscape até resolver isso).
+# Databases: ALL already confirmed present on the cluster as of 2026-09-09
+# (a real ls, not assumed) -- including bakta and VIBRANT, which I'd
+# expected to have to download again. Only pfam is missing (the same gap
+# MAGMA already has -- disable bigscape with --omit-from bigscape until
+# that's resolved).
 
 samples: "/projetos/ridh/gabrielcoelho/validacao/v-sigma/config/samples.tsv"
 output_root: "/projetos/ridh/gabrielcoelho/validacao/v-sigma/runs/run1"
 
 long_read_platform:
-  # nano_raw, nao nano_hq -- SRR7415634 (McIntyre et al. 2019) e' GridION de
-  # 2018, quimica pre-Q20+/SUP, nao bate com o criterio do preset nano_hq.
+  # nano_raw, not nano_hq -- SRR7415634 (McIntyre et al. 2019) is a 2018
+  # GridION run, pre-Q20+/SUP chemistry, which doesn't meet the nano_hq
+  # preset's criterion.
   id: "nano_raw"
   spades_flag: "--nanopore"
   flye_flag: "--nano-raw"
@@ -25,7 +27,7 @@ databases:
   antismash:      "/projetos/ridh/gabrielcoelho/databases/antismash_db"
   eggnog:         "/projetos/ridh/gabrielcoelho/databases/eggnog_db"
   gtdbtk:         "/projetos/ridh/gabrielcoelho/databases/gtdbtk_db"
-  gunc:           "/projetos/ridh/gabrielcoelho/databases/gunc_db"  # achado real 2026-09-12: regra gunc nunca tinha essa chave
+  gunc:           "/projetos/ridh/gabrielcoelho/databases/gunc_db"  # real finding 2026-09-12: the gunc rule never had this key
   kraken2:        "/projetos/ridh/gabrielcoelho/databases/k2-plusPFP_db"
   kaiju:          "/projetos/ridh/gabrielcoelho/databases/kaiju_db"
   amrfinderplus:  "/projetos/ridh/gabrielcoelho/databases/AMRfinder_db/latest"
@@ -34,10 +36,10 @@ databases:
   genomad:        "/projetos/ridh/gabrielcoelho/databases/genomad_db"
   bakta:          "/projetos/ridh/gabrielcoelho/databases/bakta/db-light"
   vibrant_files:  "/projetos/ridh/gabrielcoelho/databases/VIBRANT"
-  pfam:           "/projetos/ridh/gabrielcoelho/databases/pfam_db/Pfam-A.hmm"   # NÃO baixado -- omitir bigscape (--omit-from bigscape)
+  pfam:           "/projetos/ridh/gabrielcoelho/databases/pfam_db/Pfam-A.hmm"   # NOT downloaded -- omit bigscape (--omit-from bigscape)
 
-# Extraído de pipelines/sigma/pipeline.yaml "defaults" (2026-09-09) --
-# valores padrão do próprio app, sem motivo pra divergir num primeiro teste.
+# Extracted from pipelines/sigma/pipeline.yaml "defaults" (2026-09-09) --
+# the app's own default values, no reason to diverge on a first test.
 params:
   fastp:          "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
   filtlong:       "--min_length 500 --keep_percent 90"
@@ -71,12 +73,13 @@ params:
   antismash:      ""
   bigscape:       "--mix --classify none"
 
-# threads: base = pipeline.yaml default_threads (app), bancos
-# compartilhados (kraken2/kaiju/gtdbtk/checkm2/gunc/eggnog/antismash/coverm)
-# escalados pro mesmo valor já validado no MAGMA -- mesmo cluster, mesmo
-# banco. Resto = default do app (1 isolado é bem mais leve que 1
-# metagenoma, não escalei tudo igual ao MAGMA). PRIMEIRO PASSE -- ajustar
-# depois do primeiro run real (mesmo processo que o MAGMA passou).
+# threads: base = pipeline.yaml default_threads (app), shared databases
+# (kraken2/kaiju/gtdbtk/checkm2/gunc/eggnog/antismash/coverm) scaled to
+# the same value already validated on MAGMA -- same cluster, same
+# database. The rest = app default (1 isolate is much lighter than 1
+# metagenome, so not everything was scaled the same as MAGMA). FIRST
+# PASS -- adjust after the first real run (same process MAGMA went
+# through).
 threads:
   fastp: 8
   kraken2: 16

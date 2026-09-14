@@ -1,85 +1,85 @@
-# SIGMA -- resultado esperado (ground truth), isolado ERR2935852
+# SIGMA -- expected result (ground truth), isolate ERR2935852
 
-Fonte: Nicholls SM et al. 2019, GigaScience 8(5):giz043.
+Source: Nicholls SM et al. 2019, GigaScience 8(5):giz043.
 DOI: [10.1093/gigascience/giz043](https://doi.org/10.1093/gigascience/giz043)
-(PMC6520541) -- mesmo paper usado pro dataset do MAGMA (ver
-`../magma/zymo_even_theoretical_composition.tsv`), reaproveitando a
-mesma justificativa/citação, sem accession nova.
+(PMC6520541) -- same paper used for MAGMA's dataset (see
+`../magma/zymo_even_theoretical_composition.tsv`), reusing the same
+justification/citation, no new accession.
 
-## Identidade confirmada
+## Confirmed identity
 
-`ERR2935852` = leitura Illumina do isolado individual de ***Escherichia
-coli*** da coleção ZymoBIOMICS -- cepa NRRL B-1109, sequence type **ST10**
-(Tabela 1 do paper). Não tem accession ATCC listado no paper pra essa
-cepa especificamente.
+`ERR2935852` = Illumina read of the individual ***Escherichia coli***
+isolate from the ZymoBIOMICS collection -- strain NRRL B-1109, sequence
+type **ST10** (paper's Table 1). No ATCC accession is listed in the paper
+for this specific strain.
 
-## Genoma de referência pra comparar a montagem
+## Reference genome for comparing the assembly
 
-Zymo distribui os genomas de referência ("true genomes") oficiais dos 10
-organismos do padrão em:
+Zymo distributes the official reference genomes ("true genomes") for the
+10 organisms in the standard at:
 `https://s3.amazonaws.com/zymo-files/BioPool/ZymoBIOMICS.STD.refseq.v2.zip`
-(confirmado acessível via HEAD request, 2026-09-12 -- mesmo pacote usado
-por outros grupos pra validação, ex. tutorial do próprio DADA2/benjjneb
-pra PacBio). **Ainda não baixado** -- baixar no cluster (não localmente)
-antes de rodar o SIGMA de verdade, extrair só o FASTA do *E. coli*
-B-1109/ST10 do zip.
+(confirmed reachable via HEAD request, 2026-09-12 -- the same package
+used by other groups for validation, e.g. DADA2/benjjneb's own PacBio
+tutorial). **Not yet downloaded** -- download it on the cluster (not
+locally) before running SIGMA for real, extract just the *E. coli*
+B-1109/ST10 FASTA from the zip.
 
-## O que checar contra a saída real do SIGMA
+## What to check against SIGMA's real output
 
-- **QUAST/metaQUAST** (ou equivalente do SIGMA) da montagem do isolado
-  contra o genoma de referência do *E. coli* B-1109 extraído do zip
-  acima -- esperado: cobertura de genoma alta (>95%), poucos
-  misassemblies, N50 próximo do tamanho do cromossomo (*E. coli* ~4,6-5,0
-  Mb tipicamente monta em 1-poucos contigs com dado Illumina de boa
-  cobertura).
-- **GTDB-Tk**: taxonomia classificada deveria bater com *Escherichia coli*
-  no nível de espécie.
-- **CheckM2**: completude alta (>95%), contaminação baixa (<5%) -- é
-  isolado puro, não MAG ambiental.
+- **QUAST/metaQUAST** (or SIGMA's equivalent) of the isolate's assembly
+  against the *E. coli* B-1109 reference genome extracted from the zip
+  above -- expected: high genome coverage (>95%), few misassemblies, N50
+  close to chromosome size (*E. coli* ~4.6-5.0 Mb typically assembles into
+  1-few contigs with good-coverage Illumina data).
+- **GTDB-Tk**: the classified taxonomy should match *Escherichia coli* at
+  species level.
+- **CheckM2**: high completeness (>95%), low contamination (<5%) -- this
+  is a pure isolate, not an environmental MAG.
 
-## Pendências
+## Open items
 
-- Confirmar se `ERR2935852` tem par ONT/PacBio pra montagem híbrida
-  (o Tool Paper Plan já registrava isso como "não resolvido ainda") --
-  por enquanto `v-sigma/config/samples.tsv` está configurado
-  `read_type: short` (só Illumina, via unicycler).
-- Baixar e extrair a referência real antes do primeiro run real (hoje é
-  só a URL confirmada, arquivo ainda não está no cluster).
+- Confirm whether `ERR2935852` has an ONT/PacBio mate for hybrid assembly
+  (the Tool Paper Plan already logged this as "not yet resolved") -- for
+  now `v-sigma/config/samples.tsv` is configured with `read_type: short`
+  (Illumina only, via Unicycler).
+- Download and extract the real reference before the first real run
+  (as of writing only the URL is confirmed, the file is not yet on the
+  cluster).
 
-## Atualização 2026-09-12 — ground truth long-read encontrado (ONT + PacBio)
+## Update 2026-09-12 -- long-read ground truth found (ONT + PacBio)
 
-Fonte: McIntyre AB, Alexander N, Grigorev K, et al. "Single-molecule
+Source: McIntyre AB, Alexander N, Grigorev K, et al. "Single-molecule
 sequencing detection of N6-methyladenine in microbial reference
 materials." Nat Commun. 2019;10(1):579.
 DOI: [10.1038/s41467-019-08289-9](https://doi.org/10.1038/s41467-019-08289-9)
-(BioProject `PRJNA477598`) — sequenciou o mesmo material de referência
-Zymo (8 das 10 espécies) em múltiplas plataformas (Illumina/ONT/PacBio),
-especificamente como dataset ortogonal para validar os mesmos padrões
-usados por Nicholls et al. 2019.
+(BioProject `PRJNA477598`) -- sequenced the same Zymo reference material
+(8 of the 10 species) on multiple platforms (Illumina/ONT/PacBio),
+specifically as an orthogonal dataset to validate the same standard used
+by Nicholls et al. 2019.
 
-**Amostras reais baixadas** (mesma cepa/material de referência *E. coli*
-do isolado Illumina ERR2935852 -- mesmo material certificado Zymo, embora
-sequenciado por outro grupo/lab; assunção razoável dado que ambos citam o
-mesmo material de referência comercial, não confirmado como o mesmo tubo
-físico):
-- **ONT GridION** `SRR7415634` (232MB, ~2018, pré-química Q20+/SUP →
-  `long_read_platform: nano_raw`, não `nano_hq`).
-- **PacBio RS II (CLR)** `SRR8154675` (1,4GB subreads, plataforma CLR
-  antiga, não HiFi → `long_read_platform: pacbio_raw`).
+**Real samples downloaded** (same strain/reference material as the
+Illumina isolate ERR2935852 -- same certified Zymo material, though
+sequenced by a different group/lab; a reasonable assumption given both
+cite the same commercial reference material, not confirmed to be the same
+physical tube):
+- **ONT GridION** `SRR7415634` (232MB, ~2018, pre-Q20+/SUP chemistry →
+  `long_read_platform: nano_raw`, not `nano_hq`).
+- **PacBio RS II (CLR)** `SRR8154675` (1.4GB subreads, older CLR platform,
+  not HiFi → `long_read_platform: pacbio_raw`).
 
-**Projetos de validação criados**:
-- `v-sigma`: `ECOLI_SHORT_ONLY` (baseline só-Illumina) +
+**Validation projects created**:
+- `v-sigma`: `ECOLI_SHORT_ONLY` (Illumina-only baseline) +
   `ECOLI_HYBRID_ONT` (Illumina+ONT, `long_read_platform: nano_raw`).
-- `v-sigma-pacbio` (novo, sibling dir): `ECOLI_HYBRID_PACBIO`
-  (Illumina+PacBio, `long_read_platform: pacbio_raw`) -- projeto
-  separado porque `long_read_platform` é config de nível de projeto no
-  SIGMA, não por amostra, então ONT e PacBio não podem coexistir no
-  mesmo `config.yaml`.
+- `v-sigma-pacbio` (new, sibling dir): `ECOLI_HYBRID_PACBIO`
+  (Illumina+PacBio, `long_read_platform: pacbio_raw`) -- a separate
+  project because `long_read_platform` is a project-level setting in
+  SIGMA, not per-sample, so ONT and PacBio can't coexist in the same
+  `config.yaml`.
 
-**Ground truth pra comparar**: montagem híbrida de cada projeto deveria
-bater com o mesmo genoma de referência (`ZymoBIOMICS.STD.refseq.v2.zip`,
-ver acima) E deveria ter qualidade de montagem **melhor** que o
-`ECOLI_SHORT_ONLY` (menos contigs, N50 maior, menos misassemblies) --
-essa comparação de 3 vias (short-only vs hybrid-ONT vs hybrid-PacBio) é
-justamente o que demonstra o valor real do polimento com leitura longa
-do SIGMA, não só "roda sem erro".
+**Ground truth for comparison**: each project's hybrid assembly should
+match the same reference genome (`ZymoBIOMICS.STD.refseq.v2.zip`, see
+above) AND should have **better** assembly quality than `ECOLI_SHORT_ONLY`
+(fewer contigs, higher N50, fewer misassemblies) -- this three-way
+comparison (short-only vs. hybrid-ONT vs. hybrid-PacBio) is exactly what
+demonstrates SIGMA's real value from long-read polishing, not just
+"runs without error."
