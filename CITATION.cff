@@ -9,6 +9,14 @@ authors:
     affiliation: "Programa de Pós-Graduação em Genética e Biologia Molecular, Universidade Federal do Pará (UFPA), Belém, PA, Brazil"
 version: "1.0.0"
 date-released: "2026-09-15"
+doi: 10.5281/zenodo.22780176
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22780176
+    description: "Version-specific archive of v1.0.0 on Zenodo"
+  - type: doi
+    value: 10.5281/zenodo.22780175
+    description: "Concept DOI on Zenodo -- always resolves to the latest version"
 license: CC-BY-4.0
 repository-code: "https://github.com/oliv-angelus/OmniOmics-validation"
 abstract: >-

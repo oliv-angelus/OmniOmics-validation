@@ -1,5 +1,7 @@
 # OmniOmics — Validation & Reproducibility Package
 
+[![DOI](https://zenodo.org/badge/1367598567.svg)](https://doi.org/10.5281/zenodo.22780175)
+
 Real, non-dry-run validation of all five [OmniOmics](https://github.com/oliv-angelus/OmniOmics) pipelines (MAGMA, SIGMA, DOGMA, DEFINE, PRISM) against public datasets with a known, published ground truth. This is Deliverable B of the OmniOmics tool paper.
 
 ## Why this is a separate repository
@@ -39,7 +41,7 @@ Each `<pipeline>/config/` folder has the real `config.yaml` and `samples.tsv` us
 
 ## Data Availability & Benefit-Sharing
 
-All datasets reanalyzed here are already public (accessions above); no new biological samples were collected for this work. A Zenodo DOI for this repository will be minted before manuscript submission (not yet assigned).
+All datasets reanalyzed here are already public (accessions above); no new biological samples were collected for this work. This repository is archived on Zenodo: [10.5281/zenodo.22780175](https://doi.org/10.5281/zenodo.22780175) (concept DOI, always resolves to the latest version; the v1.0.0 release itself is archived at [10.5281/zenodo.22780176](https://doi.org/10.5281/zenodo.22780176)).
 
 ## License
 
