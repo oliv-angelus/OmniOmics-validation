@@ -49,15 +49,25 @@ cluster for a different real reason (their databases were never
 downloaded here) — both are documented rather than silently worked
 around, per this validation's own honesty standard.
 
-## Results (pending)
+## Results
 
-`results/observed_vs_expected.tsv`, one row per gene/category named in the ground truth doc:
+Real HPC run completed 2026-09-15 (`run1`, 54/54 steps, `EXIT_CODE=0`,
+elapsed 20h36m — `results/run_log_final_tail.txt`). All 4 samples
+(`C0R1`, `C0R2`, `C8R1`, `C8R2`) completed the full chain: QC → rRNA
+removal → domain filtering (prokaryote) → 3-assembler ensemble
+(rnaSPAdes+MEGAHIT+Trinity) → MMseqs2 dedup → TransDecoder ORF calling →
+functional annotation (eggNOG, CAZy, NCycDB, SCycDB, MCycDB, CANT-HYD,
+FeGenie) → Salmon quantification.
 
-| column | meaning |
-|---|---|
-| `gene_or_category` | e.g. `amtB`, `nitrification (all)` |
-| `expected_direction` | `up` or `down`, from the paper |
-| `observed_log2fc` | DESeq2 log2FoldChange, C8 vs C0, from DOGMA's real output |
-| `direction_match` | whether the sign agrees with `expected_direction` |
+`results/observed_vs_expected.tsv` — 13 genes/categories named in the
+ground truth doc, checked via gene-family-level DESeq2 (C8 vs C0); see
+`results/README.md` for the full method and result table.
 
-Generated from the real pipeline output only. Run logs referenced alongside once available.
+**11 of 12 detected genes/categories (92%) match the paper's reported
+direction of change**, including every gene/category the paper reports
+as a strong effect (`amtB`, GS-GOGAT, N-regulatory network,
+nitrification, denitrification — all significant, padj ≤ 0.04). The one
+mismatch (`crp`) is a subtle, non-significant effect in both this run
+and the original paper (see `results/README.md` for the scientific
+justification). `gltS` was not detected in any sample's eggNOG
+annotation.

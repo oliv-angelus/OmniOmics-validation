@@ -1,0 +1,80 @@
+    reason: Missing output files: results/05_ANNOTATION/C8R2/prokaryote/canthyd/C8R2_canthyd_hmmsearch.tblout; Input files updated by another job: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep
+    wildcards: sample=C8R2, domain=prokaryote
+    threads: 4
+    resources: tmpdir=<TBD>, mem_mb=7200, mem=7.2 GB, mem_mib=6867, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=24:00:00
+Submitted job 82 with external jobid '19100.tapajos'.
+
+[Tue Sep 15 11:51:02 2026]
+rule eggnog_sample:
+    input: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep
+    output: results/05_ANNOTATION/C8R2/prokaryote/eggnog/C8R2_annotations.emapper.annotations
+    log: logs/annotation/C8R2_prokaryote_eggnog.log
+    jobid: 59
+    reason: Missing output files: results/05_ANNOTATION/C8R2/prokaryote/eggnog/C8R2_annotations.emapper.annotations; Input files updated by another job: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep
+    wildcards: sample=C8R2, domain=prokaryote
+    threads: 16
+    resources: tmpdir=<TBD>, mem_mb=28800, mem=28.8 GB, mem_mib=27466, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=48:00:00
+Submitted job 59 with external jobid '19101.tapajos'.
+
+[Tue Sep 15 11:51:02 2026]
+rule fegenie_annotate:
+    input: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep
+    output: results/05_ANNOTATION/C8R2/prokaryote/fegenie/FeGenie-geneSummary.csv
+    log: logs/annotation/C8R2_prokaryote_fegenie.log
+    jobid: 86
+    reason: Missing output files: results/05_ANNOTATION/C8R2/prokaryote/fegenie/FeGenie-geneSummary.csv; Input files updated by another job: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep
+    wildcards: sample=C8R2, domain=prokaryote
+    threads: 4
+    resources: tmpdir=<TBD>, mem_mb=7200, mem=7.2 GB, mem_mib=6867, disk_mb=1000, disk=1 GB, disk_mib=954, walltime=24:00:00
+Submitted job 86 with external jobid '19102.tapajos'.
+
+[Tue Sep 15 11:51:02 2026]
+rule scycdb_annotate:
+    input: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep, results/05_ANNOTATION/_scycdb/SCycDB_2020Mar.dmnd, /projetos/ridh/gabrielcoelho/databases/scycdb_db/id2gene.2020Mar.map
+    output: results/05_ANNOTATION/C8R2/prokaryote/scycdb/C8R2_scycdb_hits.tsv, results/05_ANNOTATION/C8R2/prokaryote/scycdb/C8R2_scycdb_annotations.tsv
+    log: logs/annotation/C8R2_prokaryote_scycdb.log
+    jobid: 73
+    reason: Missing output files: results/05_ANNOTATION/C8R2/prokaryote/scycdb/C8R2_scycdb_annotations.tsv; Input files updated by another job: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep
+    wildcards: sample=C8R2, domain=prokaryote
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=1137, disk=1.14 GB, disk_mib=1085, walltime=24:00:00
+Submitted job 73 with external jobid '19103.tapajos'.
+
+[Tue Sep 15 11:51:02 2026]
+rule mcycdb_annotate:
+    input: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep, results/05_ANNOTATION/_mcycdb/MCycDB_2021.dmnd, /projetos/ridh/gabrielcoelho/databases/mcycdb_db/id2gene.map
+    output: results/05_ANNOTATION/C8R2/prokaryote/mcycdb/C8R2_mcycdb_hits.tsv, results/05_ANNOTATION/C8R2/prokaryote/mcycdb/C8R2_mcycdb_annotations.tsv
+    log: logs/annotation/C8R2_prokaryote_mcycdb.log
+    jobid: 78
+    reason: Missing output files: results/05_ANNOTATION/C8R2/prokaryote/mcycdb/C8R2_mcycdb_annotations.tsv; Input files updated by another job: results/04_ORF_CALLING/C8R2/prokaryote/C8R2_transdecoder.pep
+    wildcards: sample=C8R2, domain=prokaryote
+    threads: 8
+    resources: tmpdir=<TBD>, mem_mb=14400, mem=14.4 GB, mem_mib=13733, disk_mb=1175, disk=1.18 GB, disk_mib=1121, walltime=24:00:00
+Submitted job 78 with external jobid '19104.tapajos'.
+[Tue Sep 15 11:52:12 2026]
+Finished jobid: 68 (Rule: ncycdb_annotate)
+47 of 54 steps (87%) done
+[Tue Sep 15 11:52:12 2026]
+Finished jobid: 82 (Rule: canthyd_annotate)
+48 of 54 steps (89%) done
+[Tue Sep 15 11:52:42 2026]
+Finished jobid: 73 (Rule: scycdb_annotate)
+49 of 54 steps (91%) done
+[Tue Sep 15 11:53:12 2026]
+Finished jobid: 78 (Rule: mcycdb_annotate)
+50 of 54 steps (93%) done
+[Tue Sep 15 11:57:12 2026]
+Finished jobid: 86 (Rule: fegenie_annotate)
+51 of 54 steps (94%) done
+[Tue Sep 15 12:08:13 2026]
+Finished jobid: 58 (Rule: eggnog_sample)
+52 of 54 steps (96%) done
+[Tue Sep 15 13:25:18 2026]
+Finished jobid: 63 (Rule: cazy_annotate)
+53 of 54 steps (98%) done
+[Tue Sep 15 19:19:42 2026]
+Finished jobid: 59 (Rule: eggnog_sample)
+54 of 54 steps (100%) done
+Complete log(s): /projetos/ridh/gabrielcoelho/DOGMA-root/pipeline/.snakemake/log/2026-09-14T224335.696303.snakemake.log
+Elapsed time: 20:36:17.198236
+EXIT_CODE=0
