@@ -7,12 +7,18 @@ authors:
     family-names: "Barbosa de Oliveira"
     orcid: "https://orcid.org/0000-0003-0831-447X"
     affiliation: "Programa de Pós-Graduação em Genética e Biologia Molecular, Universidade Federal do Pará (UFPA), Belém, PA, Brazil"
-version: "0.1.0"
-date-released: "2026-09-13"
+version: "1.0.0"
+date-released: "2026-09-15"
 license: CC-BY-4.0
 repository-code: "https://github.com/oliv-angelus/OmniOmics-validation"
 abstract: >-
   Real, non-dry-run validation of all five OmniOmics pipelines (MAGMA, SIGMA,
   DOGMA, DEFINE, PRISM) against public datasets with a known, published
-  ground truth. Companion package to the OmniOmics tool paper's Deliverable
-  B (see https://github.com/oliv-angelus/OmniOmics).
+  ground truth. All five pipelines completed their real, end-to-end run and
+  were checked against independent, external ground truth (certified
+  mock-community compositions, reference genomes, published papers' own
+  reported results, or a sequencing vendor's own classification of the same
+  read file), with observed-vs-expected results, raw tool outputs, and exact
+  run configurations published per pipeline. Companion package to the
+  OmniOmics tool paper's Deliverable B (see
+  https://github.com/oliv-angelus/OmniOmics).
