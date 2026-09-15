@@ -83,3 +83,15 @@ above) AND should have **better** assembly quality than `ECOLI_SHORT_ONLY`
 comparison (short-only vs. hybrid-ONT vs. hybrid-PacBio) is exactly what
 demonstrates SIGMA's real value from long-read polishing, not just
 "runs without error."
+
+## Update 2026-09-12 -- both "Open items" above resolved
+
+The reference genome zip was downloaded and extracted on the cluster,
+and all three real runs (`ECOLI_SHORT_ONLY`, `ECOLI_HYBRID_ONT`,
+`ECOLI_HYBRID_PACBIO`) completed. See `../README.md`'s "Results"
+section for the real QUAST/CheckM2/GTDB-Tk output and
+`../results/observed_vs_expected.tsv` for the generated comparison
+table. This note is left in place, rather than rewritten, as an honest
+record of the validation's actual sequence (plan the check, then run
+it for real), matching the rest of this repository's documentation
+style.
