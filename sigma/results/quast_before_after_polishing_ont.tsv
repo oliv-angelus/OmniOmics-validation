@@ -1,0 +1,55 @@
+Assembly	ont_unpolished	ont_polypolish	ont_pypolca
+# contigs (>= 0 bp)	2	2	2
+# contigs (>= 1000 bp)	2	2	2
+# contigs (>= 5000 bp)	2	2	2
+# contigs (>= 10000 bp)	2	2	2
+# contigs (>= 25000 bp)	2	2	2
+# contigs (>= 50000 bp)	2	2	2
+Total length (>= 0 bp)	4875452	4875454	4875454
+Total length (>= 1000 bp)	4875452	4875454	4875454
+Total length (>= 5000 bp)	4875452	4875454	4875454
+Total length (>= 10000 bp)	4875452	4875454	4875454
+Total length (>= 25000 bp)	4875452	4875454	4875454
+Total length (>= 50000 bp)	4875452	4875454	4875454
+# contigs	2	2	2
+Largest contig	4765451	4765451	4765451
+Total length	4875452	4875454	4875454
+Reference length	4875441	4875441	4875441
+GC (%)	50.49	50.49	50.49
+Reference GC (%)	50.49	50.49	50.49
+N50	4765451	4765451	4765451
+NG50	4765451	4765451	4765451
+N90	4765451	4765451	4765451
+NG90	4765451	4765451	4765451
+auN	4660413.7	4660411.9	4660411.9
+auNG	4660424.2	4660424.3	4660424.3
+L50	1	1	1
+LG50	1	1	1
+L90	1	1	1
+LG90	1	1	1
+# misassemblies	0	0	0
+# misassembled contigs	0	0	0
+Misassembled contigs length	0	0	0
+# local misassemblies	0	0	0
+# scaffold gap ext. mis.	0	0	0
+# scaffold gap loc. mis.	0	0	0
+# unaligned mis. contigs	0	0	0
+# unaligned contigs	0 + 0 part	0 + 0 part	0 + 0 part
+Unaligned length	0	0	0
+Genome fraction (%)	100.000	100.000	100.000
+Duplication ratio	1.000	1.000	1.000
+# N's per 100 kbp	0.00	0.00	0.00
+# mismatches per 100 kbp	10.99	10.99	10.99
+# indels per 100 kbp	1.21	1.17	1.17
+Largest alignment	4765451	4765451	4765451
+Total aligned length	4875452	4875454	4875454
+NA50	4765451	4765451	4765451
+NGA50	4765451	4765451	4765451
+NA90	4765451	4765451	4765451
+NGA90	4765451	4765451	4765451
+auNA	4660413.7	4660411.9	4660411.9
+auNGA	4660424.2	4660424.3	4660424.3
+LA50	1	1	1
+LGA50	1	1	1
+LA90	1	1	1
+LGA90	1	1	1

@@ -23,7 +23,7 @@ Direction and significance of the 14 genes/categories the source reports for t8 
 
 ## Result — partially met, 12 of 14
 
-Details, method and per-target table in [`results/README.md`](results/README.md). Met: amtB, glnA, gltB, gltD, gltS, glnD, glnB, glnK, NtrC family (up), nitrification, denitrification, rpoN (down). Not met: assimilatory nitrate reduction (0.32, padj 0.32) and crp (0.76, padj 0.016).
+Details, method and per-target table in [`results/README.md`](results/README.md). Computed with OmniOmics's own DOGMA analysis (Plots tab) for the KEGG-ortholog targets. Met: amtB, glnA, gltB, gltD, gltS, glnD, glnB, glnK, NtrC family (up), nitrification, denitrification, rpoN (down). Not met: assimilatory nitrate reduction (0.32, padj 0.32) and crp (0.76, padj 0.020).
 
 ## Alpha test
 

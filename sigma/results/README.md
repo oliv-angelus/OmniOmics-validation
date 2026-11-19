@@ -14,6 +14,17 @@ QUAST against Zymo's reference genome for the isolate (4,875,441 bp); hybrid ass
 
 The first PacBio run used SRR8154675, which is *E. coli* K-12 MG1655, not the Zymo strain (NRRL B-1109): 21 misassemblies against the B-1109 reference (`quast_vs_reference_report_first_pacbio_K12.tsv`). The PacBio reads of the Zymo strain (SRR7498041, McIntyre et al. 2019) were used for the result above. Reference-guided scaffolding (RagTag) was not used.
 
+## Before and after polishing (`quast_before_after_polishing_*.tsv`)
+
+| Hybrid | Stage | Mismatches / 100 kbp | Indels / 100 kbp |
+|---|---|---|---|
+| ONT | Unicycler output | 10.99 | 1.21 |
+| ONT | Polypolish → Pypolca | 10.99 | 1.17 |
+| PacBio | Unicycler output | 11.01 | 1.07 |
+| PacBio | Polypolish → Pypolca | 11.01 | 1.07 |
+
+Contigs, genome fraction and misassemblies are unchanged by polishing. (`quast_before_after_polishing_ont.tsv` keeps only the ONT columns of a QUAST run that also held the first, wrong-strain PacBio assembly.)
+
 ## Read identity (`read_identity.tsv`, `paf_identity.py`)
 
 Reads aligned to the reference with minimap2 2.31 (`-c`, `map-ont` / `map-pb`); identity = (L − NM)/L of primary alignments, as in Nicholls et al. 2019.

@@ -9,7 +9,7 @@ Accessions (public, not re-hosted): Illumina `ERR2984773` (Even) / `ERR2935805` 
 
 ## Reference and pass criterion
 
-The manufacturer's theoretical composition is for genomic DNA and does not separate extraction, library and sequencing biases from classification error. The reference is therefore the composition obtained by aligning the **same clean Illumina pairs** to the 10 reference genomes (Bowtie2, uniquely placed pairs, MAPQ ≥ 10), as Nicholls et al. (2019) did for their Nanopore reads; the theoretical composition is reported alongside (`ground_truth/zymo_even_theoretical_composition.tsv`).
+The manufacturer's theoretical composition is for genomic DNA and does not separate extraction, library and sequencing biases from classification error. The reference is therefore the composition obtained by aligning the **same clean Illumina pairs** to the 10 reference genomes (Bowtie2, uniquely placed pairs, MAPQ ≥ 10), as Nicholls et al. (2019) did for their Nanopore reads; the manufacturer's theoretical composition is reported alongside: Even, 12% per bacterium and 2% per yeast (`ground_truth/zymo_even_theoretical_composition.tsv`); Log, cell numbers from 89.1% to 0.000089% (ZymoBIOMICS CSII instruction manual, as given by Nicholls et al. 2019; values in `results/compare.py`).
 
 - Read-based abundance (Kraken2 + Bracken) within ±10% (relative) of the reference, per species; detection threshold 0.02% of classified reads.
 - MAG recovery per community before dereplication, out of the 8 bacteria, and species of the dereplicated MAGs (GTDB-Tk).

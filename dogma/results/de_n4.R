@@ -22,7 +22,7 @@ suppressMessages({
   library(DESeq2)
 })
 
-base <- commandArgs(TRUE)[1]  # folder with quant/, eggnog/, ncycdb/ (see README)
+base <- commandArgs(TRUE)[1]
 samples <- c("C0R1", "C0R2", "C0R3", "C0R4", "C8R1", "C8R2", "C8R3", "C8R4")
 condition <- rep(c("C0", "C8"), each = 4)
 

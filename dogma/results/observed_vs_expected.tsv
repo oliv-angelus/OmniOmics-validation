@@ -1,15 +1,15 @@
-target	feature	source_direction	log2fc	lfcSE	padj	met_fdr_0.01	first_round_method_log2fc	first_round_method_padj
-amtB	K03320	up	3.749	0.494	3.33e-13	TRUE	7.925	9.67e-22
-glnA	K01915	up	2.708	0.220	5.15e-33	TRUE	3.586	1.41e-17
-gltB	K00265	up	3.014	0.228	5.34e-38	TRUE	3.872	1.03e-13
-gltD	K00266	up	4.217	0.471	5.69e-18	TRUE	5.241	8.07e-15
-gltS	K00284	up	2.589	0.248	6.00e-24	TRUE	NA	NA
-glnD	K00990	up	5.566	0.586	4.85e-20	TRUE	6.377	1.10e-17
-glnB	K04751	up	3.934	0.408	1.34e-20	TRUE	5.486	5.89e-68
-glnK	K04752	up	4.140	0.413	3.25e-22	TRUE	5.674	9.74e-134
-NtrC-family	K07712	up	2.629	0.346	3.26e-13	TRUE	5.735	8.02e-10
-assimilatory nitrate reduction	NCycDB pooled families	up	0.323	0.286	3.19e-01	FALSE	1.293	2.96e-05
-nitrification (all)	NCycDB pooled families	down	-5.147	0.582	1.51e-17	TRUE	-3.934	2.85e-30
-denitrification (most)	NCycDB pooled families	down	-2.945	0.473	2.80e-09	TRUE	-1.803	1.03e-13
-crp	K10914	down (LFC < -1)	0.756	0.288	1.58e-02	FALSE	0.825	2.57e-03
-rpoN	K03092	down (LFC < -1)	-1.214	0.260	1.05e-05	TRUE	-0.364	5.38e-01
+target	feature	source_direction	log2fc	lfcSE	padj	met_fdr_0.01	computed_by	gene_name_counting_log2fc	gene_name_counting_padj
+amtB	K03320	up	3.745	0.496	4.54e-13	TRUE	app	7.925	9.67e-22
+glnA	K01915	up	2.704	0.219	4.90e-33	TRUE	app	3.586	1.41e-17
+gltB	K00265	up	3.004	0.231	8.30e-37	TRUE	app	3.872	1.03e-13
+gltD	K00266	up	4.209	0.472	7.97e-18	TRUE	app	5.241	8.07e-15
+gltS	K00284	up	2.579	0.250	2.17e-23	TRUE	app	NA	NA
+glnD	K00990	up	5.556	0.586	5.47e-20	TRUE	app	6.377	1.10e-17
+glnB	K04751	up	3.937	0.410	1.65e-20	TRUE	app	5.486	5.89e-68
+glnK	K04752	up	4.157	0.409	9.12e-23	TRUE	app	5.674	9.74e-134
+NtrC-family	K07712	up	2.624	0.347	4.11e-13	TRUE	app	5.735	8.02e-10
+assimilatory nitrate reduction	NCycDB pooled families	up	0.323	0.286	3.19e-01	FALSE	de_n4_allko.R	1.290	2.96e-05
+nitrification (all)	NCycDB pooled families	down	-5.150	0.582	1.51e-17	TRUE	de_n4_allko.R	-3.934	2.85e-30
+denitrification (most)	NCycDB pooled families	down	-2.950	0.473	2.80e-09	TRUE	de_n4_allko.R	-1.803	1.03e-13
+crp	K10914	down (LFC < -1)	0.758	0.300	2.04e-02	FALSE	app	0.825	2.57e-03
+rpoN	K03092	down (LFC < -1)	-1.219	0.260	9.74e-06	TRUE	app	-0.364	5.38e-01
