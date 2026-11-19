@@ -1,33 +1,23 @@
 # PRISM validation
 
-> **Validation (November 2026).** Re-run after review with a fix for reads sequenced in reverse orientation (discarded at primer trimming in the alpha test) and the kit's primer preset `16s_ont_mab_kit`; *C. trachomatis*, lost in the alpha test, is detected in all three replicates. Current results: [`results/README.md`](results/README.md). Configuration: `config/`.
->
-> The alpha test (September 2026) is kept in [`alpha_test/`](alpha_test/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, the alpha test.
+**Dataset**: ZymoBIOMICS Microbial Community DNA Standard with *Bifidobacterium adolescentis*, *Borrelia burgdorferi*, *Chlamydia trachomatis* and *Gardnerella vaginalis* gDNA added ("MSPlus"), full-length 16S, Oxford Nanopore kit SQK-MAB114.24, released by ONT in September 2025 (`zymo_16s_2025.09`, [EPI2ME](https://epi2me.nanoporetech.com/zymo_16s_2025.09/), bucket `s3://ont-open-data/zymo_16s_2025.09`).
 
+Samples: `MSPLUS_REP1`–`MSPLUS_REP3`, 3 of the release's replicates (SUP basecalls), checked byte-identical against the bucket and converted BAM → FASTQ (`samtools fastq`).
 
-**Dataset**: ZymoBIOMICS Microbial Community DNA Standard supplemented with 4 additional species ("MSPlus"), 16S rRNA, Oxford Nanopore, kit SQK-MAB114.24 — released by ONT itself in September 2025 specifically to demonstrate the new kit's improved resolution of closely-related species.
+## Reference and pass criterion
 
-Source: [EPI2ME blog, ONT open data release `zymo_16s_2025.09`](https://epi2me.nanoporetech.com/zymo_16s_2025.09/), bucket `s3://ont-open-data/zymo_16s_2025.09` (public, no-sign-request).
+- The expected composition of the standard (theoretical 16S share for its 8 bacteria).
+- The vendor's own Emu classification of the same reads, as a **reference classification**, not a ground truth (`ground_truth/ONT_official_emu_MSPlus_MAB114_rep{1,2,3}_*.tsv`).
+- All 4 added species detected; genus-level agreement with the expected composition; Bray-Curtis to the vendor classification compared with the between-replicate value.
 
-**Samples used**: `MSPLUS_REP1`, `MSPLUS_REP2`, `MSPLUS_REP3` — 3 of the release's 6 available replicates (SUP basecalling model). Each verified byte-identical against the official bucket before use, then converted BAM→FASTQ (`samtools fastq`).
+## Configuration
 
-**Not yet covered**: the equivalent PacBio path (vendor's Kinnex 16S mock-community release) — `downloads.pacbcloud.com` was unreachable from both the analysis machine and the HPC cluster at the time this was set up (DNS resolves, connection times out on port 443). Revisit if/when that host is reachable.
+`config/config.yaml` + `config/samples.tsv`: primer preset `16s_ont_mab_kit` (the kit's primers, including the Chlamydia- and Borrelia-specific ones); classification with Emu (Curry et al. 2022, [10.1038/s41592-022-01520-4](https://doi.org/10.1038/s41592-022-01520-4)) and its default database (rrnDB v5.6 + NCBI 16S RefSeq).
 
-## Ground truth
+## Result — met
 
-Unlike the other 4 pipelines, no certified theoretical composition exists yet for this 2025 community (too new). Instead: ONT's own official Emu classification of these *exact same* read files, published in the same open-data release (`analysis/emu/MSPlus/MAB114/rep{1,2,3}/`) — `ground_truth/ONT_official_emu_MSPlus_MAB114_rep{1,2,3}_{classification,rel-abundance}.tsv`. This is a same-method reproducibility check (does PRISM's own Emu run on this data match ONT's), not a check against certified truth — stated explicitly, not presented as equivalent to the other 4 pipelines' ground truth.
+Details in [`results/README.md`](results/README.md). All 12 bacteria detected in every replicate (*C. trachomatis* 2.0–2.1%); the 8 of the base standard within 2-fold of their theoretical share, closer to it than the vendor classification for 7 of the 8; Bray-Curtis to the vendor 0.022–0.042 vs. 0.005–0.008 between the vendor's replicates. The same run repeated through OmniOmics's command line gave an identical abundance table.
 
-Reference database: GTDB SSU r220 (Alishum A., Zenodo [10.5281/zenodo.13984843](https://doi.org/10.5281/zenodo.13984843), built on Parks et al. 2022, DOI [10.1093/nar/gkab776](https://doi.org/10.1093/nar/gkab776)) — chosen over SILVA for this validation because it needs no RNA→DNA/header conversion step and keeps PRISM's 16S output in the same GTDB-rank lineage format the other OmniOmics pipelines' Plots tab already expects.
+## Alpha test
 
-## Results — real, honest mixed outcome (strong correlation, one real miss)
-
-**Done.** `results/observed_vs_expected.tsv` + full writeup in
-`results/README.md`, generated from PRISM's real Emu output (GTDB SSU
-r220) against ONT's own official Emu classification of the same reads.
-
-| check | result |
-|---|---|
-| Genus-level community composition vs. ONT's own result | **PASSED** — Bray-Curtis dissimilarity = 0.08–0.11 across all 3 replicates (mean 0.098), the standard compositional-similarity metric for this kind of data. Pearson r (0.96–0.98) alone overstates agreement — it's dominated by a few high-abundance genera; Spearman ρ (0.66–0.79) more honestly reflects real rank-order disagreement among the minor taxa. All three are reported in `results/README.md` rather than only the most favorable one. |
-| All 4 spiked species detected | **FAILED (3/4)** — *Bifidobacterium adolescentis*, *B. vaginale* (=*Gardnerella vaginalis*), and *Borreliella/Borrelia burgdorferi* detected with closely matching abundances; *Chlamydia trachomatis* not detected at all (0% vs. ONT's ~1.9–2.0%), most likely due to the well-documented mismatch between "universal" 16S primers and Chlamydiae sequences — see `results/README.md` for the full investigation (database coverage ruled out; loss traced to the primer-trimming step). |
-
-Reported as-is, same honesty standard applied throughout this validation.
+The alpha test (September 2026) is kept unchanged in [`alpha_test/`](alpha_test/) (its `config/` and `results/`). It is superseded by the validation above.

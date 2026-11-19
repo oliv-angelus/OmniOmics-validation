@@ -49,7 +49,7 @@ snakemake -s OmniOmics/pipelines/<pipeline>/Snakefile --configfile <pipeline>/co
 
 ## Data Availability & Benefit-Sharing
 
-All datasets reanalyzed here are already public (accessions above); no new biological samples were collected for this work. This repository is archived on Zenodo: [10.5281/zenodo.22780175](https://doi.org/10.5281/zenodo.22780175) (concept DOI, always resolves to the latest version; the v1.0.0 release itself is archived at [10.5281/zenodo.22780176](https://doi.org/10.5281/zenodo.22780176)).
+All datasets reanalyzed here are already public (accessions above); no new biological samples were collected for this work. This repository is archived on Zenodo. Cite the concept DOI [10.5281/zenodo.22780175](https://doi.org/10.5281/zenodo.22780175): it always resolves to the latest version (v2.0.0, the validation). Each release also has its own version DOI, listed on the Zenodo record; v1.0.0 (the alpha test) is [10.5281/zenodo.22780176](https://doi.org/10.5281/zenodo.22780176).
 
 ## License
 

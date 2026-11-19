@@ -1,36 +1,21 @@
 # DEFINE validation
 
-> **Validation (November 2026).** Re-run after review with gene-by-gene comparison against DEGs obtained with the source criteria from the authors' deposited count matrix, and over-representation analysis against the source's Fig. 4. Current results: [`results/README.md`](results/README.md). Configuration: `config/`.
->
-> The alpha test (September 2026) is kept in [`alpha_test/`](alpha_test/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, the alpha test.
+**Dataset**: *E. coli* DH10β exposed in situ to ²³⁹Pu vs. non-irradiated control, day 1, 3 biological replicates each — the source's day-1 ²³⁹Pu contrast. GEO [GSE208658](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208658) (BioProject `PRJNA860569`); Wintenberg M et al. 2023, *mSystems* 8:e00718-22, [10.1128/msystems.00718-22](https://doi.org/10.1128/msystems.00718-22). `ground_truth/all_30_samples_ena.tsv` lists all 30 samples of the study.
 
+Reference genome: RefSeq GCF_000005845.2 (*E. coli* K-12 MG1655), as in the source.
 
-**Dataset**: *E. coli* exposed to low-dose ²³⁹Pu ionizing radiation vs. non-irradiated control, day-1 timepoint (the contrast with the strongest reported effect).
+## Reference and pass criterion
 
-Source: GEO series [GSE208658](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208658) (BioProject `PRJNA860569`). Paper: "Global Transcriptional Response of *Escherichia coli* Exposed In Situ to Different Low-Dose Ionizing Radiation Sources." *mSystems*. DOI: [10.1128/msystems.00718-22](https://doi.org/10.1128/msystems.00718-22).
+The DEGs obtained with the source's criteria (|log2FC| > 2, padj < 0.05) from the authors' deposited count matrix (`GSE208658_Ec_count_matrix.txt.gz`), and the over-represented KEGG/GO terms of the source's Fig. 4 (`ground_truth/gse208658_expected_de_results.md`). Gene-level precision, recall, Jaccard, direction and log2FC correlation; term recovery.
 
-**Samples used** (reduced from the paper's full 5-condition × 2-timepoint × 3-replicate design — see "Sample size" below): `CTRL_D1_R1/R2/R3` (non-irradiated control, day 1) + `PU239_D1_R1/R2/R3` (²³⁹Pu, day 1), 3 replicates each — exactly the paper's own headline contrast. `ground_truth/all_30_samples_ena.tsv` has the full 30-sample table (5 conditions × 2 timepoints × 3 replicates) for anyone who wants to extend this.
+## Configuration
 
-## Ground truth
+`config/config.yaml` + `config/samples.tsv`. DEFINE stops at the annotated count table; DESeq2 and over-representation analysis ran in OmniOmics's pinned R environment.
 
-`ground_truth/gse208658_expected_de_results.md` — 590 DEGs (13.8% of annotated CDSs) reported for this exact contrast in the paper; enriched functional categories (ABC transporters, siderophore biosynthesis, stress response regulons). The paper also deposited its own final count matrix as a GEO supplementary file (`GSE208658_Ec_count_matrix.txt.gz`) — a genuine gene-by-gene ground truth if an exact comparison is wanted later; not pulled into this repo yet.
+## Result — partially met
 
-## Sample size
+Details in [`results/README.md`](results/README.md). 417 DEGs (10.0% of tested genes) vs. 590 reported; against the deposited matrix, precision 0.72, recall 0.53, Jaccard 0.44, 265 of 276 shared DEGs in the same direction; all 3 GO terms reported for this contrast recovered, none of the 3 KEGG pathways.
 
-3 replicates per condition (not the paper's full 5×2×3) follows field convention for this kind of demonstration — see [SARTools](https://doi.org/10.1101/021741)'s own validation design (3 replicates per condition). Also the paper's own reference genome/reference annotation for the *E. coli* strain used is required at run time; see `config/config.yaml`'s `databases.reference_genome`.
+## Alpha test
 
-## Results — PASS, after a real correction
-
-**Done.** `results/observed_vs_expected.tsv` + full writeup in
-`results/README.md`, generated from DEFINE's real featureCounts output
-(`results/raw_tool_outputs/`) plus a real downstream DESeq2 analysis (the
-pipeline itself stops at the raw annotated count matrix by design).
-
-| check | result |
-|---|---|
-| DEG count order of magnitude (~590 expected) | **PASSED** — 433 real DEGs (padj<0.05 **and** log2FC>2, matching the paper's own stated DEG criteria exactly, 9.9% of tested genes) vs. the paper's 590 (13.8%). An initial padj-only comparison had given 2,720 and appeared to fail; that was a statistical-definition mismatch on this validation's part (the paper requires a fold-change cutoff too), not a DEFINE defect — corrected after confirming the paper's exact methods and re-checking. |
-| Functional categories match the paper | **PASSED** — ABC transporters, siderophore/iron biosynthesis, stress-response, and amino acid biosynthesis genes are all real hits among the significant set. |
-
-See `results/README.md` for the full correction trail, including the
-sensitivity check that disproved the first (wrong) explanation before the
-real one was confirmed.
+The alpha test (September 2026) is kept unchanged in [`alpha_test/`](alpha_test/) (its `config/` and `results/`). It is superseded by the validation above.

@@ -1,38 +1,30 @@
 # MAGMA validation
 
-> **Validation (November 2026).** Re-run after review with the same data. Current results: [`results/README.md`](results/README.md) (abundance against an alignment-based reference built from the same reads, MAG recovery, GTDB-Tk). Configuration: `config/`.
->
-> The alpha test (September 2026) is kept in [`alpha_test/`](alpha_test/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, the alpha test.
+**Dataset**: ZymoBIOMICS Microbial Community Standard, hybrid Illumina + Nanopore GridION, two distributions (Nicholls SM et al. 2019, *GigaScience* 8:giz043, [10.1093/gigascience/giz043](https://doi.org/10.1093/gigascience/giz043)):
 
+- `ZYMO_EVEN` — 8 bacteria at 12% and 2 yeasts at 2% (theoretical, genomic DNA)
+- `ZYMO_LOG` — the same 10 species from 89.1% down to 0.000089%
 
-**Dataset**: ZymoBIOMICS mock community, hybrid Illumina + Nanopore GridION, two distributions:
-- `ZYMO_EVEN` — 10 species at known equal abundance (8 bacteria @ 12%, 2 yeasts @ 2%)
-- `ZYMO_LOG` — same 10 species, logarithmic distribution (~89% down to ~0.000089%), tests detection sensitivity across 6 orders of magnitude
+Accessions (public, not re-hosted): Illumina `ERR2984773` (Even) / `ERR2935805` (Log); Nanopore `ERR3152364` (Even) / `ERR3152366` (Log).
 
-Source: Nicholls SM et al. 2019. "Ultra-deep, long-read nanopore sequencing of mock microbial community standards." *GigaScience* 8(5):giz043. DOI: [10.1093/gigascience/giz043](https://doi.org/10.1093/gigascience/giz043).
+## Reference and pass criterion
 
-Accessions (public, not re-hosted here): Illumina `ERR2984773` (even) / `ERR2935805` (log); Nanopore GridION `ERR3152364` (even) / `ERR3152366` (log).
+The manufacturer's theoretical composition is for genomic DNA and does not separate extraction, library and sequencing biases from classification error. The reference is therefore the composition obtained by aligning the **same clean Illumina pairs** to the 10 reference genomes (Bowtie2, uniquely placed pairs, MAPQ ≥ 10), as Nicholls et al. (2019) did for their Nanopore reads; the theoretical composition is reported alongside (`ground_truth/zymo_even_theoretical_composition.tsv`).
 
-## Ground truth
+- Read-based abundance (Kraken2 + Bracken) within ±10% (relative) of the reference, per species; detection threshold 0.02% of classified reads.
+- MAG recovery per community before dereplication, out of the 8 bacteria, and species of the dereplicated MAGs (GTDB-Tk).
 
-`ground_truth/zymo_even_theoretical_composition.tsv` — the 10 species' certified theoretical abundance (%), NRRL/ATCC strain accessions, from the paper's own Table 1. The "log" distribution's per-species theoretical values are in the same paper's Table 2 (not separately tabulated here — reference the paper directly for exact log-scale values).
+## Configuration
 
-## Config
+`config/config.yaml` + `config/samples.tsv` — the files used (`read_type: hybrid`, Kraken2 PlusPFP with `--confidence 0.05`, GTDB-Tk, CheckM2).
 
-`config/config.yaml` + `config/samples.tsv` — exact files used for the real run on the tapajos HPC cluster. `read_type: hybrid` for both samples (short+long reads combined via `metaspades_hybrid`).
+## Result — partially met
 
-## Results — real, honest mixed outcome
+Details in [`results/README.md`](results/README.md).
 
-**Done.** `results/observed_vs_expected.tsv` + full writeup in
-`results/README.md`, generated from the real completed run (Kraken2 +
-Bracken read-based profiling, and independently, real assembly + MAG
-recovery + GTDB-Tk classification).
+- Read-based abundance within ±10%: 8 of 10 species (Even; *S. enterica* +22%, *E. coli* −21%) and 6 of 10 (Log; the 4 below the 0.02% threshold fall under it).
+- MAGs: Even, 8 (one per bacterium); Log, 3 (the three bacteria above 0.8% of reads). After dereplication, 8 MAGs, all the expected species; 7 MIMAG high quality, *E. faecalis* medium (no 23S rRNA gene).
 
-| check | result |
-|---|---|
-| All 10 species detected, both distributions | **PASSED** |
-| Detection across ~5 orders of magnitude (ZYMO_LOG) | **PASSED** |
-| Read-based abundance within ±10% of certified value (ZYMO_EVEN) | **PARTIAL** — 2/10 species (real deviations of 0.5–3.6 points for the rest, attributable to known extraction/genome-copy-number bias in read-based profiling, not a pipeline defect) |
-| MAG recovery + correct species classification | **PASSED** — 7 MAGs recovered, 7/7 correctly classified, 0 false calls |
+## Alpha test
 
-See `results/README.md` for the full breakdown and the real numbers.
+The alpha test (September 2026) is kept unchanged in [`alpha_test/`](alpha_test/) (its `config/` and `results/`). It is superseded by the validation above.
