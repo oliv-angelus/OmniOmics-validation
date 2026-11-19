@@ -10,23 +10,23 @@ OmniOmics does not modify or reimplement the algorithms of the tools it orchestr
 
 Raw sequencing data is **never** re-hosted here — every dataset is already public (SRA/ENA/GEO/vendor open-data accessions, cited per pipeline below). This repository holds what's actually ours to share: the curated ground truth, the exact configs used, and the observed-vs-expected comparison once each run completes.
 
-## Two rounds
+## Alpha test and validation
 
-- **Round 2 (November 2026, current)** — every pipeline re-run after peer review, with the corrections and criteria the review asked for (see each pipeline's `results/README.md`). Pipelines run with Snakemake 9.26.0 on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3).
-- **Round 1 (September 2026, v1.0.0)** — kept unchanged in each `<pipeline>/round1/`.
+- **Validation (November 2026, current)** — every pipeline re-run after peer review, with the corrections and criteria the review asked for (see each pipeline's `results/README.md`). Pipelines run with Snakemake 9.26.0 on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3).
+- **Alpha test (September 2026, v1.0.0)** — kept unchanged in each `<pipeline>/alpha_test/`.
 
 ## Layout
 
 ```
 <pipeline>/
   ground_truth/   curated expected result + its citation (DOI)
-  config/         the exact config.yaml + samples.tsv of the round-2 run
-  results/        round 2: observed-vs-expected table, README, the scripts that
+  config/         the exact config.yaml + samples.tsv of the validation run
+  results/        validation: observed-vs-expected table, README, the scripts that
                   produced the comparison, raw tool outputs, Snakemake run logs
-  round1/         round 1: its config/ and results/, unchanged
+  alpha_test/     alpha test: its config/ and results/, unchanged
 ```
 
-## Outcomes (round 2)
+## Outcomes (validation)
 
 | Pipeline | Dataset | Reference | Pass criterion | Outcome |
 |---|---|---|---|---|

@@ -10,6 +10,6 @@ S.aureus	14.71	14.41
 B.adolescentis	6.47	6.20	added species
 G.vaginalis	8.50	8.38	added species
 B.burgdorferi	2.69	2.90	added species
-C.trachomatis	1.93	2.04	added species; lost in round 1 (reverse-orientation reads discarded), detected in all 3 replicates now
+C.trachomatis	1.93	2.04	added species; lost in the alpha test (reverse-orientation reads discarded), detected in all 3 replicates now
 off-target	0.13	0.05	genera outside the standard
 Bray-Curtis to vendor, per replicate	-	0.031 / 0.022 / 0.042	between vendor replicates: 0.005 / 0.007 / 0.008

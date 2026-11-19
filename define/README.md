@@ -1,8 +1,8 @@
 # DEFINE validation
 
-> **Round 2 (November 2026).** Re-run after review with gene-by-gene comparison against DEGs obtained with the source criteria from the authors' deposited count matrix, and over-representation analysis against the source's Fig. 4. Current results: [`results/README.md`](results/README.md). Configuration: `config/`.
+> **Validation (November 2026).** Re-run after review with gene-by-gene comparison against DEGs obtained with the source criteria from the authors' deposited count matrix, and over-representation analysis against the source's Fig. 4. Current results: [`results/README.md`](results/README.md). Configuration: `config/`.
 >
-> Round 1 (September 2026) is kept in [`round1/`](round1/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, round 1.
+> The alpha test (September 2026) is kept in [`alpha_test/`](alpha_test/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, the alpha test.
 
 
 **Dataset**: *E. coli* exposed to low-dose ²³⁹Pu ionizing radiation vs. non-irradiated control, day-1 timepoint (the contrast with the strongest reported effect).

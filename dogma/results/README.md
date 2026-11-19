@@ -1,4 +1,4 @@
-# DOGMA results — round 2 (November 2026)
+# DOGMA results — validation (November 2026)
 
 Run on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3) with Snakemake 9.26.0, from the configuration in `../config/`. `run_logs_summary.txt` lists every Snakemake invocation of the run (progress, errors, elapsed time).
 
@@ -6,7 +6,7 @@ Run on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3) w
 
 ## Design
 
-n = 4 per time point (t0: C0R1–C0R4, t8: C8R1–C8R4; round 1 used 2). Source criteria: features with < 60 summed reads removed, FDR < 0.01.
+n = 4 per time point (t0: C0R1–C0R4, t8: C8R1–C8R4; the alpha test used 2). Source criteria: features with < 60 summed reads removed, FDR < 0.01.
 
 ## Method (`de_n4_allko.R`)
 
@@ -33,9 +33,9 @@ Run: `Rscript de_n4_allko.R <folder>`, where `<folder>` holds `quant/<sample>_qu
 | assimilatory nitrate reduction | up | 0.32 ± 0.29 | 0.32 | no |
 | crp | down, LFC < −1 | 0.76 ± 0.29 | 0.016 | no |
 
-## Round-1 counting at n = 4 (`de_n4.R`)
+## Alpha-test counting at n = 4 (`de_n4.R`)
 
-Round 1 counted eggNOG `Preferred_name` instead of KOs, with size factors from each sample's total reads. Under `Preferred_name`, most K00284 (gltS) transcripts are named `gltB`, so gltS was "not detected" in round 1. The same counting at n = 4 (columns `first_round_method_*` in `observed_vs_expected.tsv`; `raw_tool_outputs/deseq2_results.csv`) gives assimilatory nitrate reduction significantly up (1.29 ± 0.31, padj 3.0e-5), crp significantly up (0.82 ± 0.27, padj 0.003) and rpoN not significant (−0.36 ± 0.59). The KO counting is reported as the result because it is the source's own; both are given here.
+The alpha test counted eggNOG `Preferred_name` instead of KOs, with size factors from each sample's total reads. Under `Preferred_name`, most K00284 (gltS) transcripts are named `gltB`, so gltS was "not detected" in the alpha test. The same counting at n = 4 (columns `first_round_method_*` in `observed_vs_expected.tsv`; `raw_tool_outputs/deseq2_results.csv`) gives assimilatory nitrate reduction significantly up (1.29 ± 0.31, padj 3.0e-5), crp significantly up (0.82 ± 0.27, padj 0.003) and rpoN not significant (−0.36 ± 0.59). The KO counting is reported as the result because it is the source's own; both are given here.
 
 ## The two targets not met
 
@@ -49,4 +49,4 @@ CAT/BAT, EUKulele and the paired MAGMA MAG database (`--omit-from cat_setup euku
 
 - `raw_tool_outputs/deseq2_results_allko.csv` — DESeq2 results for all 3,513 KOs + 3 NCycDB categories
 - `raw_tool_outputs/target_counts_allko.csv` — counts of the 14 targets per sample
-- `raw_tool_outputs/deseq2_results.csv`, `gene_family_count_matrix.csv` — round-1 counting at n = 4
+- `raw_tool_outputs/deseq2_results.csv`, `gene_family_count_matrix.csv` — alpha-test counting at n = 4

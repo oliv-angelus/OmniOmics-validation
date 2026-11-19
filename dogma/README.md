@@ -1,8 +1,8 @@
 # DOGMA validation
 
-> **Round 2 (November 2026).** Re-run after review with all **4 replicates per time point** (C0R1–C0R4, C8R1–C8R4) and the source's criteria (≥ 60 reads, FDR < 0.01), counting KEGG orthologs as the source did. Current results: [`results/README.md`](results/README.md) — 12 of 14 targets met. Configuration: `config/`. The "Samples used" and "Sample size" sections below describe round 1.
+> **Validation (November 2026).** Re-run after review with all **4 replicates per time point** (C0R1–C0R4, C8R1–C8R4) and the source's criteria (≥ 60 reads, FDR < 0.01), counting KEGG orthologs as the source did. Current results: [`results/README.md`](results/README.md) — 12 of 14 targets met. Configuration: `config/`. The "Samples used" and "Sample size" sections below describe the alpha test.
 >
-> Round 1 (September 2026) is kept in [`round1/`](round1/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, round 1.
+> The alpha test (September 2026) is kept in [`alpha_test/`](alpha_test/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, the alpha test.
 
 
 **Dataset**: agricultural soil metatranscriptome, glucose-amendment time course. No mock-community RNA standard exists (Zymo's own standards are DNA-only), so this substitutes a real paired-omics study with a reported, checkable direction of transcriptional change instead of a certified composition.

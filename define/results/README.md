@@ -1,4 +1,4 @@
-# DEFINE results — round 2 (November 2026)
+# DEFINE results — validation (November 2026)
 
 Run on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3) with Snakemake 9.26.0, from the configuration in `../config/`. `run_logs_summary.txt` lists every Snakemake invocation of the run (progress, errors, elapsed time).
 
