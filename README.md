@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/1367598567.svg)](https://doi.org/10.5281/zenodo.22780175)
 
-Real, non-dry-run validation of all five [OmniOmics](https://github.com/oliv-angelus/OmniOmics) pipelines (MAGMA, SIGMA, DOGMA, DEFINE, PRISM) against public datasets with a known, published ground truth. This is Deliverable B of the OmniOmics tool paper.
+Real, end-to-end validation of all five [OmniOmics](https://github.com/oliv-angelus/OmniOmics) pipelines (MAGMA, SIGMA, DOGMA, DEFINE, PRISM) against public datasets with a known, published ground truth. Companion package of the OmniOmics paper.
 
 ## Why this is a separate repository
 
@@ -10,34 +10,42 @@ OmniOmics does not modify or reimplement the algorithms of the tools it orchestr
 
 Raw sequencing data is **never** re-hosted here — every dataset is already public (SRA/ENA/GEO/vendor open-data accessions, cited per pipeline below). This repository holds what's actually ours to share: the curated ground truth, the exact configs used, and the observed-vs-expected comparison once each run completes.
 
-## Layout
+## Two rounds
 
-Each pipeline has the same three folders:
+- **Round 2 (November 2026, current)** — every pipeline re-run after peer review, with the corrections and criteria the review asked for (see each pipeline's `results/README.md`). Pipelines run with Snakemake 9.26.0 on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3).
+- **Round 1 (September 2026, v1.0.0)** — kept unchanged in each `<pipeline>/round1/`.
+
+## Layout
 
 ```
 <pipeline>/
-  ground_truth/   curated expected result + its real citation (DOI), not fabricated
-  config/         the exact config.yaml + samples.tsv used for the real run
-  results/        observed-vs-expected comparison table, generated from the real
-                   pipeline output (never hand-typed) + a pointer to the raw
-                   Snakemake run log as proof of real execution
+  ground_truth/   curated expected result + its citation (DOI)
+  config/         the exact config.yaml + samples.tsv of the round-2 run
+  results/        round 2: observed-vs-expected table, README, the scripts that
+                  produced the comparison, raw tool outputs, Snakemake run logs
+  round1/         round 1: its config/ and results/, unchanged
 ```
 
-## Datasets and what "correct" means, per pipeline
+## Outcomes (round 2)
 
-| Pipeline | Dataset | Ground truth | Tolerance / pass criterion |
-|---|---|---|---|
-| **MAGMA** | ZymoBIOMICS mock community, "even" + "log" distributions, hybrid Illumina+Nanopore (Nicholls et al. 2019, *GigaScience*, [10.1093/gigascience/giz043](https://doi.org/10.1093/gigascience/giz043)) | Certified theoretical composition (%) per species | Observed relative abundance per species within 10% of the certified value; taxonomy call at species level for all 10 |
-| **SIGMA** | Individual *E. coli* isolate from the same Zymo series (Illumina ERR2935852) + independent ONT/PacBio reads of the same reference material (McIntyre et al. 2019, *Nat Commun*, [10.1038/s41467-019-08289-9](https://doi.org/10.1038/s41467-019-08289-9)) | Zymo's own reference genome for the isolate | QUAST vs. reference: genome fraction, N50, # misassemblies; short-only vs. hybrid-ONT vs. hybrid-PacBio compared to show real improvement from long-read polishing |
-| **DOGMA** | Soil metatranscriptome, glucose-amendment time course (Chuckran et al. 2021, *mSystems*, [10.1128/mSystems.00161-21](https://doi.org/10.1128/mSystems.00161-21)) | Direction of change (up/down) for named gene categories at t8 vs t0, with real fold-changes quoted from the paper | DESeq2 log2FoldChange sign matches the paper's reported direction for ammonium/nitrate transport, N-assimilation (up) and nitrification/denitrification (down) |
-| **DEFINE** | *E. coli* exposed to ²³⁹Pu vs. non-irradiated control, day 1 (GEO [GSE208658](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208658), *mSystems*, [10.1128/msystems.00718-22](https://doi.org/10.1128/msystems.00718-22)) | 590 DEGs (13.8% of CDSs) reported for this exact contrast; functional categories (ABC transporters, siderophore biosynthesis, stress response) | DEG count in the same order of magnitude; enriched functional categories overlap the paper's reported ones |
-| **PRISM** | ZymoBIOMICS 16S "MSPlus" community, ONT (vendor open-data release, `s3://ont-open-data/zymo_16s_2025.09`) | ONT's own official Emu classification for the exact same read file (no certified % exists yet for this 2025 community) | Species-level relative abundance correlates with ONT's own result for the same input; all 4 spiked-in species detected |
+| Pipeline | Dataset | Reference | Pass criterion | Outcome |
+|---|---|---|---|---|
+| **MAGMA** | ZymoBIOMICS mock communities Even and Log, Illumina + ONT (Nicholls et al. 2019, [10.1093/gigascience/giz043](https://doi.org/10.1093/gigascience/giz043)) | Same Illumina reads aligned to the 10 reference genomes | Read-based abundance within ±10% (relative) per species, detection threshold 0.02%; MAG recovery out of 8 bacteria | **Partially met** — 8/10 (Even) and 6/10 (Log) within ±10%; 8 MAGs, one per bacterium in Even, all classified as the expected species |
+| **SIGMA** | *E. coli* isolate of the same standard: Illumina (Nicholls et al. 2019), ONT and PacBio (McIntyre et al. 2019, [10.1038/s41467-019-08289-9](https://doi.org/10.1038/s41467-019-08289-9)) | Zymo's reference genome | QUAST: contigs, NGA50, genome fraction, misassemblies, mismatches/indels; hybrid vs. short-only | **Met** — both hybrids: 2 circular contigs, 100% genome fraction, 0 misassemblies |
+| **DOGMA** | Soil metatranscriptomes, glucose amendment, t0 and t8, n = 4 each (Chuckran et al. 2021, [10.1128/mSystems.00161-21](https://doi.org/10.1128/mSystems.00161-21)) | Direction and significance of 14 genes/categories reported by the source | Same direction and significance, FDR < 0.01 after removing features with < 60 reads | **Partially met** — 12/14 (not met: crp, assimilatory nitrate reduction) |
+| **DEFINE** | *E. coli* exposed to ²³⁹Pu vs. control, day 1, n = 3 each (GEO [GSE208658](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208658); Wintenberg et al. 2023, [10.1128/msystems.00718-22](https://doi.org/10.1128/msystems.00718-22)) | DEGs from the authors' deposited count matrix with the source criteria; terms of the source's Fig. 4 | Gene-level precision/recall/Jaccard, direction, log2FC correlation; term recovery | **Partially met** — precision 0.72, recall 0.53; 3/3 GO terms, 0/3 KEGG pathways |
+| **PRISM** | ZymoBIOMICS standard + 4 added species ("MSPlus"), ONT SQK-MAB114.24, 3 replicates (`s3://ont-open-data/zymo_16s_2025.09`) | Expected composition; the vendor's Emu classification of the same reads | All 4 added species detected; agreement with expected composition; Bray-Curtis to the vendor vs. between replicates | **Met** — all 12 bacteria detected in every replicate; the 8 of the base standard within 2-fold of their theoretical share |
 
-Sample-size choices (fewer replicates than the original studies for DOGMA/DEFINE) follow standard practice for this kind of demonstration, not a novel biological study — see [nf-core](https://nf-co.re/)'s own minimal `test` profile convention and [SARTools](https://doi.org/10.1101/021741)'s 3-replicates-per-condition validation as the field precedent, documented per-pipeline below.
+Raw sequencing data is **never** re-hosted here — every dataset is already public.
 
 ## Reproducing a run
 
-Each `<pipeline>/config/` folder has the real `config.yaml` and `samples.tsv` used. Point OmniOmics's own `pipelines/<pipeline>/Snakefile` at them with `--configfile`, same invocation the app itself generates internally (see OmniOmics's own `MANUAL_PIPELINE.md` for the headless/HPC command form). No path is local-machine-specific beyond the SRA/ENA/vendor download step, which is documented per dataset above.
+Each `<pipeline>/config/` folder has the `config.yaml` and `samples.tsv` used; their paths point to the cluster where the run was made, so edit them to where the data and databases are. The simplest way is OmniOmics's command line (see `docs/CLI.md` in the OmniOmics repository): `bin/omniomics run run.yaml` locally, or `--submit pbs` for one PBS job. Equivalently, Snakemake directly:
+
+```bash
+snakemake -s OmniOmics/pipelines/<pipeline>/Snakefile --configfile <pipeline>/config/config.yaml \
+    --use-conda --cores 64 --keep-going
+```
 
 ## Data Availability & Benefit-Sharing
 

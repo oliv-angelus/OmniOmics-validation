@@ -1,73 +1,26 @@
-# MAGMA results — real, honest mixed outcome
+# MAGMA results — round 2 (November 2026)
 
-`observed_vs_expected.tsv` — the 10 Zymo species, generated from the real
-run (100%, EXIT_CODE=0) against `ZYMO_EVEN` (equal-abundance) and
-`ZYMO_LOG` (log-distributed) samples.
+Run on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3) with Snakemake 9.26.0, from the configuration in `../config/`. `run_logs_summary.txt` lists every Snakemake invocation of the run (progress, errors, elapsed time).
 
-## Two independent lines of evidence
+**Status: partially met.**
 
-### 1. Read-based taxonomic profiling (Kraken2 + Bracken)
+## Read-based abundance (`observed_vs_expected.tsv`, `abundance_vs_alignment_reference.txt`)
 
-`raw_tool_outputs/{ZYMO_EVEN,ZYMO_LOG}_bracken.txt` — Bracken's own
-genome-length-corrected abundance re-estimation (not raw Kraken2 counts;
-`abundance_table_final_RAW.tsv`'s hand-summed percentages were checked
-against Bracken's `fraction_total_reads` column and match to 3 decimal
-places, so the result isn't an artifact of how the percentage was
-computed).
+Reference: the same clean Illumina pairs aligned with Bowtie2 to the 10 Zymo genomes, counting uniquely placed pairs (MAPQ ≥ 10); 98.7% (Even) and 94.7% (Log) of pairs aligned. Kraken2 (PlusPFP, `--confidence 0.05`) + Bracken, summed per genus. `compare.py raw_tool_outputs` regenerates the table.
 
-**All 10 species were detected in both samples** — including in
-`ZYMO_LOG`, where abundance spans ~86.7% down to ~0.0004% (about 5 orders
-of magnitude), demonstrating real detection sensitivity across the log
-distribution as intended.
+- Even: 8 of 10 species within ±10% of the reference; *S. enterica* +22%, *E. coli* −21%.
+- Log: 6 of 10 within ±10%. Detection threshold 0.02% of classified reads (just above the largest genus outside the community, 0.018%): the 6 species above it were all detected, 5 within ±10% (*S. enterica* +26%); the 4 below it fall under the threshold.
+- Genera outside the community: 0.087% (Even), 0.031% (Log).
+- `--confidence` 0.05 (default) gave the best total of the values tested (0.05–0.5).
 
-**Quantitative accuracy on `ZYMO_EVEN` (12%/2% expected) is mixed**: only
-2 of 10 species (*Listeria monocytogenes*, *Bacillus subtilis*/GTDB
-*spizizenii*) fall within the pre-registered ±10%-relative tolerance. The
-other 8 deviate by 0.5–3.6 percentage points (e.g. *Salmonella enterica*
-observed at 15.6% vs. 12% expected; *Enterococcus faecalis* at 8.5% vs.
-12%) — real, non-trivial deviations, but all species stayed within a
-comparatively narrow band around their true value, and off-target/
-non-Zymo reads were only 4.6% of the total. **Not attributed to a MAGMA
-defect**: Kraken2/Bracken read-count-based abundance estimation is
-well-documented in the metagenomics literature to deviate from a mock
-community's certified composition due to per-species differences in DNA
-extraction efficiency (particularly gram-positive vs. gram-negative cell
-wall lysis) and genome-copy-number effects — a property of read-based
-profiling applied to this real sequencing data, not of the orchestration
-layer under test.
+## MAGs (`raw_tool_outputs/final_mag_catalog.tsv`, `gtdbtk.bac120.summary.tsv`, `checkm2_*.tsv`, `coverm_coverage.tsv`)
 
-### 2. Assembly + MAG recovery (the pipeline's actual novel-vs-existing-tools claim)
+Before dereplication: Even, 8 MAGs, one per bacterial species (CheckM2 completeness ≥ 99.6%, contamination ≤ 0.96%); Log, 3 MAGs (*L. monocytogenes*, *P. aeruginosa*, *B. subtilis*), the three bacteria above 0.8% of reads. After dereplication, 8 MAGs, each classified by GTDB-Tk as the expected species (*B. subtilis* as *B. spizizenii*, *L. monocytogenes* as *L. monocytogenes_B*); 7 meet MIMAG high quality, and the *E. faecalis* MAG (no 23S rRNA gene) is medium quality.
 
-`raw_tool_outputs/final_mag_catalog.tsv` +
-`raw_tool_outputs/gtdbtk.bac120.summary.tsv` — **7 dereplicated MAGs
-recovered, all 7 correctly classified to the right Zymo species by
-GTDB-Tk**, all high/medium quality (CheckM2 completeness 81.7–100%,
-contamination 0.0–5.6%, GUNC chimerism flag negative for every MAG):
+Genome-resolved abundance (CoverM, mean coverage × MAG length, share among the 8 bacteria): Even, 7 of 8 within ±10%; Log, *L. monocytogenes*, *P. aeruginosa*, *S. enterica* and *E. coli* within ±10%, *B. subtilis* +24%.
 
-| MAG | Sample | Species (GTDB-Tk) | Completeness | Contamination |
-|---|---|---|---|---|
-| ZYMO_EVEN_binette_bin2 | EVEN | *Limosilactobacillus fermentum* | 99.98% | 0.00% |
-| ZYMO_EVEN_binette_bin3 | EVEN | *Staphylococcus aureus* | 100.0% | 0.04% |
-| ZYMO_EVEN_binette_bin5 | EVEN | *Salmonella enterica* | 100.0% | 0.11% |
-| ZYMO_EVEN_binette_bin6 | EVEN | *Escherichia coli* | 99.36% | 0.34% |
-| ZYMO_LOG_binette_bin1 | LOG | *Bacillus spizizenii* | 100.0% | 0.01% |
-| ZYMO_LOG_binette_bin2 | LOG | *Pseudomonas aeruginosa* | 100.0% | 0.14% |
-| ZYMO_LOG_binette_bin3 | LOG | *Listeria monocytogenes* | 81.67% | 5.61% |
+Note: in this cluster run, `final_mag_catalog.tsv` was first built before GTDB-Tk finished and read a GTDB-Tk summary left from an earlier attempt (the hand-written cluster config's `active_tools` did not list `gtdbtk`, which is what orders the two rules; configurations written by the app or the command line list it). The catalog was rebuilt from the final GTDB-Tk output; the file here is the rebuilt one.
 
-Only the highest-abundance species per sample assembled into complete,
-binnable MAGs — expected, since metagenome assembly/binning needs real
-coverage depth that the lowest-abundance `ZYMO_LOG` species (down to
-~0.0004%) simply don't have. Every MAG that *was* recovered was correctly
-identified, with no false species calls.
+## VIBRANT
 
-## Summary
-
-| Check | Result |
-|---|---|
-| All 10 species detected (read-based), both distributions | **PASS** |
-| Detection sensitivity across ~5 orders of magnitude (ZYMO_LOG) | **PASS** |
-| Read-based abundance within ±10% relative of certified value (ZYMO_EVEN) | **PARTIAL** — 2/10 |
-| MAG recovery + correct species classification | **PASS** — 7/7 correct, 0 false calls |
-
-Reported with both lines of evidence rather than only the more favorable
-one, same honesty standard as the rest of this validation.
+VIBRANT first finished without results (incomplete database on the node; VIBRANT exits 0 on this error). The rule now fails in that case; VIBRANT was re-run with a complete database: 31 (Even) and 34 (Log) putative phages.

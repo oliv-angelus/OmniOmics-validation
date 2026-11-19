@@ -1,0 +1,14 @@
+mapped 4089/4326 loci to RefSeq gene names
+converting counts to integer mode
+== A: as published (deposited n=3 with duplicated control column; DEFINE n=3 true replicates)
+  genes tested DEFINE 3967, deposited 4420, shared 3853
+  DEGs DEFINE 392, deposited 590 (shared genes: 384 vs 524)
+  overlap 276; precision 0.719; recall 0.527; Jaccard 0.437; direction 265/276
+  log2FC Pearson 0.575, Spearman 0.669
+converting counts to integer mode
+== B: same design both sides (controls R1+R2, Pu-239 R1-R3)
+  genes tested DEFINE 3967, deposited 4420, shared 3853
+  DEGs DEFINE 387, deposited 737 (shared genes: 379 vs 639)
+  overlap 274; precision 0.723; recall 0.429; Jaccard 0.368; direction 259/274
+  log2FC Pearson 0.541, Spearman 0.652
+DONE

@@ -1,4 +1,15 @@
-replicate	genus_level_bray_curtis_dissimilarity	genus_level_pearson_r	genus_level_spearman_rho	four_spiked_species_detected	species_detected	species_missed	notes
-rep1	0.0822	0.9766	0.7871	FALSE (3/4)	Bifidobacterium adolescentis, Bifidobacterium vaginale (=Gardnerella vaginalis), Borreliella/Borrelia burgdorferi	Chlamydia trachomatis	Bray-Curtis is the primary compositional-similarity metric here (0=identical); Pearson alone overstates agreement (see README)
-rep2	0.1035	0.9630	0.6596	FALSE (3/4)	Bifidobacterium adolescentis, Bifidobacterium vaginale (=Gardnerella vaginalis), Borreliella/Borrelia burgdorferi	Chlamydia trachomatis	Bray-Curtis is the primary compositional-similarity metric here (0=identical); Pearson alone overstates agreement (see README)
-rep3	0.1072	0.9577	0.6791	FALSE (3/4)	Bifidobacterium adolescentis, Bifidobacterium vaginale (=Gardnerella vaginalis), Borreliella/Borrelia burgdorferi	Chlamydia trachomatis	Bray-Curtis is the primary compositional-similarity metric here (0=identical); Pearson alone overstates agreement (see README)
+target	vendor_pct	prism_pct	note
+B.subtilis	15.71	16.10	mean of 3 replicates, % of classified reads
+E.faecalis	9.70	9.25
+E.coli	4.06	4.34
+L.fermentum	13.52	13.81
+L.monocytogenes	15.15	13.93
+P.aeruginosa	2.51	2.68
+S.enterica	4.92	5.89
+S.aureus	14.71	14.41
+B.adolescentis	6.47	6.20	added species
+G.vaginalis	8.50	8.38	added species
+B.burgdorferi	2.69	2.90	added species
+C.trachomatis	1.93	2.04	added species; lost in round 1 (reverse-orientation reads discarded), detected in all 3 replicates now
+off-target	0.13	0.05	genera outside the standard
+Bray-Curtis to vendor, per replicate	-	0.031 / 0.022 / 0.042	between vendor replicates: 0.005 / 0.007 / 0.008

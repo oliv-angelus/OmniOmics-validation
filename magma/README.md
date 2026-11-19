@@ -1,5 +1,10 @@
 # MAGMA validation
 
+> **Round 2 (November 2026).** Re-run after review with the same data. Current results: [`results/README.md`](results/README.md) (abundance against an alignment-based reference built from the same reads, MAG recovery, GTDB-Tk). Configuration: `config/`.
+>
+> Round 1 (September 2026) is kept in [`round1/`](round1/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, round 1.
+
+
 **Dataset**: ZymoBIOMICS mock community, hybrid Illumina + Nanopore GridION, two distributions:
 - `ZYMO_EVEN` — 10 species at known equal abundance (8 bacteria @ 12%, 2 yeasts @ 2%)
 - `ZYMO_LOG` — same 10 species, logarithmic distribution (~89% down to ~0.000089%), tests detection sensitivity across 6 orders of magnitude

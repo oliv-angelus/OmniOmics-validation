@@ -1,15 +1,15 @@
-gene_or_category	expected_direction	observed_log2fc	observed_padj	direction_match	note
-amtB	up	7.944	3.79e-13	TRUE
-glnA	up	3.841	2.27e-05	TRUE
-gltB	up	3.470	1.82e-04	TRUE
-gltD	up	5.274	6.40e-07	TRUE
-gltS	up	NA	NA	NOT_DETECTED	no eggNOG hit with Preferred_name=gltS in any of the 4 samples
-glnD	up	5.994	3.15e-08	TRUE
-glnB	up	5.673	3.47e-11	TRUE
-glnK	up	6.054	4.60e-10	TRUE
-NtrC-family	up	5.998	3.15e-08	TRUE	pooled eggNOG Preferred_name in {ntrC, glnG}
-assimilatory nitrate reduction	up	1.450	9.33e-02	TRUE	direction matches; not significant at padj<0.05 (n=2/group)
-nitrification (all)	down	-4.510	5.24e-08	TRUE	pooled NCycDB families amoA/amoB/amoC/hao/nxrB
-denitrification (most)	down	-1.740	4.15e-02	TRUE	pooled NCycDB families narGHIJYZ/napABC/nirKS/norBC/nosZ
-crp	down (slight, LFC<-1 in paper)	0.229	NA (padj)	FALSE	see README -- only mismatch, modest/non-significant in both this run and the original paper
-rpoN	down (slight, LFC<-1 in paper)	-0.603	5.54e-01	TRUE	direction matches; magnitude weaker than paper's, not significant (n=2/group)
+target	feature	source_direction	log2fc	lfcSE	padj	met_fdr_0.01	first_round_method_log2fc	first_round_method_padj
+amtB	K03320	up	3.749	0.494	3.33e-13	TRUE	7.925	9.67e-22
+glnA	K01915	up	2.708	0.220	5.15e-33	TRUE	3.586	1.41e-17
+gltB	K00265	up	3.014	0.228	5.34e-38	TRUE	3.872	1.03e-13
+gltD	K00266	up	4.217	0.471	5.69e-18	TRUE	5.241	8.07e-15
+gltS	K00284	up	2.589	0.248	6.00e-24	TRUE	NA	NA
+glnD	K00990	up	5.566	0.586	4.85e-20	TRUE	6.377	1.10e-17
+glnB	K04751	up	3.934	0.408	1.34e-20	TRUE	5.486	5.89e-68
+glnK	K04752	up	4.140	0.413	3.25e-22	TRUE	5.674	9.74e-134
+NtrC-family	K07712	up	2.629	0.346	3.26e-13	TRUE	5.735	8.02e-10
+assimilatory nitrate reduction	NCycDB pooled families	up	0.323	0.286	3.19e-01	FALSE	1.293	2.96e-05
+nitrification (all)	NCycDB pooled families	down	-5.147	0.582	1.51e-17	TRUE	-3.934	2.85e-30
+denitrification (most)	NCycDB pooled families	down	-2.945	0.473	2.80e-09	TRUE	-1.803	1.03e-13
+crp	K10914	down (LFC < -1)	0.756	0.288	1.58e-02	FALSE	0.825	2.57e-03
+rpoN	K03092	down (LFC < -1)	-1.214	0.260	1.05e-05	TRUE	-0.364	5.38e-01

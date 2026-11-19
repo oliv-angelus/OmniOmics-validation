@@ -1,0 +1,56 @@
+# PRISM config (tapajos cluster) -- reusable template, swap validacao/v-prism.
+# No databases: section -- no PRISM rule reads config["databases"]
+# (confirmed via grep over the repo, 2026-09-09). reference_db is a
+# string parameter ("gtdb"), not a file path.
+
+samples: "/projetos/ridh/gabrielcoelho/validacao/v-prism/config/samples.tsv"
+output_root: "/projetos/ridh/gabrielcoelho/validacao/v-prism/runs/run1"
+
+# Needs to EXIST even if empty -- 04_denoise_classify.smk does
+# config["databases"].get(...), not config.get("databases", {}) (real
+# finding, 2026-09-09: the dry-run broke with a KeyError without this).
+# gtdb_ssu actually downloaded on 2026-09-12 (Alishum GTDB r220 SSU,
+# Zenodo 10.5281/zenodo.13984843 -- 61,774 sequences, 58,102 bacteria +
+# 3,672 archaea, matches the expected figures exactly). silva_ssu/
+# unite_its/grond stay empty -- fill in once actually downloaded.
+databases:
+  gtdb_ssu: "/projetos/ridh/gabrielcoelho/databases/gtdb_ssu_db/GTDB_bac120_arc53_ssu_r220_fullTaxo.fa"
+
+# Real preset from the MAGMA/OmniOmics manifest (id 16s_27f_1492r) --
+# classic universal pair, fixed in commit b3bae41 (the reverse primer had
+# been stored already revcomp'd by mistake, so 0 reads survived the cut).
+amplicon_preset:
+  id: "16s_27f_1492r"
+  gene: "16S"
+  reference_db: "gtdb"
+  fwd_primers:
+    - "AGRGTTYGATYMTGGCTCAG"
+  rev_primers:
+    - "TACGGYTACCTTGTTACGACTT"
+  min_length: 1300
+  max_length: 1700
+
+params:
+  nanoplot:        ""
+  filtlong:        "--keep_percent 90"
+  cutadapt:        "-e 0.1"
+  vsearch_chimera: "--id 0.95 --abskew 2.0"
+  dada2_pacbio:    "--gene 16S --reference_db gtdb --max_ee 2.0 --min_asv_totalfreq 5"
+  emu_ont:         "--gene 16S --reference_db gtdb --min-abundance 0.0001"
+  picrust2:        "--max_nsti 2.0"
+
+threads:
+  nanoplot: 8
+  filtlong: 4
+  cutadapt: 8
+  vsearch_chimera: 8
+  dada2_pacbio: 16
+  emu_ont: 16
+  emu_tree: 16
+  picrust2: 8
+  # dada2_pacbio/emu_tree bumped 8->16 (2026-09-12): both now feed the
+  # FastTree2-based tree builder (see OmniOmics's lib/build_tree.R), which
+  # supports real multithreading via FastTreeMP/OMP_NUM_THREADS, unlike the
+  # phangorn method it replaced (zero multicore benefit there). 16 matches
+  # this pipeline's other real per-step thread counts (cutadapt/emu_ont),
+  # a meaningful bump without saturating a shared 128-core node.

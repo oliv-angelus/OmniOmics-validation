@@ -1,0 +1,13 @@
+sample	species	pairs	pairs_mapq10
+ZYMO_EVEN	Pseudomonas_aeruginosa	1194945	1087936
+ZYMO_EVEN	Saccharomyces_cerevisiae	126898	109938
+ZYMO_EVEN	Bacillus_subtilis	977096	927298
+ZYMO_EVEN	Salmonella_enterica	1048837	977596
+ZYMO_EVEN	Listeria_monocytogenes	951481	902440
+ZYMO_EVEN	Enterococcus_faecalis	979308	926053
+ZYMO_EVEN	Escherichia_coli	1023470	952216
+ZYMO_EVEN	Cryptococcus_neoformans	118265	105098
+ZYMO_EVEN	Lactobacillus_fermentum	858459	762857
+ZYMO_EVEN	Staphylococcus_aureus	912865	868889
+ZYMO_EVEN	UNMAPPED	109668	
+ZYMO_EVEN	TOTAL	8301292	

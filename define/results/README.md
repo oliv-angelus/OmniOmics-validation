@@ -1,56 +1,12 @@
-# DEFINE results — real outcome, corrected after a real sensitivity check
+# DEFINE results — round 2 (November 2026)
 
-`observed_vs_expected.tsv` — summary row, generated from the real DESeq2
-analysis below.
+Run on the tapajos cluster (UFOPA; 128-core, ~264 GB node, openSUSE Leap 15.3) with Snakemake 9.26.0, from the configuration in `../config/`. `run_logs_summary.txt` lists every Snakemake invocation of the run (progress, errors, elapsed time).
 
-## What DEFINE's pipeline itself produced
+**Status: partially met.**
 
-`raw_tool_outputs/featurecounts_counts.tsv` (+ `.summary`) — the real
-featureCounts output (6 samples × 4,408 CDS features, `-t CDS -g locus_tag`
-against the real DH10B reference annotation). `raw_tool_outputs/qc_summary.tsv`
-— per-sample fastp/bowtie2/featureCounts QC. DEFINE's pipeline stops here by
-design (raw annotated count matrix, not statistics) — differential
-expression is downstream analysis, same as any real DESeq2/edgeR workflow.
+E. coli K-12 MG1655 (RefSeq GCF_000005845.2, as in the source), 239Pu vs. control, day 1, 3 replicates each. DEFINE stops at the annotated count table (`raw_tool_outputs/contagem_anotada.tsv`); DESeq2 and over-representation analysis ran in the app's pinned R environment (R 4.5.3, DESeq2 1.50.2, clusterProfiler 4.18.4).
 
-## Real DESeq2 analysis (this validation's own downstream step, CTRL_D1 n=3 vs PU239_D1 n=3)
-
-`raw_tool_outputs/deseq2_results_full.tsv` — full DESeq2 `results()` table,
-default independent filtering, `alpha=0.05`, contrast `PU239 vs CTRL`.
-
-**First pass (padj<0.05 only) found 2,720 "significant" genes (62.2% of
-tested) — far above the paper's 590, apparently failing the
-order-of-magnitude check.** A sensitivity check (dropping the one
-control replicate with an unusually low featureCounts assignment rate,
-`CTRL_D1_R1`, 8.36% vs. 52–84% for the other five samples) was run to test
-whether that replicate was driving the inflation — **it was not**: the DEG
-count went *up* (to 3,101), not down, disproving that explanation. That
-incorrect first explanation was corrected here rather than left standing.
-
-**Real cause, confirmed against the paper's own stated methods**: the
-paper (Wintenberg et al. 2023) defines a DEG as **log2 fold-change > 2 (i.e.
-4-fold) AND adjusted p < 0.05** — not padj alone. DEFINE's own comparison
-had used padj<0.05 only, an apples-to-oranges statistical definition versus
-the ground truth, not a DEFINE defect. Applying the paper's actual
-criteria to the same DESeq2 output:
-
-**433 genes (9.9% of tested) meet padj<0.05 AND |log2FC|>2** — the same
-order of magnitude as the paper's 590 (13.8%), and the check **passes**.
-(`raw_tool_outputs/deseq2_paper_criteria_significant.tsv`,
-`raw_tool_outputs/significant_genes_paper_criteria_annotated.tsv`.)
-
-## Functional-category check (also passes, on the corrected gene set)
-
-Among the 433 genes, real hits in every category the paper reports as
-enriched for this contrast: ABC transporters (6), siderophore/iron-related
-biosynthesis (9), stress response/heat-shock/oxidative-stress (15), amino
-acid biosynthesis (5) — a simple `Product`-field keyword scan, not curated.
-
-## Note on methodology differences from the original paper
-
-The paper used a different alignment/quantification stack entirely
-(HISAT2 + StringTie + tximport) against *E. coli* K-12 MG1655's RefSeq
-annotation, vs. DEFINE's bowtie2 + featureCounts against the same strain's
-own bakta re-annotation used here. An exact DEG-count match was never
-expected given this; the order-of-magnitude + functional-category checks
-(both now passing) are the appropriate real comparison, as stated in
-`../ground_truth/gse208658_expected_de_results.md`.
+- Source criteria (|log2FC| > 2, padj < 0.05): 417 DEGs (10.0% of 4,186 tested genes) vs. 590 (13.8% of CDSs) reported by Wintenberg et al. (2023).
+- Against the DEGs obtained with the same criteria from the authors' deposited matrix `GSE208658_Ec_count_matrix.txt.gz` (3,853 shared genes): precision 0.72, recall 0.53, Jaccard 0.44; 265 of 276 shared DEGs in the same direction; log2FC Pearson 0.58 / Spearman 0.67 (`define_cmp2.R`, output in `comparison_with_deposited_matrix.txt`; locus tags mapped to gene names with `locus2gene.py` → `locus2gene.tsv`).
+- In the deposited matrix, the control day-1 replicate 2 and 3 columns are identical; DESeq2 on it as deposited returns the 590 DEGs the source reports.
+- ORA (BH < 0.05): all 3 GO terms reported for this contrast recovered (respiratory chain complex I, respirasome, NADH dehydrogenase (quinone) activity); none of the 3 KEGG pathways. The same KEGG analysis on the deposited matrix returns one of the three (`define_ora.R`, `kegg_ora.R`, `kegg_source.R`; KEGG REST, November 2026).

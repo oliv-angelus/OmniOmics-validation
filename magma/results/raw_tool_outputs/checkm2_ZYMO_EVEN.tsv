@@ -1,0 +1,9 @@
+Name	Completeness	Contamination	Completeness_Model_Used	Translation_Table_Used	Coding_Density	Contig_N50	Average_Gene_Length	Genome_Size	GC_Content	Total_Coding_Sequences	Total_Contigs	Max_Contig_Length	Additional_Notes
+binette_bin1	100.0	0.04	Neural Network (Specific Model)	11	0.88	541214	295.25606736007927	4055785	0.44	4038	46	903413	None
+binette_bin2	100.0	0.04	Neural Network (Specific Model)	11	0.841	293805	306.5219512195122	2686288	0.33	2460	25	495651	None
+binette_bin3	99.99	0.08	Neural Network (Specific Model)	11	0.888	384422	314.67645936665394	2783183	0.37	2621	9	1083683	None
+binette_bin4	99.98	0.09	Neural Network (Specific Model)	11	0.87	189378	293.2588805166846	1874822	0.52	1858	18	482408	None
+binette_bin5	100.0	0.14	Neural Network (Specific Model)	11	0.897	787987	322.7828371278459	6772889	0.66	6281	13	1927376	None
+binette_bin6	99.56	0.0	Neural Network (Specific Model)	11	0.875	650487	312.69800181653045	4715269	0.51	4404	17	1106467	None
+binette_bin7	100.0	0.12	Neural Network (Specific Model)	11	0.871	1760493	303.8772547294325	4748348	0.52	4546	6	1881816	None
+binette_bin8	99.99	0.96	Neural Network (Specific Model)	11	0.901	516288	306.55987611837577	2962531	0.38	2906	12	584160	None

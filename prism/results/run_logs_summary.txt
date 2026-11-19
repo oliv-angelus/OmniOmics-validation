@@ -1,0 +1,48 @@
+### 2026-11-15T220835.816320.snakemake.log
+### 2026-11-15T220840.947184.snakemake.log
+### 2026-11-15T220913.001411.snakemake.log
+### 2026-11-15T220916.104940.snakemake.log
+### 2026-11-15T220947.528189.snakemake.log
+### 2026-11-15T220950.298163.snakemake.log
+### 2026-11-15T221021.774159.snakemake.log
+### 2026-11-15T221024.470698.snakemake.log
+### 2026-11-15T221056.290154.snakemake.log
+### 2026-11-15T222440.491847.snakemake.log
+Error in rule nanoplot_raw:
+Error in rule nanoplot_raw:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/prism/out/.snakemake/log/2026-11-15T222440.491847.snakemake.log
+Elapsed time: 0:00:14.525379
+### 2026-11-15T222456.133304.snakemake.log
+### 2026-11-15T222527.969097.snakemake.log
+Error in rule dada2_illumina:
+Error in rule nanoplot_raw:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/prism/out/.snakemake/log/2026-11-15T222527.969097.snakemake.log
+Elapsed time: 0:00:23.752204
+### 2026-11-15T222553.459002.snakemake.log
+### 2026-11-15T222625.024273.snakemake.log
+Error in rule filtlong:
+Error in rule dada2_illumina:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/prism/out/.snakemake/log/2026-11-15T222625.024273.snakemake.log
+Elapsed time: 0:00:12.584569
+### 2026-11-15T222638.717603.snakemake.log
+### 2026-11-15T222710.248572.snakemake.log
+Error in rule nanoplot_raw:
+Error in rule nanoplot_raw:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/prism/out/.snakemake/log/2026-11-15T222710.248572.snakemake.log
+Elapsed time: 0:00:12.560036
+### 2026-11-15T222723.820500.snakemake.log
+### 2026-11-15T222755.337009.snakemake.log
+Error in rule nanoplot_raw:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/prism/out/.snakemake/log/2026-11-15T222755.337009.snakemake.log
+Elapsed time: 0:00:12.288315
+### 2026-11-15T223103.518617.snakemake.log
+28 of 29 steps (97%) done
+29 of 29 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/prism/out/.snakemake/log/2026-11-15T223103.518617.snakemake.log
+Elapsed time: 0:21:42.242631
+### 2026-11-16T135004.929673.snakemake.log
+7 of 8 steps (88%) done
+8 of 8 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/prism/out/.snakemake/log/2026-11-16T135004.929673.snakemake.log
+Elapsed time: 0:41:02.219170

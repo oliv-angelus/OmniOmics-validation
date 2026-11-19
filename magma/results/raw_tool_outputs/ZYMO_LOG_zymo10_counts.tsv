@@ -1,0 +1,13 @@
+sample	species	pairs	pairs_mapq10
+ZYMO_LOG	Pseudomonas_aeruginosa	4652259	4222529
+ZYMO_LOG	Bacillus_subtilis	372263	352325
+ZYMO_LOG	Saccharomyces_cerevisiae	270382	236068
+ZYMO_LOG	Salmonella_enterica	36902	34306
+ZYMO_LOG	Enterococcus_faecalis	255615	271
+ZYMO_LOG	Listeria_monocytogenes	39336046	37751512
+ZYMO_LOG	Escherichia_coli	33531	31126
+ZYMO_LOG	Cryptococcus_neoformans	1230	311
+ZYMO_LOG	Staphylococcus_aureus	757	44
+ZYMO_LOG	Lactobacillus_fermentum	3871	3034
+ZYMO_LOG	UNMAPPED	55838	
+ZYMO_LOG	TOTAL	45018694	

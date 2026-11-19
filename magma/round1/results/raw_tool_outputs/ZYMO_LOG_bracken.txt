@@ -1,0 +1,151 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Listeria monocytogenes	1639	S	2628742	36373661	39002403	0.86670
+Listeria innocua	1642	S	155415	194097	349512	0.00777
+Listeria swaminathanii	2713501	S	58217	12763	70980	0.00158
+Listeria welshimeri	1643	S	32284	6720	39004	0.00087
+Listeria ivanovii	1638	S	30415	32058	62473	0.00139
+Listeria seeligeri	1640	S	18813	5932	24745	0.00055
+Listeria sp. PSOL-1	1844999	S	150	1	151	0.00000
+Listeria sp. LM90SB2	2678528	S	38	26271	26309	0.00058
+Listeria grayi	1641	S	181	19	200	0.00000
+Listeria aquatica	1494960	S	109	0	109	0.00000
+Paenilisteria weihenstephanensis	1006155	S	113	3	116	0.00000
+Bacillus spizizenii	96241	S	303264	52630	355894	0.00791
+Bacillus subtilis	1423	S	500	7320	7820	0.00017
+Bacillus inaquosorum	483913	S	421	39	460	0.00001
+Bacillus velezensis	492670	S	186	1082	1268	0.00003
+Bacillus amyloliquefaciens	1390	S	34	337	371	0.00001
+Bacillus siamensis	659243	S	22	17	39	0.00000
+Bacillus tequilensis	227866	S	193	10	203	0.00000
+Bacillus vallismortis	72361	S	168	37	205	0.00000
+Bacillus halotolerans	260554	S	87	61	148	0.00000
+Bacillus mojavensis	72360	S	60	50	110	0.00000
+Bacillus atrophaeus	1452	S	80	3	83	0.00000
+Bacillus stercoris	2054641	S	16	17	33	0.00000
+Bacillus cereus	1396	S	524	6174	6698	0.00015
+Bacillus anthracis	1392	S	49	7076	7125	0.00016
+Bacillus thuringiensis	1428	S	24	410	434	0.00001
+Bacillus mycoides	1405	S	19	6	25	0.00000
+Bacillus toyonensis	155322	S	14	7	21	0.00000
+Bacillus pseudomycoides	64104	S	10	0	10	0.00000
+Bacillus paranthracis	2026186	S	10	32	42	0.00000
+Bacillus rugosus	2715209	S	222	17	239	0.00001
+Bacillus cabrialesii	2487276	S	108	6	114	0.00000
+Bacillus altitudinis	293387	S	21	27	48	0.00000
+Bacillus safensis	561879	S	14	17	31	0.00000
+Bacillus gobiensis	1441095	S	14	0	14	0.00000
+Psychrobacillus sp. L4	3236892	S	62	1	63	0.00000
+Halobacillus shinanisalinarum	2932258	S	49	0	49	0.00000
+Priestia megaterium	1404	S	11	0	11	0.00000
+Staphylococcus aureus	1280	S	99	176	275	0.00001
+Staphylococcus epidermidis	1282	S	27	2	29	0.00000
+Staphylococcus pseudintermedius	283734	S	10	0	10	0.00000
+Anoxybacillus gonensis	198467	S	16	0	16	0.00000
+Thermoactinomyces vulgaris	2026	S	10	0	10	0.00000
+Candidatus Enterococcus dunnyi	1834192	S	2568	39	2607	0.00006
+Enterococcus faecium	1352	S	532	1679	2211	0.00005
+Enterococcus faecalis	1351	S	371	1005	1376	0.00003
+Enterococcus sp. DIV2315	2774765	S	158	973	1131	0.00003
+Enterococcus sp. AZ035	2774935	S	57	394	451	0.00001
+Enterococcus sp. AMC1157	3695799	S	10	0	10	0.00000
+Enterococcus cecorum	44008	S	17	0	17	0.00000
+Limosilactobacillus fermentum	1613	S	3222	213	3435	0.00008
+Lacticaseibacillus zeae	57037	S	14	0	14	0.00000
+Lactiplantibacillus plantarum	1590	S	15	1	16	0.00000
+Carnobacterium maltaromaticum	2751	S	2181	36	2217	0.00005
+Streptococcus iniae	1346	S	14	0	14	0.00000
+Streptococcus agalactiae	1311	S	13	9	22	0.00000
+Streptococcus thermophilus	1308	S	12	0	12	0.00000
+Pseudolactococcus paracarnosus	2749962	S	15	0	15	0.00000
+Clostridium perfringens	1502	S	12	10	22	0.00000
+Actinomyces oris	544580	S	793	242	1035	0.00002
+Mycobacterium canetti	78331	S	634	16	650	0.00001
+Cutibacterium acnes	1747	S	12	0	12	0.00000
+cyanobacterium endosymbiont of Rhopalodia gibberula	1763363	S	10	0	10	0.00000
+Pseudomonas aeruginosa	287	S	843261	3824625	4667886	0.10373
+Pseudomonas paraeruginosa	2994495	S	435	755	1190	0.00003
+Pseudomonas citronellolis	53408	S	83	74	157	0.00000
+Pseudomonas nitroreducens	46680	S	44	28	72	0.00000
+Pseudomonas sp. PS1(2021)	2866282	S	208	3795	4003	0.00009
+Pseudomonas sp. SCB32	2653853	S	27	32	59	0.00000
+Pseudomonas sp. FDAARGOS_761	2545800	S	25	475	500	0.00001
+Pseudomonas sp. Q1-7	3020843	S	24	10	34	0.00000
+Pseudomonas sp. PDNC002	2811422	S	24	42	66	0.00000
+Pseudomonas sp. ATCC 13867	1294143	S	18	32	50	0.00000
+Pseudomonas sp. BB438	3702239	S	17	24	41	0.00000
+Pseudomonas sp. B12(2026)	3711736	S	14	22	36	0.00000
+Pseudomonas sp. PVC-3-1	3707457	S	13	28	41	0.00000
+Pseudomonas sp. GCEP-101	2974552	S	13	24	37	0.00000
+Pseudomonas sp. TCU-HL1	1856685	S	12	4	16	0.00000
+Pseudomonas sp. QE6	3242491	S	11	44	55	0.00000
+Pseudomonas sp. YH-1	3384787	S	10	24	34	0.00000
+Pseudomonas fluorescens	294	S	93	52	145	0.00000
+Pseudomonas putida	303	S	25	88	113	0.00000
+Pseudomonas oryzihabitans	47885	S	12	4	16	0.00000
+Pseudomonas chlororaphis	587753	S	39	23	62	0.00000
+Pseudomonas protegens	380021	S	13	16	29	0.00000
+Pseudomonas triclosanedens	2961893	S	50	3	53	0.00000
+Pseudomonas syringae	317	S	18	30	48	0.00000
+Pseudomonas nicosulfuronedens	2571105	S	28	1	29	0.00000
+Pseudomonas tohonis	2725477	S	21	6	27	0.00000
+Pseudomonas benzenivorans	556533	S	18	2	20	0.00000
+Pseudomonas cavernae	2320867	S	15	0	15	0.00000
+Pseudomonas entomophila	312306	S	12	0	12	0.00000
+Pseudomonas knackmussii	65741	S	12	5	17	0.00000
+Pseudomonas oryzae	1392877	S	11	0	11	0.00000
+Pseudomonas solani	2731552	S	11	3	14	0.00000
+Salmonella enterica	28901	S	9538	36230	45768	0.00102
+Salmonella bongori	54736	S	11	0	11	0.00000
+Escherichia coli	562	S	3289	26469	29758	0.00066
+Escherichia albertii	208962	S	14	3	17	0.00000
+Kluyvera cryocrescens	580	S	36	12	48	0.00000
+Shigella flexneri	623	S	17	601	618	0.00001
+Klebsiella pneumoniae	573	S	16	37	53	0.00000
+Phytobacter cepae	3458728	S	33	3	36	0.00000
+Vibrio anguillarum	55601	S	314	2	316	0.00001
+Acinetobacter guillouiae	106649	S	67	3	70	0.00000
+Acinetobacter pittii	48296	S	15	1	16	0.00000
+Alcaligenes faecalis	511	S	37	52	89	0.00000
+Kerstersia gyiorum	206506	S	10	53	63	0.00000
+Bradyrhizobium sp. WCU1	3457316	S	21	66	87	0.00000
+Saccharomyces cerevisiae	4932	S	243302	24185	267487	0.00594
+Saccharomyces paradoxus	27291	S	1046	20	1066	0.00002
+Saccharomyces eubayanus	1080349	S	464	75	539	0.00001
+Saccharomyces mikatae	114525	S	222	5	227	0.00001
+Saccharomyces kudriavzevii	114524	S	89	93	182	0.00000
+Zygotorulaspora mrakii	42260	S	141	17	158	0.00000
+Yamadazyma tenuis	2315449	S	10	1	11	0.00000
+Cryptococcus deneoformans	40410	S	110	4	114	0.00000
+Cryptococcus neoformans	5207	S	70	2	72	0.00000
+Homo sapiens	9606	S	1031	160	1191	0.00003
+Juglans regia	51240	S	1351	1071	2422	0.00005
+Alnus glutinosa	3517	S	21	44	65	0.00000
+Cajanus cajan	3821	S	49	26	75	0.00000
+Phaseolus vulgaris	3885	S	27	8	35	0.00000
+Vicia villosa	3911	S	27	4	31	0.00000
+Cicer arietinum	3827	S	23	5	28	0.00000
+Arachis stenosperma	217475	S	36	27	63	0.00000
+Euphorbia lathyris	212925	S	16	8	24	0.00000
+Cucurbita pepo	3663	S	27	17	44	0.00000
+Gossypium hirsutum	3635	S	101	34	135	0.00000
+Brassica rapa	3711	S	39	94	133	0.00000
+Punica granatum	22663	S	43	30	73	0.00000
+Vitis riparia	96939	S	22	29	51	0.00000
+Lycium ferocissimum	112874	S	15	93	108	0.00000
+Capsicum annuum	4072	S	19	11	30	0.00000
+Salvia splendens	180675	S	56	38	94	0.00000
+Salvia miltiorrhiza	226208	S	16	8	24	0.00000
+Primulina eburnea	1245227	S	10	2	12	0.00000
+Camellia sinensis	4442	S	111	264	375	0.00001
+Diospyros lotus	55363	S	19	2	21	0.00000
+Apium graveolens	4045	S	25	5	30	0.00000
+Malania oleifera	397392	S	122	10	132	0.00000
+Amaranthus tricolor	29722	S	50	90	140	0.00000
+Panicum hallii	206008	S	33	3	36	0.00000
+Hordeum vulgare	4513	S	20	13	33	0.00000
+Musa acuminata	4641	S	37	134	171	0.00000
+Asparagus officinalis	4686	S	75	8	83	0.00000
+Papaver somniferum	3469	S	42	4	46	0.00000
+Macadamia integrifolia	60698	S	36	16	52	0.00000
+Cryptomeria japonica	3369	S	128	60	188	0.00000
+Plasmodium cynomolgi	5827	S	30	0	30	0.00000

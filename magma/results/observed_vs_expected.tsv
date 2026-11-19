@@ -1,11 +1,21 @@
-species	expected_pct_even	observed_pct_even	deviation_even	pass_10pct	observed_pct_log	detected_log	mag_recovered	mag_taxonomy_match
-Listeria monocytogenes	12.0	11.288	0.71	TRUE	86.670	TRUE	TRUE (ZYMO_LOG)	TRUE
-Pseudomonas aeruginosa	12.0	14.550	2.55	FALSE	10.373	TRUE	TRUE (ZYMO_LOG)	TRUE
-Bacillus subtilis (GTDB: B. spizizenii)	12.0	11.943	0.06	TRUE	0.808	TRUE	TRUE (ZYMO_LOG)	TRUE
-Escherichia coli	12.0	9.641	2.36	FALSE	0.066	TRUE	TRUE (ZYMO_EVEN)	TRUE
-Salmonella enterica	12.0	15.639	3.64	FALSE	0.102	TRUE	TRUE (ZYMO_EVEN)	TRUE
-Lactobacillus fermentum (GTDB: Limosilactobacillus)	12.0	10.518	1.48	FALSE	0.008	TRUE	TRUE (ZYMO_EVEN)	TRUE
-Enterococcus faecalis	12.0	8.497	3.50	FALSE	0.003	TRUE	FALSE	NA
-Staphylococcus aureus	12.0	10.379	1.62	FALSE	0.001	TRUE	TRUE (ZYMO_EVEN)	TRUE
-Saccharomyces cerevisiae	2.0	1.465	0.53	FALSE	0.594	TRUE	FALSE	NA
-Cryptococcus neoformans (+ deneoformans)	2.0	1.439	0.56	FALSE	0.0004	TRUE	FALSE	NA
+community	species	alignment_reference_pct	bracken_pct	relative_deviation	within_10pct
+ZYMO_EVEN	Pseudomonas_aeruginosa	14.277	14.562	+0.020	TRUE
+ZYMO_EVEN	Salmonella_enterica	12.829	15.669	+0.221	FALSE
+ZYMO_EVEN	Escherichia_coli	12.496	9.909	-0.207	FALSE
+ZYMO_EVEN	Bacillus_subtilis	12.169	12.065	-0.009	TRUE
+ZYMO_EVEN	Enterococcus_faecalis	12.152	12.156	+0.000	TRUE
+ZYMO_EVEN	Listeria_monocytogenes	11.843	11.479	-0.031	TRUE
+ZYMO_EVEN	Staphylococcus_aureus	11.402	10.619	-0.069	TRUE
+ZYMO_EVEN	Lactobacillus_fermentum	10.011	10.520	+0.051	TRUE
+ZYMO_EVEN	Saccharomyces_cerevisiae	1.443	1.477	+0.024	TRUE
+ZYMO_EVEN	Cryptococcus_neoformans	1.379	1.457	+0.057	TRUE
+ZYMO_LOG	Listeria_monocytogenes	88.553	87.945	-0.007	TRUE
+ZYMO_LOG	Pseudomonas_aeruginosa	9.905	10.388	+0.049	TRUE
+ZYMO_LOG	Bacillus_subtilis	0.826	0.848	+0.026	TRUE
+ZYMO_LOG	Saccharomyces_cerevisiae	0.554	0.599	+0.082	TRUE
+ZYMO_LOG	Salmonella_enterica	0.0805	0.1017	+0.264	FALSE
+ZYMO_LOG	Escherichia_coli	0.0730	0.0675	-0.075	TRUE
+ZYMO_LOG	Lactobacillus_fermentum	0.0071	0.0076	+0.073	TRUE (below 0.02% detection threshold)
+ZYMO_LOG	Cryptococcus_neoformans	0.00073	0.00041	-0.433	FALSE (below 0.02% detection threshold)
+ZYMO_LOG	Enterococcus_faecalis	0.00064	0.01155	+17.164	FALSE (below 0.02% detection threshold)
+ZYMO_LOG	Staphylococcus_aureus	0.00010	0.00070	+5.761	FALSE (below 0.02% detection threshold)

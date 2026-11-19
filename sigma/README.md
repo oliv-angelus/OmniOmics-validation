@@ -1,5 +1,10 @@
 # SIGMA validation
 
+> **Round 2 (November 2026).** Re-run after review: hybrid assemblies are now polished with short reads (Polypolish + Pypolca), and the PacBio reads are those of the Zymo strain (SRR7498041; round 1 used SRR8154675, a K-12 MG1655 run). Current results: [`results/README.md`](results/README.md). Configuration: `config/ont/` (short-only + ONT hybrid) and `config/pacbio/`.
+>
+> Round 1 (September 2026) is kept in [`round1/`](round1/) (its `results/` and `config/`); the text below describes the dataset and, where it says so, round 1.
+
+
 **Dataset**: an individual *E. coli* isolate from the same ZymoBIOMICS reference material used by MAGMA (strain NRRL B-1109, MLST ST10), sequenced on three platforms by two different studies:
 - Illumina (short-only baseline): `ERR2935852` (Nicholls et al. 2019, same paper as MAGMA's dataset)
 - Oxford Nanopore GridION: `SRR7415634`

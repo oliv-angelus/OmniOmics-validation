@@ -1,0 +1,4 @@
+sample	read_type	fq_long
+MSPLUS_REP1	long	/projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP1/MSPlus_rep1_sup.fastq.gz
+MSPLUS_REP2	long	/projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP2/MSPlus_rep2_sup.fastq.gz
+MSPLUS_REP3	long	/projetos/ridh/gabrielcoelho/validacao/v-prism/raw_reads/MSPLUS_REP3/MSPlus_rep3_sup.fastq.gz

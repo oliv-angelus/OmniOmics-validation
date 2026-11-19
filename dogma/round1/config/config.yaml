@@ -1,0 +1,105 @@
+# DOGMA config (tapajos cluster) -- reusable template, swap validacao/v-dogma.
+#
+# Updated 2026-09-12 -- the 5 databases below (cazy, ncycdb, scycdb, mcycdb,
+# canthyd) were actually downloaded on 2026-09-11
+# (/projetos/ridh/gabrielcoelho/databases/{cazy,ncycdb,scycdb,mcycdb,canthyd}_db,
+# see dogma_dbs_download_status.txt/cazy_db_download_status.txt, all OK) --
+# the paths below already point to the real ones; this project's local
+# fake_dbs/ (a DAG-testing placeholder) is no longer used. eukulele/cat
+# download their own database at run time (eukulele_setup/cat_setup) and
+# don't use config["databases"].
+
+samples: "/projetos/ridh/gabrielcoelho/validacao/v-dogma/config/samples.tsv"
+
+# Real bug found 2026-09-13: this key was missing entirely, which
+# silently (a) disabled domain_filter (Snakefile falls back to
+# DOMAINS=["all"]) even though params.domain_filter.mode is set below,
+# and (b) made _active_assembler_transcripts() return an empty list,
+# so transcript_set ran `mmseqs easy-linclust` on an empty FASTA and
+# failed every time. Set to match what params/threads below already
+# fully provision for (all 3 assemblers + domain_filter).
+active_tools:
+  - domain_filter
+  - rnaspades
+  - megahit
+  - trinity
+output_root: "/projetos/ridh/gabrielcoelho/validacao/v-dogma/runs/run1"
+
+databases:
+  kraken2:  "/projetos/ridh/gabrielcoelho/databases/k2-plusPFP_db"
+  kaiju:    "/projetos/ridh/gabrielcoelho/databases/kaiju_db"
+  eggnog:   "/projetos/ridh/gabrielcoelho/databases/eggnog_db"
+  cazy:     "/projetos/ridh/gabrielcoelho/databases/cazy_db"
+  ncycdb:   "/projetos/ridh/gabrielcoelho/databases/ncycdb_db"
+  scycdb:   "/projetos/ridh/gabrielcoelho/databases/scycdb_db"
+  mcycdb:   "/projetos/ridh/gabrielcoelho/databases/mcycdb_db"
+  canthyd:  "/projetos/ridh/gabrielcoelho/databases/canthyd_db"
+  # magma_run: omitted on purpose -- optional (config.get with default ""),
+  # it's the path to the paired MAG catalog, fill in once the cross-reference
+  # is actually tested.
+
+params:
+  fastp:                 "--qualified_quality_phred 30 --length_required 50 --trim_front1 1 --trim_front2 1"
+  filtlong:               "--min_length 500 --keep_percent 90"
+  # Real bug found 2026-09-14: no --chunk_size was set, so ribodetector_cpu
+  # used its own unbounded default, which the tool's own --help documents
+  # as directly driving memory use ("chunk_size=1000 and threads=20,
+  # consuming ~20G memory"). On the real C8R2 sample (89.2M sequences)
+  # this caused a worker SIGKILL (RuntimeError: Worker process exited
+  # abnormally) at ~83% progress, reproducibly, even after raising the
+  # cluster's mem_mb allocation from 200000 to 250000 (the practical
+  # per-node ceiling -- see pbs_profile) -- the leak/growth is in the
+  # tool's own default chunking, not cluster contention. --chunk_size 200
+  # (conservatively ~4 GB by the tool's own stated ratio) fixed it. This
+  # is a portable fix (any hardware), unlike mem_mb, so it belongs here
+  # in the tool params, not just the cluster's pbs_profile.
+  ribodetector:           "-e norrna --chunk_size 200"
+  kraken2:                "--confidence 0.05"
+  kaiju:                  ""
+  domain_filter:
+    mode: "prokaryote"
+  rnaspades:              ""
+  megahit:                ""
+  trinity:                "--max_memory 50G"
+  transcript_set_step1:   "--min-seq-id 1.00 --cov-mode 1 -c 0.98"
+  transcript_set:         "--min-seq-id 0.98 --cov-mode 1 -c 0.98"
+  transdecoder:           ""
+  eggnog:                 ""
+  cazy:                   ""
+  ncycdb:                 "-k 1 -e 0.0001"
+  scycdb:                 "-k 1 -e 0.0001"
+  mcycdb:                 "-k 1 -e 0.0001"
+  canthyd:                "--cut_tc"
+  fegenie:                ""
+  eukulele_database:      "marmmetsp"
+  eukulele:                "--no_busco"
+  cat_database:            "GTDB"
+  cat:                    ""
+  magma_xref:             "-k 1 -e 0.0001"
+  salmon_index:           "-k 31"
+  salmon:                 ""
+
+# threads: base = pipeline.yaml default_threads, databases shared with
+# MAGMA (kraken2/kaiju/eggnog) scaled the same as there. The rest = app
+# default -- FIRST PASS, adjust after the real run.
+threads:
+  fastp: 8
+  ribodetector: 8
+  kraken2: 16
+  kaiju: 16
+  rnaspades: 32
+  megahit: 32
+  trinity: 32
+  transcript_set: 8
+  transdecoder: 4
+  eggnog: 16
+  cazy: 8
+  ncycdb: 8
+  scycdb: 8
+  mcycdb: 8
+  canthyd: 4
+  fegenie: 4
+  eukulele: 16
+  cat: 16
+  magma_xref: 8
+  salmon: 8

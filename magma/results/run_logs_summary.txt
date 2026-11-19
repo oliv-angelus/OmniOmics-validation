@@ -1,0 +1,62 @@
+### 2026-11-15T220835.839574.snakemake.log
+### 2026-11-15T220839.459509.snakemake.log
+### 2026-11-15T220911.175579.snakemake.log
+### 2026-11-15T220912.985270.snakemake.log
+### 2026-11-15T220944.826019.snakemake.log
+### 2026-11-15T220946.458462.snakemake.log
+### 2026-11-15T221018.203994.snakemake.log
+### 2026-11-15T221019.619303.snakemake.log
+### 2026-11-15T221051.271330.snakemake.log
+### 2026-11-15T222440.495538.snakemake.log
+Error in rule filtlong:
+Error in rule nanoplot_raw:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-15T222440.495538.snakemake.log
+Elapsed time: 0:02:33.120201
+### 2026-11-15T222714.604392.snakemake.log
+### 2026-11-15T222746.270876.snakemake.log
+Error in rule fastp:
+Error in rule nanoplot_raw:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-15T222746.270876.snakemake.log
+Elapsed time: 0:00:13.441189
+### 2026-11-15T222800.917864.snakemake.log
+### 2026-11-15T222832.577492.snakemake.log
+Error in rule nanoplot_raw:
+Error in rule nanoplot_raw:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-15T222832.577492.snakemake.log
+Elapsed time: 0:00:12.773263
+### 2026-11-15T222846.452456.snakemake.log
+### 2026-11-15T222918.166617.snakemake.log
+Error in rule fastp:
+Error in rule fastp:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-15T222918.166617.snakemake.log
+Elapsed time: 0:00:12.770227
+### 2026-11-15T222932.190387.snakemake.log
+### 2026-11-15T223003.941079.snakemake.log
+Error in rule filtlong:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-15T223003.941079.snakemake.log
+Elapsed time: 0:00:13.323808
+### 2026-11-15T223102.176182.snakemake.log
+82 of 102 steps (80%) done
+83 of 102 steps (81%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-15T223102.176182.snakemake.log
+Elapsed time: 10:16:32.854996
+### 2026-11-16T084736.883272.snakemake.log
+### 2026-11-16T084808.612793.snakemake.log
+18 of 19 steps (95%) done
+19 of 19 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-16T084808.612793.snakemake.log
+Elapsed time: 1:03:30.230271
+### 2026-11-16T141149.071803.snakemake.log
+### 2026-11-16T141725.219579.snakemake.log
+### 2026-11-16T142240.188224.snakemake.log
+### 2026-11-16T142403.347790.snakemake.log
+83 of 84 steps (99%) done
+84 of 84 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-16T142403.347790.snakemake.log
+Elapsed time: 8:16:41.673636
+### 2026-11-18T015332.147041.snakemake.log
+1 of 2 steps (50%) done
+2 of 2 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/magma/out/.snakemake/log/2026-11-18T015332.147041.snakemake.log
+Elapsed time: 0:15:29.836825

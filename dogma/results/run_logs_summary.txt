@@ -1,0 +1,55 @@
+### 2026-11-15T220835.817841.snakemake.log
+### 2026-11-15T220841.000489.snakemake.log
+### 2026-11-15T220913.120692.snakemake.log
+### 2026-11-15T220916.406749.snakemake.log
+### 2026-11-15T220948.218378.snakemake.log
+### 2026-11-15T220951.157933.snakemake.log
+### 2026-11-15T221022.611381.snakemake.log
+### 2026-11-15T221025.829020.snakemake.log
+### 2026-11-15T221057.362340.snakemake.log
+### 2026-11-15T222440.492664.snakemake.log
+Error in rule filtlong:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/dogma/out/.snakemake/log/2026-11-15T222440.492664.snakemake.log
+Elapsed time: 0:00:15.032170
+### 2026-11-15T222456.624303.snakemake.log
+### 2026-11-15T222528.367379.snakemake.log
+Error in rule filtlong:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/dogma/out/.snakemake/log/2026-11-15T222528.367379.snakemake.log
+Elapsed time: 0:00:26.854610
+### 2026-11-15T222556.579137.snakemake.log
+### 2026-11-15T222628.241709.snakemake.log
+Error in rule filtlong:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/dogma/out/.snakemake/log/2026-11-15T222628.241709.snakemake.log
+Elapsed time: 0:00:13.064958
+### 2026-11-15T222642.503912.snakemake.log
+### 2026-11-15T222713.978695.snakemake.log
+Error in rule filtlong:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/dogma/out/.snakemake/log/2026-11-15T222713.978695.snakemake.log
+Elapsed time: 0:00:12.979071
+### 2026-11-15T222728.075261.snakemake.log
+### 2026-11-15T222759.686520.snakemake.log
+Error in rule filtlong:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/dogma/out/.snakemake/log/2026-11-15T222759.686520.snakemake.log
+Elapsed time: 0:00:13.029774
+### 2026-11-15T223103.521518.snakemake.log
+24 of 205 steps (12%) done
+25 of 205 steps (12%) done
+26 of 205 steps (13%) done
+27 of 205 steps (13%) done
+### 2026-11-16T014008.028107.snakemake.log
+### 2026-11-16T043010.082251.snakemake.log
+53 of 160 steps (33%) done
+54 of 160 steps (34%) done
+55 of 160 steps (34%) done
+56 of 160 steps (35%) done
+### 2026-11-17T182134.313600.snakemake.log
+### 2026-11-17T182136.788833.snakemake.log
+104 of 105 steps (99%) done
+105 of 105 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/dogma/out/.snakemake/log/2026-11-17T182136.788833.snakemake.log
+Elapsed time: 1 day, 9:18:06.723300

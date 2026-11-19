@@ -1,0 +1,5 @@
+sample	read_type	fq1	fq2	fq_long
+C0R1	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R1/SRR10849656_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R1/SRR10849656_2.fastq.gz	
+C0R2	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R2/SRR10904363_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R2/SRR10904363_2.fastq.gz	
+C8R1	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R1/SRR10849655_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R1/SRR10849655_2.fastq.gz	
+C8R2	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R2/SRR10849401_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R2/SRR10849401_2.fastq.gz	

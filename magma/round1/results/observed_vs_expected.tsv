@@ -1,0 +1,11 @@
+species	expected_pct_even	observed_pct_even	deviation_even	pass_10pct	observed_pct_log	detected_log	mag_recovered	mag_taxonomy_match
+Listeria monocytogenes	12.0	11.288	0.71	TRUE	86.670	TRUE	TRUE (ZYMO_LOG)	TRUE
+Pseudomonas aeruginosa	12.0	14.550	2.55	FALSE	10.373	TRUE	TRUE (ZYMO_LOG)	TRUE
+Bacillus subtilis (GTDB: B. spizizenii)	12.0	11.943	0.06	TRUE	0.808	TRUE	TRUE (ZYMO_LOG)	TRUE
+Escherichia coli	12.0	9.641	2.36	FALSE	0.066	TRUE	TRUE (ZYMO_EVEN)	TRUE
+Salmonella enterica	12.0	15.639	3.64	FALSE	0.102	TRUE	TRUE (ZYMO_EVEN)	TRUE
+Lactobacillus fermentum (GTDB: Limosilactobacillus)	12.0	10.518	1.48	FALSE	0.008	TRUE	TRUE (ZYMO_EVEN)	TRUE
+Enterococcus faecalis	12.0	8.497	3.50	FALSE	0.003	TRUE	FALSE	NA
+Staphylococcus aureus	12.0	10.379	1.62	FALSE	0.001	TRUE	TRUE (ZYMO_EVEN)	TRUE
+Saccharomyces cerevisiae	2.0	1.465	0.53	FALSE	0.594	TRUE	FALSE	NA
+Cryptococcus neoformans (+ deneoformans)	2.0	1.439	0.56	FALSE	0.0004	TRUE	FALSE	NA

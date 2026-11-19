@@ -1,2 +1,2 @@
 sample	read_type	fq1	fq2	fq_long	assembler	reference
-ECOLI_HYBRID_PACBIO	hybrid	/projetos/ridh/gabrielcoelho/validacao/v-sigma/raw_reads/ECOLI_ISOLATE/ERR2935852_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-sigma/raw_reads/ECOLI_ISOLATE/ERR2935852_2.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-sigma/raw_reads/ECOLI_ISOLATE_PACBIO/SRR8154675_subreads.uniqnames.fastq.gz	unicycler	
+ECOLI_HYBRID_PACBIO	hybrid	/projetos/ridh/angelo/omniomics/data/sigma/ERR2935852/ERR2935852_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/sigma/ERR2935852/ERR2935852_2.fastq.gz	/projetos/ridh/angelo/omniomics/data/sigma/SRR7498041/SRR7498041_subreads.uniqnames.fastq.gz	unicycler	

@@ -1,0 +1,30 @@
+
+== ZYMO_EVEN: pairs 8301292, aligned to the 10 genomes 7620321 (91.80%), unmapped 109668 (1.32%)
+species                       theor%  aligned%  bracken%  rel.dev within10%
+Pseudomonas_aeruginosa      12.00000  14.27677  14.56167   +0.020       yes
+Salmonella_enterica         12.00000  12.82880  15.66941   +0.221        no
+Escherichia_coli            12.00000  12.49575   9.90942   -0.207        no
+Bacillus_subtilis           12.00000  12.16875  12.06513   -0.009       yes
+Enterococcus_faecalis       12.00000  12.15241  12.15557   +0.000       yes
+Listeria_monocytogenes      12.00000  11.84255  11.47866   -0.031       yes
+Staphylococcus_aureus       12.00000  11.40226  10.61904   -0.069       yes
+Lactobacillus_fermentum     12.00000  10.01083  10.52032   +0.051       yes
+Saccharomyces_cerevisiae     2.00000   1.44270   1.47701   +0.024       yes
+Cryptococcus_neoformans      2.00000   1.37918   1.45714   +0.057       yes
+within +/-10% of the alignment reference: 8/10
+off-community (genera outside the 10 species): total 0.087%; >=0.01%: 3 genera; top: Juglans 0.018%, Klebsiella 0.015%, Streptococcus 0.015%, Homo 0.009%, Actinomyces 0.005%, Enterobacter 0.005%
+
+== ZYMO_LOG: pairs 45018694, aligned to the 10 genomes 42631526 (94.70%), unmapped 55838 (0.12%)
+species                       theor%  aligned%  bracken%  rel.dev within10%
+Listeria_monocytogenes      89.10000  88.55304  87.94476   -0.007       yes
+Pseudomonas_aeruginosa       8.90000   9.90471  10.38844   +0.049       yes
+Bacillus_subtilis            0.89000   0.82644   0.84762   +0.026       yes
+Saccharomyces_cerevisiae     0.89000   0.55374   0.59888   +0.082       yes
+Salmonella_enterica          0.08900   0.08047   0.10173   +0.264        no
+Escherichia_coli             0.08900   0.07301   0.06754   -0.075       yes
+Lactobacillus_fermentum      0.00890   0.00712   0.00763   +0.073       yes
+Cryptococcus_neoformans      0.00089   0.00073   0.00041   -0.433        no
+Enterococcus_faecalis        0.00089   0.00064   0.01155  +17.164        no
+Staphylococcus_aureus        0.00009   0.00010   0.00070   +5.761        no
+within +/-10% of the alignment reference: 6/10
+off-community (genera outside the 10 species): total 0.031%; >=0.01%: 0 genera; top: Candidatus 0.006%, Juglans 0.005%, Carnobacterium 0.005%, Homo 0.003%, Actinomyces 0.002%, Mycobacterium 0.001%

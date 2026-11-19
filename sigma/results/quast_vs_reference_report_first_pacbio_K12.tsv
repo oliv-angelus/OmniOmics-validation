@@ -1,0 +1,55 @@
+Assembly	short_only	ont_hybrid	pacbio_hybrid
+# contigs (>= 0 bp)	185	2	89
+# contigs (>= 1000 bp)	67	2	22
+# contigs (>= 5000 bp)	57	2	17
+# contigs (>= 10000 bp)	52	2	13
+# contigs (>= 25000 bp)	46	2	11
+# contigs (>= 50000 bp)	33	2	10
+Total length (>= 0 bp)	4788180	4875454	4924173
+Total length (>= 1000 bp)	4753416	4875454	4904196
+Total length (>= 5000 bp)	4730680	4875454	4896032
+Total length (>= 10000 bp)	4697270	4875454	4868376
+Total length (>= 25000 bp)	4593006	4875454	4836983
+Total length (>= 50000 bp)	4128043	4875454	4808520
+# contigs	87	2	33
+Largest contig	558004	4765451	1080619
+Total length	4767939	4875454	4912383
+Reference length	4875441	4875441	4875441
+GC (%)	50.44	50.49	50.47
+Reference GC (%)	50.49	50.49	50.49
+N50	116054	4765451	742616
+NG50	116054	4765451	742616
+N90	41673	4765451	313359
+NG90	33891	4765451	313359
+auN	178967.7	4660411.9	763133.1
+auNG	175021.6	4660424.3	768915.4
+L50	11	1	3
+LG50	11	1	3
+L90	37	1	6
+LG90	40	1	6
+# misassemblies	0	0	21
+# misassembled contigs	0	0	6
+Misassembled contigs length	0	0	4445800
+# local misassemblies	0	0	8
+# scaffold gap ext. mis.	0	0	0
+# scaffold gap loc. mis.	0	0	0
+# unaligned mis. contigs	0	0	0
+# unaligned contigs	0 + 0 part	0 + 0 part	1 + 5 part
+Unaligned length	0	0	71821
+Genome fraction (%)	97.783	100.000	99.036
+Duplication ratio	1.000	1.000	1.002
+# N's per 100 kbp	0.00	0.00	0.00
+# mismatches per 100 kbp	6.06	10.99	10.46
+# indels per 100 kbp	0.36	1.17	1.34
+Largest alignment	558004	4765451	666600
+Total aligned length	4767910	4875454	4838678
+NA50	116054	4765451	228806
+NGA50	116054	4765451	228806
+NA90	41673	4765451	72587
+NGA90	33891	4765451	72587
+auNA	178967.2	4660411.9	314418.6
+auNGA	175021.0	4660424.3	316801.0
+LA50	11	1	6
+LGA50	11	1	6
+LA90	37	1	20
+LGA90	40	1	20

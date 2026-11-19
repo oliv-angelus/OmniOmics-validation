@@ -1,0 +1,55 @@
+Assembly	ECOLI_SHORT_ONLY	ECOLI_HYBRID_ONT
+# contigs (>= 0 bp)	185	2
+# contigs (>= 1000 bp)	67	2
+# contigs (>= 5000 bp)	57	2
+# contigs (>= 10000 bp)	52	2
+# contigs (>= 25000 bp)	46	2
+# contigs (>= 50000 bp)	33	2
+Total length (>= 0 bp)	4788180	4875452
+Total length (>= 1000 bp)	4753416	4875452
+Total length (>= 5000 bp)	4730680	4875452
+Total length (>= 10000 bp)	4697270	4875452
+Total length (>= 25000 bp)	4593006	4875452
+Total length (>= 50000 bp)	4128043	4875452
+# contigs	87	2
+Largest contig	558004	4765451
+Total length	4767939	4875452
+Reference length	4875441	4875441
+GC (%)	50.44	50.49
+Reference GC (%)	50.49	50.49
+N50	116054	4765451
+NG50	116054	4765451
+N90	41673	4765451
+NG90	33891	4765451
+auN	178967.7	4660413.7
+auNG	175021.6	4660424.2
+L50	11	1
+LG50	11	1
+L90	37	1
+LG90	40	1
+# misassemblies	0	0
+# misassembled contigs	0	0
+Misassembled contigs length	0	0
+# local misassemblies	0	0
+# scaffold gap ext. mis.	0	0
+# scaffold gap loc. mis.	0	0
+# unaligned mis. contigs	0	0
+# unaligned contigs	0 + 0 part	0 + 0 part
+Unaligned length	0	0
+Genome fraction (%)	97.783	100.000
+Duplication ratio	1.000	1.000
+# N's per 100 kbp	0.00	0.00
+# mismatches per 100 kbp	6.06	10.99
+# indels per 100 kbp	0.36	1.21
+Largest alignment	558004	4765451
+Total aligned length	4767910	4875452
+NA50	116054	4765451
+NGA50	116054	4765451
+NA90	41673	4765451
+NGA90	33891	4765451
+auNA	178967.2	4660413.7
+auNGA	175021.0	4660424.2
+LA50	11	1
+LGA50	11	1
+LA90	37	1
+LGA90	40	1

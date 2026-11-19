@@ -1,5 +1,9 @@
 sample	read_type	fq1	fq2	fq_long
-C0R1	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R1/SRR10849656_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R1/SRR10849656_2.fastq.gz	
-C0R2	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R2/SRR10904363_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C0R2/SRR10904363_2.fastq.gz	
-C8R1	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R1/SRR10849655_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R1/SRR10849655_2.fastq.gz	
-C8R2	short	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R2/SRR10849401_1.fastq.gz	/projetos/ridh/gabrielcoelho/validacao/v-dogma/raw_reads/C8R2/SRR10849401_2.fastq.gz	
+C0R1	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849656/SRR10849656_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849656/SRR10849656_2.fastq.gz	
+C0R2	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR10904363/SRR10904363_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR10904363/SRR10904363_2.fastq.gz	
+C0R3	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849749/SRR10849749_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849749/SRR10849749_2.fastq.gz	
+C0R4	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR12334071/SRR12334071_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR12334071/SRR12334071_2.fastq.gz	
+C8R1	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849655/SRR10849655_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849655/SRR10849655_2.fastq.gz	
+C8R2	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849401/SRR10849401_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849401/SRR10849401_2.fastq.gz	
+C8R3	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849649/SRR10849649_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849649/SRR10849649_2.fastq.gz	
+C8R4	short	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849743/SRR10849743_1.fastq.gz	/projetos/ridh/angelo/omniomics/data/dogma/SRR10849743/SRR10849743_2.fastq.gz	

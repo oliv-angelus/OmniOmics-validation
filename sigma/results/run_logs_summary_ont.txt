@@ -1,0 +1,44 @@
+### 2026-11-15T220835.818985.snakemake.log
+### 2026-11-15T220841.113056.snakemake.log
+### 2026-11-15T220913.270649.snakemake.log
+### 2026-11-15T220916.643385.snakemake.log
+### 2026-11-15T220948.746692.snakemake.log
+### 2026-11-15T220951.838166.snakemake.log
+### 2026-11-15T221023.922084.snakemake.log
+### 2026-11-15T221026.983502.snakemake.log
+### 2026-11-15T221059.002517.snakemake.log
+### 2026-11-15T222440.494435.snakemake.log
+### 2026-11-15T222455.716882.snakemake.log
+### 2026-11-15T222527.657877.snakemake.log
+Error in rule fastp:
+Error in rule nanoplot_raw:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_ont/out/.snakemake/log/2026-11-15T222527.657877.snakemake.log
+Elapsed time: 0:01:08.693290
+### 2026-11-15T222637.349356.snakemake.log
+### 2026-11-15T222709.182177.snakemake.log
+Error in rule fastp:
+Error in rule filtlong:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_ont/out/.snakemake/log/2026-11-15T222709.182177.snakemake.log
+Elapsed time: 0:00:13.711078
+### 2026-11-15T222723.905917.snakemake.log
+### 2026-11-15T222755.631570.snakemake.log
+Error in rule filtlong:
+Error in rule fastp:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_ont/out/.snakemake/log/2026-11-15T222755.631570.snakemake.log
+Elapsed time: 0:00:12.568746
+### 2026-11-15T222809.270680.snakemake.log
+### 2026-11-15T222840.799279.snakemake.log
+Error in rule fastp:
+Error in rule fastp:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_ont/out/.snakemake/log/2026-11-15T222840.799279.snakemake.log
+Elapsed time: 0:00:12.800680
+### 2026-11-15T223103.521512.snakemake.log
+64 of 65 steps (98%) done
+65 of 65 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_ont/out/.snakemake/log/2026-11-15T223103.521512.snakemake.log
+Elapsed time: 2:35:31.960138
+### 2026-11-18T020903.027467.snakemake.log
+1 of 2 steps (50%) done
+2 of 2 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_ont/out/.snakemake/log/2026-11-18T020903.027467.snakemake.log
+Elapsed time: 0:12:53.441598

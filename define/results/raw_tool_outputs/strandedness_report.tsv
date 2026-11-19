@@ -1,0 +1,8 @@
+sample	fwd_fraction	rev_fraction	undetermined_fraction	call
+CTRL_D1_R1	0.0167	0.9798	0.0035	reverse
+CTRL_D1_R2	0.0083	0.9905	0.0012	reverse
+CTRL_D1_R3	0.0069	0.9918	0.0013	reverse
+PU239_D1_R1	0.0154	0.9836	0.001	reverse
+PU239_D1_R2	0.015	0.9841	0.0009	reverse
+PU239_D1_R3	0.0136	0.986	0.0004	reverse
+# featureCounts -s value used: 2 (reverse, majority across 6 sample(s))

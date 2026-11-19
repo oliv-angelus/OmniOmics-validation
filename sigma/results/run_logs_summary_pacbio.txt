@@ -1,0 +1,27 @@
+### 2026-11-17T232911.103187.snakemake.log
+30 of 35 steps (86%) done
+31 of 35 steps (89%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_pacbio_b1109/out/.snakemake/log/2026-11-17T232911.103187.snakemake.log
+Elapsed time: 2:25:33.683469
+### 2026-11-18T015447.807947.snakemake.log
+### 2026-11-18T015450.049239.snakemake.log
+Error in rule isescan_sample:
+Error in rule virsorter2:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_pacbio_b1109/out/.snakemake/log/2026-11-18T015450.049239.snakemake.log
+Elapsed time: 0:00:05.975203
+### 2026-11-18T015457.118961.snakemake.log
+### 2026-11-18T015458.794972.snakemake.log
+Error in rule isescan_sample:
+Error in rule virsorter2:
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_pacbio_b1109/out/.snakemake/log/2026-11-18T015458.794972.snakemake.log
+Elapsed time: 0:00:04.147151
+### 2026-11-18T023239.161330.snakemake.log
+### 2026-11-18T023240.802977.snakemake.log
+3 of 4 steps (75%) done
+4 of 4 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_pacbio_b1109/out/.snakemake/log/2026-11-18T023240.802977.snakemake.log
+Elapsed time: 0:27:59.174020
+### 2026-11-18T032947.270653.snakemake.log
+1 of 1 steps (100%) done
+Complete log(s): /projetos/ridh/angelo/omniomics/runs/sigma_pacbio_b1109/out/.snakemake/log/2026-11-18T032947.270653.snakemake.log
+Elapsed time: 0:12:52.465902
